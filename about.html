@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DoctorSearch</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<div class = "nav">
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="doctors.html" class = "active">Doctors</a></li>
+            <li><a href="cities.html">Cities</a></li>
+            <li><a href="specialities.html">Specialities</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+    </div>
+<body>
+    <div id = "output"> </div>
+    <script>
+        function getCommit(){
+            fetch("https://gitlab.com/api/v4/projects/14602314/repository/contributors")
+            .then((res) => res.json())
+            .then((data) => {
+                let output = '<h2>Member Introduction</h2>';
+                data.forEach(function(user){
+                    output += `
+                        <ul>
+                            <li>Name: ${user.name}</li>
+                            <li>Commit: ${user.commits}</li>
+                            <li>Email Address: ${user.email}</li>
+                        </ul>
+                    `;
+                });
+                document.getElementById('output').innerHTML = output;
+            })
+        }
+        getCommit();
+    </script>
+</body>
+</html>

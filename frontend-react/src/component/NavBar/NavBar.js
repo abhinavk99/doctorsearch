@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import {withRouter} from 'react-router-dom'
 
+
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
@@ -15,6 +16,7 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     flexGrow: 1,
+    cursor: "pointer"
   },
 }));
 
@@ -26,7 +28,7 @@ function NavBar(props) {
       <AppBar position="static" style={{ background: '#2bc4ad' }}>
         <Toolbar>
          
-          <Typography variant="h6" className={classes.title}>
+          <Typography variant="h6" className={classes.title} onClick={() => {props.history.push('/')}}>
             Doctor Search
           </Typography>
           <Button color="inherit" onClick={() => {props.history.push('/doctors')}}>Doctors</Button>

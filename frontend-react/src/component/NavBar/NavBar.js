@@ -4,6 +4,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import {withRouter} from 'react-router-dom'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -17,7 +18,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function NavBar() {
+function NavBar(props) {
   const classes = useStyles();
 
   return (
@@ -28,7 +29,7 @@ export default function NavBar() {
           <Typography variant="h6" className={classes.title}>
             Doctor Search
           </Typography>
-          <Button color="inherit">Doctors</Button>
+          <Button color="inherit" onClick={() => {props.history.push('/doctors')}}>Doctors</Button>
           <Button color="inherit">Cities</Button>
 
           <Button color="inherit">Specialties</Button>
@@ -40,3 +41,5 @@ export default function NavBar() {
     </div>
   );
 }
+
+export default withRouter(NavBar);

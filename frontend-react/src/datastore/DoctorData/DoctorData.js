@@ -1,6 +1,8 @@
+import {testData} from './SampleData.js'
+
 export default class DoctorData {
     getDoctors = async () => {
-        return ["JamesHahn"]
+        return testData;
     }
 
 }

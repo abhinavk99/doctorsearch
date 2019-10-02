@@ -44,3 +44,31 @@
     height: 200px;
     width: 300px;
   }
+
+  .city-ol {
+    list-style-type: none;
+  }
+  .city-li {
+    margin: 50px 0;
+  }
+
+  .city-image {
+    height: 200px;
+    width: 300px;
+  }
+
+  .speciality-ol {
+    list-style-type: none;
+  }
+  .speciality-li {
+    margin: 50px 0;
+  }
+  .speciality-image {
+    height: 200px;
+    width: 300px;
+  }
+
+  .speaciality-image {
+    height: 200px;
+    width: 300px;
+  }

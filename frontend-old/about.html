@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DoctorSearch</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<div class = "nav">
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="doctors.html">Doctors</a></li>
+            <li><a href="cities.html">Cities</a></li>
+            <li><a href="specialties.html">Specialties</a></li>
+            <li><a href="about.html" class = "active">About</a></li>
+          </ul>
+    </div>
+<body>
+    <h2>Site description</h2>
+    <h3>We help people find doctors around US.</h3>
+    <h2>Explanation of the interesting result of integrating disparate data</h2>
+    <h3>We have sources to get the cities and the specialties of doctors and we need to link all that together.</h3>
+
+    <ul id = 'Sitong Li'>
+        <h4>Sitong li</h4>
+        <li>Bio:</li>
+        <li>Major Responsibilities:</li>
+    </ul>
+
+
+    <ul id = 'Abhinav Kasamsetty'>
+        <h4>Abhinav Kasamsetty</h4>
+        <li>Bio:</li>
+        <li>Major Responsibilities:</li>
+    </ul>
+
+
+    <ul id = 'Derrin Ngo'>
+        <h4>Derrin Ngo</h4>
+        <li>Bio:</li>
+        <li>Major Responsibilities:</li>
+    </ul>
+
+
+    <ul id = 'Nathan Hoang'>
+        <h4>Nathan Hoang</h4>
+        <li>Bio:</li>
+        <li>Major Responsibilities:</li>
+    </ul>
+
+
+    <ul id = 'Rohan Arya'>
+        <h4>Rohan Arya</h4>
+        <li>Bio:</li>
+        <li>Major Responsibilities:</li>
+    </ul>
+
+    <ul>
+        <h3>Total</h3>
+        <li id = "total_commit"></li>
+        <li id = "total_issue"></li>
+    </ul>
+
+    <script>
+
+        function getIssue(){
+            let username = ["aryarohan", "nathanhoang", "abhinavk99", "krysehun", "Derrinngo22"];
+            let name = ["Rohan Arya", "Nathan Hoang", "Abhinav Kasamsetty", "Sitong Li", "Derrin Ngo"];
+            var userid = [];
+            var userissuenum = [];
+            var total_issue = 0;
+            var total_commit = 0;
+
+            var total_node = document.createElement("li");
+            total_node.innerHTML = "Total Issues: " + total_issue;
+            document.getElementById("total_issue").appendChild(total_node);
+
+            var total_c_node = document.createElement("li");
+            total_c_node.innerHTML = "Total Commits: " + total_commit;
+            document.getElementById("total_commit").appendChild(total_c_node);
+
+            for(let i = 0; i < username.length; i++) {
+                
+                fetch("https://gitlab.com/api/v4/projects/14602314/repository/contributors")
+                .then((re) => re.json())
+                .then((user) => {
+                    var node_email = document.createElement("li");
+                    var node_commits = document.createElement("li");
+
+                    var email = user[i].email;
+                    var commits = user[i].commits;
+                    total_commit += commits;
+
+                    var commitnode = document.createTextNode("Commits: " + commits);
+                    var emailnode = document.createTextNode("Email: " + email);
+
+                    node_commits.appendChild(commitnode);
+                    node_email.appendChild(emailnode)
+
+                    document.getElementById(name[i]).appendChild(node_commits);
+                    document.getElementById(name[i]).appendChild(node_email);
+                    document.getElementById("total_commit").lastChild.innerHTML = "Total Commits: " + total_commit;
+                })
+
+                fetch("https://gitlab.com/api/v4/users?username=" + username[i])
+                .then((res) => res.json())
+                .then((data) => {
+                    data = data[0];
+
+                fetch("https://gitlab.com/api/v4/projects/14602314/issues?assignee_id=" + data.id)
+                .then((resp) => resp.json())
+                .then((dat) => {
+                    var node_issuenum = document.createElement("li");
+                    var issue_node = document.createTextNode("Issues: " + dat.length);
+                    node_issuenum.appendChild(issue_node);
+                    document.getElementById(name[i]).appendChild(node_issuenum);
+                    total_issue += dat.length;
+                    document.getElementById("total_issue").lastChild.innerHTML = "Total Issues: " + total_issue;
+                })
+            })
+            }
+
+            
+
+        }
+        getIssue();
+    </script>
+</body>
+</html>

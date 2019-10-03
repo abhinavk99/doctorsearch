@@ -1,0 +1,4 @@
+test:
+  script:
+    - cd frontend
+    - npm test

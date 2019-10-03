@@ -38,12 +38,16 @@ function SpecCard(props) {
                 {props.data.category}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
+                <b>Number of Doctors: </b>
+                {props.data.numDoc}
+              </Typography>
+              <Typography variant="body2" color="textSecondary" component="p">
                 <b>Doctors practicing: </b>
-                {props.data.doctorsPracticing}
+                {props.data.doctorsPracticing.join(", ")}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
                 <b>Cities: </b>
-                {props.data.cities}
+                {props.data.cities.join(", ")}
               </Typography>
             </CardContent>
           </CardActionArea>

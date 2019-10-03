@@ -1,5 +1,5 @@
 import React from "react";
-import DoctorData from "../../datastore/DoctorData/DoctorData";
+import DoctorSearchData from "../../datastore/DoctorSearchData/DoctorSearchData";
 import SpecCard from "../../component/SpecCard/SpecCard";
 import Grid from "@material-ui/core/Grid";
 
@@ -7,7 +7,7 @@ export default class Specialties extends React.Component {
   constructor() {
     super();
     this.state = {
-      dd: new DoctorData(),
+      dd: new DoctorSearchData(),
       dataArr: []
     };
   }
@@ -17,15 +17,14 @@ export default class Specialties extends React.Component {
   }
 
   render() {
-    let doctorCards = this.state.dataArr.map(data => {
-      console.log(data);
+    let specialtyCards = this.state.dataArr.map(data => {
       return <SpecCard data={data} key={data.name} />;
     });
     return (
       <div style={{ padding: "0em 2em" }}>
-        <h2>Doctors With Special Skills</h2>
+        <h2>Specialties that Doctors Practice</h2>
         <Grid container spacing={2} justify="center">
-          {doctorCards}
+          {specialtyCards}
         </Grid>
       </div>
     );

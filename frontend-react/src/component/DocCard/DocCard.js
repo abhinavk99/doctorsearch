@@ -34,10 +34,20 @@ function DocCard(props) {
                 {props.data.city}, {" " + props.data.state}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
-                Specialty: {props.data.specialty}
+                <b>Specialty: </b>
+                {props.data.specialty}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
-                Phone: {props.data.phone}
+                <b>Phone: </b>
+                {props.data.phone}
+              </Typography>
+              <Typography variant="body2" color="textSecondary" component="p">
+                <b>Rating: </b>
+                {props.data.rating}
+              </Typography>
+              <Typography variant="body2" color="textSecondary" component="p">
+                <b>Website: </b>
+                {props.data.website}
               </Typography>
             </CardContent>
           </CardActionArea>

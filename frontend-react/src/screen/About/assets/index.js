@@ -34,11 +34,10 @@ export const memberInfo = new Map([
     {
       name: "Your name",
       username: "krysehun",
-      bio: ` Derrin is a third year Computer Science student at UT. 
-        Hobbies include: Rock Climbing, Weightlifting, and video games.`,
+      bio: `I'm a coder`,
       pic: elmo,
-      responsibilities: "Data Retrieval",
-      issues: "yes",
+      responsibilities: "",
+      issues: 0,
       tests: 0
     }
   ],
@@ -47,9 +46,10 @@ export const memberInfo = new Map([
     {
       name: "Derrin Ngo",
       username: "Derrinngo22",
-      bio: `I'm a coder`,
+      bio: `Derrin is a third year Computer Science student at UT. 
+        Hobbies include: Rock Climbing, Weightlifting, and video games.`,
       pic: derrin,
-      responsibilities: "",
+      responsibilities: "Data Retrieval",
       issues: 0,
       tests: 0
     }

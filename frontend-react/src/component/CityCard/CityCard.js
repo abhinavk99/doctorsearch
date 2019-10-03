@@ -34,10 +34,20 @@ function CityCard(props) {
                 {props.data.zip}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
-                Population: {props.data.popcnt}
+                <b>County: </b>
+                {props.data.county}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
-                Number of Doctors: {props.data.numDoc}
+                <b>Population: </b>
+                {props.data.popcnt}
+              </Typography>
+              <Typography variant="body2" color="textSecondary" component="p">
+                <b>Mayor: </b>
+                {props.data.mayor}
+              </Typography>
+              <Typography variant="body2" color="textSecondary" component="p">
+                <b>Number of Doctors: </b>
+                {props.data.numDoc}
               </Typography>
             </CardContent>
           </CardActionArea>

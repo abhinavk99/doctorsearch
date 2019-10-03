@@ -11,8 +11,10 @@ function SpecFocused(props) {
         <h1>{data.name}</h1>
         <img style={{ maxWidth: "20em" }} src={data.pic} alt="docimg" />
         <p>{data.description}</p>
-        <p>Category {data.category}</p>
-        <p> Doctors Practicing: {data.doctorsPracticing}</p>
+        <p>Category: {data.category}</p>
+        <p>Number of Doctors: {data.numDoc}</p>
+        <p>Doctors Practicing: {data.doctorsPracticing.join(", ")}</p>
+        <p>Cities: {data.cities.join(", ")}</p>
       </Card>
       <h2>Location:</h2>
       <img src={data.locimg} style={{ maxWidth: "20em" }} alt="locimg" />

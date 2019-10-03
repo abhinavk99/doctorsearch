@@ -13,8 +13,14 @@ function CityFocused(props) {
         </h1>
         <img style={{ maxWidth: "20em" }} src={data.pic} alt="docimg" />
         <p>{data.zip}</p>
+        <p>{data.county} County</p>
         <p>Population {data.popcnt}</p>
-        <p> Number of Doctors: {data.numDoc}</p>
+        <p>Mayor: {data.mayor}</p>
+        <p>Area: {data.area} sq mi</p>
+        <p>Time Zone: {data.timeZone}</p>
+        <p>Number of Doctors: {data.numDoc}</p>
+        <p>Doctors: {data.doctors.join(", ")}</p>
+        <p>Website: <a target="_blank" rel="noopener noreferrer" href={data.website}>{data.website}</a></p>
       </Card>
       <h2>Location:</h2>
       <img src={data.locimg} style={{ maxWidth: "20em" }} alt="locimg" />

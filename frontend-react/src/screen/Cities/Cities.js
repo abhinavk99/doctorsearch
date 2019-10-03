@@ -1,5 +1,5 @@
 import React from "react";
-import DoctorData from "../../datastore/DoctorData/DoctorData";
+import DoctorSearchData from "../../datastore/DoctorSearchData/DoctorSearchData";
 import CityCard from "../../component/CityCard/CityCard";
 import Grid from "@material-ui/core/Grid";
 
@@ -7,7 +7,7 @@ export default class Cities extends React.Component {
   constructor() {
     super();
     this.state = {
-      dd: new DoctorData(),
+      dd: new DoctorSearchData(),
       dataArr: []
     };
   }
@@ -17,14 +17,14 @@ export default class Cities extends React.Component {
   }
 
   render() {
-    let doctorCards = this.state.dataArr.map(data => {
+    let cityCards = this.state.dataArr.map(data => {
       return <CityCard data={data} key={data.name} />;
     });
     return (
       <div style={{ padding: "0em 2em" }}>
-        <h2>Cities Where Medical Assistance Is Attainable</h2>
+        <h2>Cities Where Medical Assistance is Attainable</h2>
         <Grid container spacing={2} justify="center">
-          {doctorCards}
+          {cityCards}
         </Grid>
       </div>
     );

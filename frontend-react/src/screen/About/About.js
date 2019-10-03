@@ -12,7 +12,7 @@ import UserBio from "../../component/UserBio/UserBio";
 export default class About extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { data: [] };
+    this.state = { data: [], issues: 0, commits: 0 };
   }
 
   async componentDidMount() {
@@ -50,8 +50,17 @@ export default class About extends React.Component {
 
     const completedData = await Promise.all(promisedData);
 
+    let commits = 0;
+    let issues = 0;
+    for (let item of completedData) {
+      commits += item.commits;
+      issues += item.issues;
+    }
+
     this.setState({
-      data: completedData
+      data: completedData,
+      commits,
+      issues
     });
     console.log(this.state.data);
   }
@@ -81,6 +90,13 @@ export default class About extends React.Component {
             <br />
             <br />
             <h1>Contributions</h1>
+            {this.state.data.length > 0 ? (
+              <div>
+                <h4>Total commits: {this.state.commits}</h4>
+                <h4>Total issues: {this.state.issues}</h4>
+              </div>
+            ) : null}
+
             <Table>
               <TableHead>
                 <TableRow>

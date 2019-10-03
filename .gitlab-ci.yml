@@ -1,4 +1,6 @@
 test:
+  image: node:10
+  type: test
   script:
     - cd frontend
     - npm test

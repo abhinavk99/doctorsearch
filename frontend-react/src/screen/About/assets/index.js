@@ -33,7 +33,7 @@ export const memberInfo = new Map([
   [
     "krysehun@gmail.com",
     {
-      name: "Your name",
+      name: "Sitong Li",
       username: "krysehun",
       bio: `Sitong is a senior Computer Science major srudent at UT. 
         Hobbies include: Netflix and Kpop.`,

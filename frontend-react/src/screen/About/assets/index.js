@@ -59,11 +59,11 @@ export const memberInfo = new Map([
   [
     "rohanarya@utexas.edu",
     {
-      name: "Your name",
+      name: "Rohan Arya",
       username: "aryarohan",
-      bio: `I'm a coder`,
-      pic: elmo,
-      responsibilities: "",
+      bio: `Rohan is a senior at UT studying Computer Science. He is a part of UT Saaya and loves to power-lift, go bouldering and watch a lot of Bollywood movies.`,
+      pic: rohan,
+      responsibilities: "Set up the pages, basic structure of the site",
       issues: 0,
       tests: 0
     }

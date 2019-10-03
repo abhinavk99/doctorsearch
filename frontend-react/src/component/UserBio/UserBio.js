@@ -4,7 +4,7 @@ import Grid from "@material-ui/core/Grid";
 
 function UserBio(props) {
   return (
-    <Grid item xs={12} md={4} style={{ textAlign: "center" }}>
+    <Grid item xs={12} sm={6} md={4} style={{ textAlign: "center" }}>
       <div style={{ padding: ".5em" }}>
         <Card
           style={{

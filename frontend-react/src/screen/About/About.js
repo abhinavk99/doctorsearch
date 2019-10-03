@@ -119,6 +119,10 @@ export default class About extends React.Component {
                 })}
               </TableBody>
             </Table>
+            <br style={{ paddingTop: "20em" }} />
+            <a href="https://gitlab.com/krysehun/doctorsearch">
+              Link to Gitlab
+            </a>
           </div>
         </Paper>
       </div>

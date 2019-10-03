@@ -22,7 +22,7 @@ export default class Specialties extends React.Component {
     });
     return (
       <div style={{ padding: "0em 2em" }}>
-        <h2>Specialties that Doctors Practice</h2>
+        <h2 style={{ textAlign: "center" }}>Specialties that Doctors Practice</h2>
         <Grid container spacing={2} justify="center">
           {specialtyCards}
         </Grid>

@@ -22,7 +22,7 @@ export default class Cities extends React.Component {
     });
     return (
       <div style={{ padding: "0em 2em" }}>
-        <h2>Cities Where Medical Assistance is Attainable</h2>
+        <h2 style={{ textAlign: "center" }}>Cities Where Medical Assistance is Attainable</h2>
         <Grid container spacing={2} justify="center">
           {cityCards}
         </Grid>

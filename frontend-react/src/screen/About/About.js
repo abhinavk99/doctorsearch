@@ -93,7 +93,7 @@ export default class About extends React.Component {
               <TableBody>
                 {this.state.data.map(person => {
                   return (
-                    <TableRow>
+                    <TableRow key={person.username}>
                       <TableCell>{person.name}</TableCell>
                       <TableCell>{person.commits}</TableCell>
                       <TableCell>{person.issues}</TableCell>

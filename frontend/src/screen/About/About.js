@@ -52,15 +52,18 @@ export default class About extends React.Component {
 
     let commits = 0;
     let issues = 0;
+    let tests = 0;
     for (let item of completedData) {
       commits += item.commits;
       issues += item.issues;
+      tests += item.tests;
     }
 
     this.setState({
       data: completedData,
       commits,
-      issues
+      issues,
+      tests
     });
     console.log(this.state.data);
   }
@@ -74,12 +77,17 @@ export default class About extends React.Component {
         <Paper>
           <div style={{ padding: "1em" }}>
             <h1>About </h1>
-            <p>We help people find doctors around the United States.</p>
+            <p>
+              We help people find doctors around the United States.
+            </p>
             <br />
             <h1>Results</h1>
             <p>
               We're aggregating data about cities and the specialties of doctors
-              and providing a centralized source of information.
+              and providing a centralized source of information. We integrated
+              this data so that people can find out which doctors are closest to
+              them and also which cities have a more diverse amount of doctors
+              and specialties.
             </p>
             <br />
             <h1>Developers</h1>
@@ -94,6 +102,7 @@ export default class About extends React.Component {
               <div>
                 <h4>Total commits: {this.state.commits}</h4>
                 <h4>Total issues: {this.state.issues}</h4>
+                <h4>Total unit tests: {this.state.tests}</h4>
               </div>
             ) : null}
 
@@ -103,7 +112,7 @@ export default class About extends React.Component {
                   <TableCell>Name</TableCell>
                   <TableCell>Commits</TableCell>
                   <TableCell>Issues</TableCell>
-                  <TableCell>Tests</TableCell>
+                  <TableCell>Unit Tests</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -120,8 +129,19 @@ export default class About extends React.Component {
               </TableBody>
             </Table>
             <br style={{ paddingTop: "20em" }} />
+            <h1>Tools</h1>
+            <p>
+              We used React and JavaScript to write the frontend of Doctor Search.
+              The site is hosted using AWS Amplify.
+            </p>
+
+            <h1>Links</h1>
             <a href="https://gitlab.com/krysehun/doctorsearch">
-              Link to Gitlab
+              GitLab Repo
+            </a>
+            <br />
+            <a href="https://documenter.getpostman.com/view/9000368/SVtPXqcN">
+              Postman Docs
             </a>
           </div>
         </Paper>

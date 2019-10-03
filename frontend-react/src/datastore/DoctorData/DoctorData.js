@@ -1,8 +1,10 @@
-import {testData} from './Sample/SampleData.js'
+import { docData, cityData } from "./Sample/SampleData.js";
 
 export default class DoctorData {
-    getDoctors = async () => {
-        return testData;
-    }
-
+  getDoctors = async () => {
+    return docData;
+  };
+  getCities = async () => {
+    return cityData;
+  };
 }

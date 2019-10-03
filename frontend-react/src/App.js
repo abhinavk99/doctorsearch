@@ -9,6 +9,7 @@ import Cities from "./screen/Cities/Cities";
 import CityFocused from "./screen/CityFocused/CityFocused";
 import Specialties from "./screen/Specialties/Specialties";
 import SpecFocused from "./screen/SpecFocused/SpecFocused";
+import About from "./screen/About/About";
 
 function App() {
   return (
@@ -17,6 +18,9 @@ function App() {
         <NavBar />
         <div style={{ paddingTop: "1em" }}>
           <Switch>
+            <Route path="/about">
+              <About />
+            </Route>
             <Route path="/doctors/detail">
               <DocFocused />
             </Route>

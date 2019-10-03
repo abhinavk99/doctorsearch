@@ -61,7 +61,14 @@ function NavBar(props) {
             Specialties
           </Button>
 
-          <Button color="inherit">About</Button>
+          <Button
+            color="inherit"
+            onClick={() => {
+              props.history.push("/about");
+            }}
+          >
+            About
+          </Button>
         </Toolbar>
       </AppBar>
     </div>

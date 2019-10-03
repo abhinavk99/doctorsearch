@@ -1,6 +1,7 @@
 import nathan from "./NathanHoang.jpeg";
 import elmo from "./elmo.jpg";
 import derrin from "./DerrinNgo.JPG";
+import sitong from "./Sitong.png";
 
 export const memberInfo = new Map([
   [
@@ -34,9 +35,10 @@ export const memberInfo = new Map([
     {
       name: "Your name",
       username: "krysehun",
-      bio: `I'm a coder`,
-      pic: elmo,
-      responsibilities: "",
+      bio: `Sitong is a senior Computer Science major srudent at UT. 
+        Hobbies include: Netflix and Kpop.`,
+      pic: sitong,
+      responsibilities: "About page, picking colors",
       issues: 0,
       tests: 0
     }

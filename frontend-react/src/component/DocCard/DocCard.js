@@ -5,12 +5,21 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
+import { withRouter } from "react-router-dom";
 
-export default function DocCard(props) {
+function DocCard(props) {
   return (
     <Grid item xs={12} md={4} style={{ maxWidth: "20em" }}>
       <div style={{ padding: "1em" }}>
-        <Card>
+        <Card
+          onClick={() =>
+            props.history.push({
+              pathname: "/doctors/detail",
+              search: "",
+              state: { data: props.data }
+            })
+          }
+        >
           <CardActionArea>
             <CardMedia
               style={{ minHeight: 200 }}
@@ -37,3 +46,5 @@ export default function DocCard(props) {
     </Grid>
   );
 }
+
+export default withRouter(DocCard);

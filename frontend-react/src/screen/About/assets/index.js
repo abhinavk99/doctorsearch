@@ -1,5 +1,7 @@
 import nathan from "./NathanHoang.jpeg";
 import elmo from "./elmo.jpg";
+import derrin from "./DerrinNgo.JPG";
+
 export const memberInfo = new Map([
   [
     "nathanhoang5@gmail.com",
@@ -32,20 +34,21 @@ export const memberInfo = new Map([
     {
       name: "Your name",
       username: "krysehun",
-      bio: `I'm a coder`,
+      bio: ` Derrin is a third year Computer Science student at UT. 
+        Hobbies include: Rock Climbing, Weightlifting, and video games.`,
       pic: elmo,
-      responsibilities: "",
-      issues: 0,
+      responsibilities: "Data Retrieval",
+      issues: "yes",
       tests: 0
     }
   ],
   [
     "derrinngo@gmail.com",
     {
-      name: "Your name",
+      name: "Derrin Ngo",
       username: "Derrinngo22",
       bio: `I'm a coder`,
-      pic: elmo,
+      pic: derrin,
       responsibilities: "",
       issues: 0,
       tests: 0

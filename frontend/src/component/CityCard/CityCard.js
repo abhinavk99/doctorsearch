@@ -27,10 +27,11 @@ function CityCard(props) {
               title={props.data.name}
             />
             <CardContent>
-              <Typography gutterBottom variant="h5" component="h2">
+              <Typography gutterBottom variant="h5" component="h2" align="center">
                 {props.data.name}, {props.data.state}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
+                <b>ZIP Code: </b>
                 {props.data.zip}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">

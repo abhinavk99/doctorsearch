@@ -12,7 +12,7 @@ function CityFocused(props) {
           {data.name}, {data.state}
         </h1>
         <img style={{ maxWidth: "20em" }} src={data.pic} alt="docimg" />
-        <p>{data.zip}</p>
+        <p>ZIP Code: {data.zip}</p>
         <p>{data.county} County</p>
         <p>Population {data.popcnt}</p>
         <p>Mayor: {data.mayor}</p>

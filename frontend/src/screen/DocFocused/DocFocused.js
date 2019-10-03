@@ -16,7 +16,7 @@ function DocFocused(props) {
         </p>
         <p>{data.phone}</p>
         <p>Specialty: {data.specialty}</p>
-        <p>Rating: {data.rating}</p>
+        <p>Rating: {data.rating}/5</p>
         <p>Website: <a target="_blank" rel="noopener noreferrer" href={data.website}>{data.website}</a></p>
         <p>Accepted Insurance Plans: {data.insurancePlans.join(", ")}</p>
       </Card>

@@ -1,6 +1,8 @@
 import React from "react";
-import { memberInfo, usernames } from "./assets";
+import { memberInfo } from "./assets";
 import Paper from "@material-ui/core/Paper";
+import Grid from "@material-ui/core/Grid";
+import UserBio from "../../component/UserBio/UserBio";
 
 export default class About extends React.Component {
   constructor(props) {
@@ -50,17 +52,26 @@ export default class About extends React.Component {
   }
 
   render() {
+    const bioCards = this.state.data.map(person => (
+      <UserBio data={person} key={person.username} />
+    ));
     return (
       <div style={{ margin: "1em 2em" }}>
         <Paper>
           <div style={{ padding: "1em" }}>
             <h1>About </h1>
-            <p>We help people find doctors around US.</p>
+            <p>We help people find doctors around the United States.</p>
+            <br />
             <h1>Results</h1>
             <p>
               We're aggregating data about cities and the specialties of doctors
               and providing a centralized source of information.
             </p>
+            <br />
+            <h1>Developers</h1>
+            <Grid container spacing={2} justify="center">
+              {bioCards}
+            </Grid>
           </div>
         </Paper>
       </div>

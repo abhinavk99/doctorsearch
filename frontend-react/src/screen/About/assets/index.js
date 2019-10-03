@@ -6,11 +6,11 @@ export const memberInfo = new Map([
     {
       name: "Nathan Hoang",
       username: "nathanhoang",
-      bio: `Nathan is a senior computer science student. 
+      bio: `Nathan is a senior by credit hours and a junior computer science student. 
         He's a member of RDC, a dance team on campus, and plays 
         intramural soccer and Rocket League in his free time.`,
       pic: nathan,
-      responsibilities: "",
+      responsibilities: "Data entry, getting coffee",
       issues: 0,
       tests: 0
     }

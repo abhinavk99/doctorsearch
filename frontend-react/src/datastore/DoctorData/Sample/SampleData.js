@@ -6,6 +6,7 @@ import sea from "./seattlemap.PNG";
 import lapic from "./losangeles.jpg";
 import auspic from "./austin.jpg";
 import seapic from "./seattle.jpg";
+import spe1 from "./specialty1.jpg";
 
 export let docData = [
   {
@@ -57,5 +58,17 @@ export let cityData = [
     numDoc: "20",
     pic: seapic,
     locimg: sea
+  }
+];
+
+export let specialtyData = [
+  {
+    name: "Sports Physical Therapy",
+    description: "Specializes in sport injury related physical therapy.",
+    category: "medical",
+    doctorsPracticing: "Kelly Grosch, DC",
+    cities: "Austin",
+    pic: spe1,
+    locimg: aus
   }
 ];

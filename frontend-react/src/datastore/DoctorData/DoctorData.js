@@ -1,4 +1,4 @@
-import { docData, cityData } from "./Sample/SampleData.js";
+import { docData, cityData, specialtyData } from "./Sample/SampleData.js";
 
 export default class DoctorData {
   getDoctors = async () => {
@@ -6,5 +6,8 @@ export default class DoctorData {
   };
   getCities = async () => {
     return cityData;
+  };
+  getSpecialties = async () => {
+    return specialtyData;
   };
 }

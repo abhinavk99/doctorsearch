@@ -3,4 +3,5 @@ test:
   type: test
   script:
     - cd frontend
+    - npm install
     - npm test

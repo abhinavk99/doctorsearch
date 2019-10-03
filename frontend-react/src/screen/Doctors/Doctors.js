@@ -1,13 +1,13 @@
 import React from "react";
-import DoctorData from "../../datastore/DoctorData/DoctorData";
+import DoctorSearchData from "../../datastore/DoctorSearchData/DoctorSearchData";
 import DocCard from "../../component/DocCard/DocCard";
 import Grid from "@material-ui/core/Grid";
 
-export default class DoctorPage extends React.Component {
+export default class Doctors extends React.Component {
   constructor() {
     super();
     this.state = {
-      dd: new DoctorData(),
+      dd: new DoctorSearchData(),
       dataArr: []
     };
   }
@@ -22,7 +22,7 @@ export default class DoctorPage extends React.Component {
     });
     return (
       <div style={{ padding: "0em 2em" }}>
-        <h2> Hot Doctors in Your Area</h2>
+        <h2>Hot Doctors in Your Area</h2>
         <Grid container spacing={2} justify="center">
           {doctorCards}
         </Grid>

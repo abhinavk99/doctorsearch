@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import HomePage from "./screen/HomePage/HomePage";
-import DoctorPage from "./screen/DoctorPage/DoctorPage";
+import Doctors from "./screen/Doctors/Doctors";
 import NavBar from "./component/NavBar/NavBar";
 import DocFocused from "./screen/DocFocused/DocFocused";
 import Cities from "./screen/Cities/Cities";
@@ -25,7 +25,7 @@ function App() {
               <DocFocused />
             </Route>
             <Route path="/doctors">
-              <DoctorPage />
+              <Doctors />
             </Route>
             <Route path="/cities/detail">
               <CityFocused />

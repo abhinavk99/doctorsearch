@@ -1,6 +1,8 @@
 import os
+import random
 import sys
 import time
+from collections import namedtuple
 from pprint import pprint
 
 import requests
@@ -21,52 +23,29 @@ db = create_engine(DB_URI)
 Session = sessionmaker(db)
 session = Session()
 
+DoctorRelationship = namedtuple("DoctorRelationship", ["city", "doctor", "specialty"])
+
 specialties = {
     specialty.name: specialty for specialty in session.query(Specialty).all()
 }
 
-# Change this to seed new cities and doctors
-cities = ["Austin"]
+cities = session.query(City).all()
+
+doctor_relationship_list = []
 
 for city in cities:
-    cities_resp = requests.get(
-        "http://geodb-free-service.wirefreethought.com/v1/geo/cities?namePrefix=" + city
-    ).json()
-    city_resp = requests.get(
-        "http://geodb-free-service.wirefreethought.com/v1/geo/cities/"
-        + str(cities_resp["data"][0]["id"])
-    ).json()
-    pprint(city_resp)
-    data = city_resp["data"]
-    city = City(
-        name=data["name"],
-        country=data["country"],
-        country_code=data["countryCode"],
-        elevation_meters=data["elevationMeters"],
-        latitude=data["latitude"],
-        longitude=data["longitude"],
-        population=data["population"],
-        region=data["region"],
-        region_code=data["regionCode"],
-        timezone=data["timezone"],
-        num_doctors=0,
-        num_specialties=0,
-    )
-    session.add(city)
-
-    # number of doctors per city to seed, currently 50
-    limit = 50
+    # number of doctors per city to seed, currently random between 30 and 60
+    limit = random.randint(30, 60)
 
     doctors_resp = requests.get(
-        f"https://api.betterdoctor.com/2016-03-01/doctors?location={data['latitude']},{data['longitude']},50&limit={limit}&user_key={BETTER_DOCTOR_KEY}"
+        f"https://api.betterdoctor.com/2016-03-01/doctors?location={city.latitude},{city.longitude},20&limit={limit}&user_key={BETTER_DOCTOR_KEY}"
     ).json()
     doctors = doctors_resp["data"]
     for doctor_item in doctors:
         name = f'{doctor_item["profile"]["first_name"]} {doctor_item["profile"]["last_name"]}'
-        print(name)
+        print(name + " " + city.name)
         doctor = Doctor(
             name=name,
-            title=doctor_item["profile"]["title"],
             bio=doctor_item["profile"]["bio"],
             phone=doctor_item["practices"][0]["phones"][0]["number"],
             street=doctor_item["practices"][0]["visit_address"]["street"],
@@ -90,21 +69,35 @@ for city in cities:
                 doctor.degree = doctor_item["educations"][0]["degree"]
         if "gender" in doctor_item["profile"]:
             doctor.gender = doctor_item["profile"]["gender"]
-        session.add(doctor)
+        if "title" in doctor_item["profile"]:
+            doctor.title = doctor_item["profile"]["title"]
 
-        spec_name = doctor_item["specialties"][0]["name"]
-        specialty = specialties[spec_name]
-        specialty.num_doctors += 1
+        if len(doctor_item["specialties"]) > 0:
+            spec_name = doctor_item["specialties"][0]["name"]
+            specialty = specialties[spec_name]
 
-        doctor.specialty = specialty
-
-        city.doctors.append(doctor)
-        city.num_doctors += 1
-        city_specialties = set(spec.name for spec in city.specialties)
-        if spec_name not in city_specialties:
-            city.num_specialties += 1
-            specialty.num_cities += 1
-            city.specialties.append(specialty)
+            doctor_relationship_list.append(DoctorRelationship(city, doctor, specialty))
+        else:
+            print("Skipped because no specialty")
 
     time.sleep(1)
+
+# Shuffles list of doctors so they aren't grouped by city in the database
+random.shuffle(doctor_relationship_list)
+print(len(doctor_relationship_list))
+for city, doctor, specialty in doctor_relationship_list:
+    session.add(doctor)
+
+    specialty.num_doctors += 1
+
+    doctor.specialty = specialty
+
+    city.doctors.append(doctor)
+    city.num_doctors += 1
+    city_specialties = set(spec.name for spec in city.specialties)
+    if specialty.name not in city_specialties:
+        city.num_specialties += 1
+        specialty.num_cities += 1
+        city.specialties.append(specialty)
+
 session.commit()

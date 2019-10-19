@@ -34,4 +34,5 @@ def index():
     return response
 
 
-application.run()
+if __name__ == "__main__":
+    application.run()

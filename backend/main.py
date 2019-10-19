@@ -24,9 +24,14 @@ specialty_blueprint = manager.create_api(Specialty, results_per_page=9)
 
 @application.route("/")
 def index():
-    response = jsonify({"status": 200, "message": "DoctorSearch API"})
+    response = jsonify(
+        {
+            "status": 200,
+            "message": "Welcome to the DoctorSearch API! Check our our website https://doctorsearch.me as well.",
+        }
+    )
     response.status_code = 200
     return response
 
 
-application.run(debug=True, host="0.0.0.0", port=5000)
+application.run()

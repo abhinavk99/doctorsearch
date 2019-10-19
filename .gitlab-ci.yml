@@ -1,7 +1,15 @@
-test:
+testfrontend:
   image: node:10
   type: test
   script:
     - cd frontend
     - npm install
     - npm test
+
+testbackend:
+  image: python:3.7
+  type: test
+  script:
+    - cd backend
+    - pip install -r requirements.txt
+    - python tests.py

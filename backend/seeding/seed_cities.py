@@ -11,16 +11,6 @@ from sqlalchemy.orm import sessionmaker
 sys.path.append("../")
 from models import City
 
-load_dotenv()
-
-DB_URI = os.getenv("DATABASE_URI")
-BETTER_DOCTOR_KEY = os.getenv("BETTER_DOCTOR_KEY")
-
-db = create_engine(DB_URI)
-
-Session = sessionmaker(db)
-session = Session()
-
 # Change this to seed new cities
 cities = [
     "New York",
@@ -75,10 +65,11 @@ cities = [
     "New Orleans",
 ]
 
-for city in cities:
+
+def build_city(city_name):
     cities_resp = requests.get(
         "http://geodb-free-service.wirefreethought.com/v1/geo/cities?countryIds=US&minPopulation=210000&namePrefix="
-        + city
+        + city_name
     ).json()
     city_resp = requests.get(
         "http://geodb-free-service.wirefreethought.com/v1/geo/cities/"
@@ -98,6 +89,21 @@ for city in cities:
         region_code=data["regionCode"],
         timezone=data["timezone"],
     )
-    session.add(city)
-    time.sleep(1)
-session.commit()
+    return city
+
+
+if __name__ == "__main__":
+    load_dotenv()
+
+    DB_URI = os.getenv("DATABASE_URI")
+
+    db = create_engine(DB_URI)
+
+    Session = sessionmaker(db)
+    session = Session()
+
+    for city_name in cities:
+        city = build_city(city_name)
+        session.add(city)
+        time.sleep(1)
+    session.commit()

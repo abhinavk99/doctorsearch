@@ -27,7 +27,7 @@ def index():
     response = jsonify(
         {
             "status": 200,
-            "message": "Welcome to the DoctorSearch API! Check our our website https://doctorsearch.me as well.",
+            "message": "Welcome to the DoctorSearch API! The documentation is at https://documenter.getpostman.com/view/9000368/SVtbPkAt. Check our our website https://doctorsearch.me as well.",
         }
     )
     response.status_code = 200

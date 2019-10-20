@@ -107,3 +107,40 @@ if __name__ == "__main__":
         session.add(city)
         time.sleep(1)
     session.commit()
+
+    # Add photos to cities that have photos in teleport API
+    city_map = {city.name: city for city in session.query(City).all()}
+    photos_resp = requests.get(
+        "https://api.teleport.org/api/urban_areas/?embed=ua:item/ua:images"
+    ).json()
+    photos_map = {item["name"]: item for item in photos_resp["_embedded"]["ua:item"]}
+    for city_name in cities:
+        for photo_city_name in photos_map:
+            if city_name in photo_city_name and photo_city_name != "Portland, ME":
+                photo_url = photos_map[photo_city_name]["_embedded"]["ua:images"][
+                    "photos"
+                ][0]["image"]["web"]
+                print(city_name + " " + photo_url)
+                if city_name == "New York":
+                    city_name = "New York City"
+                city_map[city_name].image_url = photo_url
+    session.commit()
+
+    # Add photos to remaining cities
+    image_urls_map = {
+        "Fort Worth": "https://cdn.pixabay.com/photo/2016/08/13/15/28/fort-worth-1590922_960_720.jpg",
+        "El Paso": "https://cdn.pixabay.com/photo/2013/06/09/13/06/el-paso-123727_960_720.jpg",
+        "Tucson": "https://www.goodfreephotos.com/albums/united-states/arizona/tucson/cityscape-of-tucson-arizona.jpg",
+        "Fresno": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Downtownfresnoskyline.jpg",
+        "Mesa": "https://en.wikipedia.org/wiki/Mesa,_Arizona#/media/File:Downtown_Mesa_Arizona.jpg",
+        "Sacramento": "https://upload.wikimedia.org/wikipedia/commons/4/40/Sacramento_Skyline_%28cropped%29.jpg",
+        "Long Beach": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Long_Beach%2C_CA_at_night.jpg",
+        "Virginia Beach": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Virginia_Beach_waterfront.jpg",
+        "Oakland": "https://upload.wikimedia.org/wikipedia/commons/d/d5/OAKLAND%2C_CA%2C_USA_-_Skyline_and_Bridge.JPG",
+        "Tulsa": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Downtown_Tulsa_Skyline.jpg",
+        "Arlington": "https://upload.wikimedia.org/wikipedia/commons/6/64/Arlington_Texas_Entertainment_District.jpg",
+    }
+    for city in session.query(City).filter(City.image_url == None).all():
+        print(city.name)
+        city.image_url = image_urls_map[city.name]
+    session.commit()

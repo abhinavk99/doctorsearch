@@ -29,6 +29,7 @@ class City(Base):
     doctors = relationship("Doctor", backref="city")
     num_specialties = Column(Integer, default=0)
     specialties = relationship("Specialty", secondary=city_specialty, backref="cities")
+    image_url = Column(Unicode)
 
     def __repr__(self):
         return f"{name}, {region_code}"

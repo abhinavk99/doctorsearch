@@ -1,10 +1,11 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-
 import Card from "@material-ui/core/Card";
 import Grid from "@material-ui/core/Grid";
 
 function DocFocused(props) {
+  let format = require("../Doctors/DoctorFormat");
+  let format_data = props.location.state;
   let data = props.location.state.data;
   console.log("Rendering focused", data);
   return (
@@ -17,7 +18,7 @@ function DocFocused(props) {
         }}
       >
         <h1>{data.name}</h1>
-        <img src={data.pic} style={{ maxWidth: "20em" }} alt="docimg" />
+        <img src={data.image_url} style={{ maxWidth: "20em" }} alt="docimg" />
         <Grid container style={{ maxWidth: "65% ", margin: "auto" }}>
           <Grid item xs={6}>
             <h2>Information</h2>
@@ -25,15 +26,9 @@ function DocFocused(props) {
             <p>
               {data.city.name}, {data.city.region}
             </p>
-            <p>{data.phone}</p>
-            <p>Specialty: {data.specialty.category}</p>
-            <p>Rating: {data.rating}/5</p>
-            <p>
-              Website:{" "}
-              <a target="_blank" rel="noopener noreferrer" href={data.website}>
-                {data.website}
-              </a>
-            </p>
+            <p>{format.phone(format_data)}</p>
+            <p>Specialty: {format.specialty(format_data)}</p>
+            <p>Rating: {format.rating(format_data)}</p>
           </Grid>
           <Grid item xs={6}>
             <h2>Location</h2>

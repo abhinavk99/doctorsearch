@@ -23,19 +23,24 @@ function DocCard(props) {
           <CardActionArea>
             <CardMedia
               style={{ minHeight: 200 }}
-              image={props.data.pic}
+              image={props.data.image_url}
               title={props.data.name}
             />
             <CardContent>
-              <Typography gutterBottom variant="h5" component="h2" align="center">
+              <Typography
+                gutterBottom
+                variant="h5"
+                component="h2"
+                align="center"
+              >
                 {props.data.name}, {" " + props.data.title}
               </Typography>
               <Typography variant="body2" component="p">
-                {props.data.city}, {" " + props.data.state}
+                {props.data.city.name}, {" " + props.data.city.region}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
                 <b>Specialty: </b>
-                {props.data.specialty}
+                {props.data.specialty.category}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
                 <b>Phone: </b>

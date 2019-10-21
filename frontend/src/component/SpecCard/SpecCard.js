@@ -8,6 +8,7 @@ import Grid from "@material-ui/core/Grid";
 import { withRouter } from "react-router-dom";
 
 function SpecCard(props) {
+  let format = require("../../screen/Specialties/SpecFormat");
   return (
     <Grid item xs={12} md={4} style={{ maxWidth: "20em" }}>
       <div style={{ padding: "1em" }}>
@@ -31,23 +32,19 @@ function SpecCard(props) {
                 {props.data.name}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
-                {props.data.description}
+                {format.description(props)}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
                 <b>Category: </b>
-                {props.data.category}
+                {format.capitalize(props.data.category)}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
                 <b>Number of Doctors: </b>
-                {props.data.numDoc}
+                {props.data.num_doctors}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
-                <b>Doctors practicing: </b>
-                {props.data.doctorsPracticing.join(", ")}
-              </Typography>
-              <Typography variant="body2" color="textSecondary" component="p">
-                <b>Cities: </b>
-                {props.data.cities.join(", ")}
+                <b>Number of Cities: </b>
+                {props.data.num_cities}
               </Typography>
             </CardContent>
           </CardActionArea>

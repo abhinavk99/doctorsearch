@@ -11,7 +11,10 @@ export default class DoctorSearchData {
   getCities = async () => {
     return cityData;
   };
-  getSpecialties = async () => {
-    return specialtyData;
+  getSpecialties = async offset => {
+    const specialtyData = await fetch(
+      "https://api.doctorsearch.me/api/specialty?page=" + offset
+    );
+    return await specialtyData.json();
   };
 }

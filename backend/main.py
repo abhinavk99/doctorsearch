@@ -3,6 +3,7 @@ import os
 import flask_restless
 from dotenv import load_dotenv
 from flask import Flask, jsonify
+from flask_cors import CORS
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
 
@@ -11,6 +12,7 @@ from models import City, Doctor, Specialty, Base
 load_dotenv()
 
 application = Flask(__name__)
+CORS(application)
 engine = create_engine(os.getenv("DATABASE_URI"))
 session_factory = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 session = scoped_session(session_factory)

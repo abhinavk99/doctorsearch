@@ -20,9 +20,9 @@ function DocFocused(props) {
         <h1>{data.name}</h1>
         <img src={data.image_url} style={{ maxWidth: "20em" }} alt="docimg" />
         <Grid container style={{ maxWidth: "65% ", margin: "auto" }}>
+          <p>{data.bio}</p>
           <Grid item xs={6}>
             <h2>Information</h2>
-            <p style={{ maxWidth: "30em", margin: "auto" }}>{data.biography}</p>
             <p>
               {data.city.name}, {data.city.region}
             </p>
@@ -35,12 +35,14 @@ function DocFocused(props) {
             <p>
               {data.hospitalOrPractice}
               <br />
-              {data.addressLine1}
+              {format.address1(format_data)}
               <br />
-              {data.addressLine2}
+              {format.address2(format_data)}
             </p>
-            <img src={data.locimg} style={{ maxWidth: "20em" }} alt="locimg" />
+            <img src={data.city.image_url} style={{ maxWidth: "20em" }} alt="locimg" />
           </Grid>
+          <h3 style={{textAlign: "center"}}>Insurance plans accepted: </h3>
+          <p>{data.insurance_plans}</p>
         </Grid>
       </Card>
     </div>

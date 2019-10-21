@@ -8,6 +8,7 @@ import Grid from "@material-ui/core/Grid";
 import { withRouter } from "react-router-dom";
 
 function CityCard(props) {
+  let format = require("../../screen/Cities/CityFormat");
   return (
     <Grid item xs={12} md={4} style={{ maxWidth: "20em" }}>
       <div style={{ padding: "1em" }}>
@@ -23,32 +24,28 @@ function CityCard(props) {
           <CardActionArea>
             <CardMedia
               style={{ minHeight: 200 }}
-              image={props.data.pic}
+              image={props.data.image_url}
               title={props.data.name}
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="h2" align="center">
-                {props.data.name}, {props.data.state}
+                {props.data.name}, {props.data.region_code}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
-                <b>ZIP Code: </b>
-                {props.data.zip}
-              </Typography>
-              <Typography variant="body2" color="textSecondary" component="p">
-                <b>County: </b>
-                {props.data.county}
-              </Typography>
-              <Typography variant="body2" color="textSecondary" component="p">
-                <b>Population: </b>
-                {props.data.popcnt}
-              </Typography>
-              <Typography variant="body2" color="textSecondary" component="p">
-                <b>Mayor: </b>
-                {props.data.mayor}
+                <b>Population </b>
+                {props.data.population.toLocaleString()}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
                 <b>Number of Doctors: </b>
-                {props.data.numDoc}
+                {props.data.num_doctors}
+              </Typography>
+              <Typography variant="body2" color="textSecondary" component="p">
+              <b>Number of Specialties: </b>
+                {props.data.num_specialties}
+              </Typography>
+              <Typography variant="body2" color="textSecondary" component="p">
+                <b>Elevation: </b>
+                {props.data.elevation_meters.toLocaleString()} meters
               </Typography>
             </CardContent>
           </CardActionArea>

@@ -8,6 +8,7 @@ import Grid from "@material-ui/core/Grid";
 import { withRouter } from "react-router-dom";
 
 function DocCard(props) {
+  let format = require("../../screen/Doctors/DoctorFormat");
   return (
     <Grid item xs={12} md={4} style={{ maxWidth: "20em" }}>
       <div style={{ padding: "1em" }}>
@@ -40,19 +41,19 @@ function DocCard(props) {
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
                 <b>Specialty: </b>
-                {props.data.specialty.category}
+                {format.specialty(props)}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
                 <b>Phone: </b>
-                {props.data.phone}
+                {format.phone(props)}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
                 <b>Rating: </b>
-                {props.data.rating}/5
+                {format.rating(props)}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
-                <b>Website: </b>
-                {props.data.website}
+                <b>Gender: </b>
+                {format.gender(props)}
               </Typography>
             </CardContent>
           </CardActionArea>

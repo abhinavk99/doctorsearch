@@ -20,6 +20,20 @@ module.exports = {
     },
     address2: function(props){
         return props.data.city.name+", "+props.data.state+" "+props.data.zip_code;
+    },
+    textCollapse(){
+        const TEXT_COLLAPSE_OPTIONS = {
+            collapse: false,
+            collapseText: '... show more',
+            expandText: 'show less',
+            minHeight: 70,
+            maxHeight: 180,
+            textStyle: {
+              color: 'blue',
+              fontSize: '20px'
+            }
+          }
+        return TEXT_COLLAPSE_OPTIONS;
     }
 }
 

@@ -36,7 +36,7 @@ export default class Cities extends React.Component {
         <Grid container spacing={2} justify="center">
           {cityCards}
         </Grid>
-        <Pagination setPage={this.setPage} />
+        <Pagination setPage={this.setPage} numPages={this.state.dataArr["total_pages"]} />
       </div>
     );
   }

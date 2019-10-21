@@ -4,6 +4,7 @@ import DocCard from "../../component/DocCard/DocCard";
 import Grid from "@material-ui/core/Grid";
 import Pagination from "../../component/Pagination/Pagination";
 import "./Doctor.css";
+
 export default class Doctors extends React.Component {
   constructor() {
     super();
@@ -40,7 +41,7 @@ export default class Doctors extends React.Component {
         <Grid container spacing={2} justify="center">
           {doctorCards}
         </Grid>
-        <Pagination setPage={this.setPage} />
+        <Pagination setPage={this.setPage} numPages={this.state.dataArr["total_pages"]}/>
       </div>
     );
   }

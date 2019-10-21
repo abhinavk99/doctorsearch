@@ -18,15 +18,13 @@ function SpecFocused(props) {
             <p>Category: {format.capitalize(data.category)}</p>
             <p>Number of Doctors: {data.num_doctors}</p>
             <p>Number of Cities: {data.num_cities}</p>
-            {/* <p>Doctors Practicing: {format.doctors(data)}</p>
-            <p>Cities In: {format.cities(data)}</p> */}
           </Grid>
           <Grid item xs={6}>
             <h2>Map of Cities In</h2>
             <img src={data.cities[0]["image_url"]} style={{ maxWidth: "20em" }} alt="locimg" />
           </Grid>
         </Grid>
-        <h2>Doctors Practicing: </h2>
+        <h2>Doctors Practicing {data.name}: </h2>
         <p>{format.doctors(data)}</p>
         <h2>Cities In: </h2>
         <p>{format.cities(data)}</p>

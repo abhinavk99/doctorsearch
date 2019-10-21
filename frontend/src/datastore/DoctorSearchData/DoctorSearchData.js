@@ -8,8 +8,11 @@ export default class DoctorSearchData {
     );
     return await docData.json();
   };
-  getCities = async () => {
-    return cityData;
+  getCities = async offset => {
+    const cityData = await fetch(
+      "https://api.doctorsearch.me/api/city?page=" + offset
+    );
+    return await cityData.json();
   };
   getSpecialties = async offset => {
     const specialtyData = await fetch(

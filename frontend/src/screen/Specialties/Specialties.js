@@ -16,7 +16,6 @@ export default class Specialties extends React.Component {
 
   async componentDidMount() {
     this.setPage(0);
-    //this.setState({ dataArr: await this.state.dd.getSpecialties() });
   }
 
   setPage = async offset => {
@@ -38,7 +37,7 @@ export default class Specialties extends React.Component {
         <Grid container spacing={2} justify="center">
           {specialtyCards}
         </Grid>
-        <Pagination setPage={this.setPage} />
+        <Pagination setPage={this.setPage} numPages={this.state.dataArr["total_pages"]} />
       </div>
     );
   }

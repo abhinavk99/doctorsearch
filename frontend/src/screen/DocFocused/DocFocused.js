@@ -2,11 +2,13 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import Card from "@material-ui/core/Card";
 import Grid from "@material-ui/core/Grid";
+import SimpleExpansionFunction from "../../component/TextCollapse/TextCollapse";
 
 function DocFocused(props) {
   let format = require("../Doctors/DoctorFormat");
   let format_data = props.location.state;
   let data = props.location.state.data;
+  
   console.log("Rendering focused", data);
   return (
     <div style={{ textAlign: "center", padding: "3em" }}>
@@ -40,9 +42,8 @@ function DocFocused(props) {
               {format.address2(format_data)}
             </p>
             <img src={data.city.image_url} style={{ maxWidth: "20em" }} alt="locimg" />
-          </Grid>
-          <h3 style={{textAlign: "center"}}>Insurance plans accepted: </h3>
-          <p>{data.insurance_plans}</p>
+          </Grid>          
+          <p>{SimpleExpansionFunction(data.insurance_plans)}</p>
         </Grid>
       </Card>
     </div>

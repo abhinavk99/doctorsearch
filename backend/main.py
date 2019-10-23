@@ -21,7 +21,7 @@ Base.metadata.bind = engine
 manager = flask_restless.APIManager(application, session=session)
 city_blueprint = manager.create_api(City, results_per_page=9)
 doctor_blueprint = manager.create_api(Doctor, results_per_page=9)
-specialty_blueprint = manager.create_api(Specialty, results_per_page=9)
+specialty_blueprint = manager.create_api(Specialty, results_per_page=10)
 
 
 @application.route("/")

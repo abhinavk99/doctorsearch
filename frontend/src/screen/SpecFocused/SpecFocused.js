@@ -16,6 +16,13 @@ function SpecFocused(props) {
   if (!data) {
     return <div></div>;
   }
+  let locations = data.cities.map(c => `${c.latitude},${c.longitude}`);
+  let url =
+    "https://maps.googleapis.com/maps/api/staticmap?key=" +
+    process.env.REACT_APP_GOOGLE_API_KEY +
+    "&size=300x200&markers=color:red|" +
+    locations.join('|')
+
   return (
     <div style={{ textAlign: "center", padding: "3em" }}>
       <Card
@@ -33,7 +40,19 @@ function SpecFocused(props) {
             <p>Category: {format.capitalize(data.category)}</p>
             <p>Number of Doctors: {data.num_doctors}</p>
             <p>Number of Cities: {data.num_cities}</p>
-            <LinkedExpander
+          </Grid>
+          <Grid item xs={6}>
+            <h2>Map of Cities In</h2>
+            <img
+              src={url}
+              style={{ maxWidth: "20em" }}
+              alt="locimg"
+            />
+          </Grid>
+        </Grid>
+        {/* <iframe style={{width:"100%", height:"20em"}} src={url}/> */}
+        <h2>Doctors Practicing {data.name}: </h2>
+        <LinkedExpander
           data={data.doctors}
           urlheader="/doctors/"
           title="Doctors"
@@ -43,9 +62,6 @@ function SpecFocused(props) {
           urlheader="/cities/"
           title="Cities"
         />
-          </Grid>
-        </Grid>
-        {/* <iframe style={{width:"100%", height:"20em"}} src={url}/> */}
       </Card>
     </div>
   );

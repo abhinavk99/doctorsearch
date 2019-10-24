@@ -25,7 +25,7 @@ module.exports = {
     return props.street;
   },
   address2: function(props) {
-    return props.city.name + ", " + props.state + " " + props.zip_code;
+    return props.address_city + ", " + props.state + " " + props.zip_code;
   },
   textCollapse() {
     const TEXT_COLLAPSE_OPTIONS = {

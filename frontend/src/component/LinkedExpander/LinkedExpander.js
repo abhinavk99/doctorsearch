@@ -4,13 +4,18 @@ import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import { withRouter } from "react-router-dom";
 
-export default function LinkedExpander(props) {
+function LinkedExpander(props) {
   let links = props.data.map(item => (
-    <a href={props.urlheader + item.id} key={item.name}>
+    <p
+      key={item.name}
+      onClick={() => props.history.push(props.urlheader + item.id)}
+      style={{ color: "blue", cursor: "pointer" }}
+    >
       {" "}
-      {item.name},{" "}
-    </a>
+      {item.name}{" "}
+    </p>
   ));
   return (
     <div>
@@ -30,3 +35,5 @@ export default function LinkedExpander(props) {
     </div>
   );
 }
+
+export default withRouter(LinkedExpander);

@@ -6,9 +6,9 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import { withRouter } from "react-router-dom";
+import format from "../../screen/Specialties/SpecFormat";
 
 function SpecCard(props) {
-  let format = require("../../screen/Specialties/SpecFormat");
   return (
     <Grid item xs={12} md={4} style={{ maxWidth: "20em" }}>
       <div style={{ padding: "1em" }}>
@@ -28,7 +28,12 @@ function SpecCard(props) {
               title={props.data.name}
             />
             <CardContent>
-              <Typography gutterBottom variant="h5" component="h2" align="center">
+              <Typography
+                gutterBottom
+                variant="h5"
+                component="h2"
+                align="center"
+              >
                 {props.data.name}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">

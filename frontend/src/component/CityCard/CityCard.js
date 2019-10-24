@@ -8,7 +8,6 @@ import Grid from "@material-ui/core/Grid";
 import { withRouter } from "react-router-dom";
 
 function CityCard(props) {
-  let format = require("../../screen/Cities/CityFormat");
   return (
     <Grid item xs={12} md={4} style={{ maxWidth: "20em" }}>
       <div style={{ padding: "1em" }}>
@@ -28,7 +27,12 @@ function CityCard(props) {
               title={props.data.name}
             />
             <CardContent>
-              <Typography gutterBottom variant="h5" component="h2" align="center">
+              <Typography
+                gutterBottom
+                variant="h5"
+                component="h2"
+                align="center"
+              >
                 {props.data.name}, {props.data.region_code}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
@@ -40,7 +44,7 @@ function CityCard(props) {
                 {props.data.num_doctors}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
-              <b>Number of Specialties: </b>
+                <b>Number of Specialties: </b>
                 {props.data.num_specialties}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">

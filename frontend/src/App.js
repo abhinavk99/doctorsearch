@@ -21,7 +21,7 @@ function App() {
             <Route path="/about">
               <About />
             </Route>
-            <Route path="/doctors/detail">
+            <Route path="/doctors/:id">
               <DocFocused />
             </Route>
             <Route path="/doctors">

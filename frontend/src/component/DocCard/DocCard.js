@@ -41,19 +41,19 @@ function DocCard(props) {
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
                 <b>Specialty: </b>
-                {format.specialty(props)}
+                {format.specialty(props.data)}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
                 <b>Phone: </b>
-                {format.phone(props)}
+                {format.phone(props.data)}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
                 <b>Rating: </b>
-                {format.rating(props)}
+                {format.rating(props.data)}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
                 <b>Gender: </b>
-                {format.gender(props)}
+                {format.gender(props.data)}
               </Typography>
             </CardContent>
           </CardActionArea>

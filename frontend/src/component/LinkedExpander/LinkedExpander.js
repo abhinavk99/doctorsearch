@@ -14,7 +14,7 @@ function LinkedExpander(props) {
       style={{ color: "blue", cursor: "pointer" }}
     >
       {" "}
-      {item.name},{" "}
+      {item.name}{" "}
     </p>
   ));
   return (

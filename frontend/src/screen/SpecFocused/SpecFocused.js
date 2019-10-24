@@ -55,9 +55,6 @@ function SpecFocused(props) {
           urlheader="/cities/"
           title="Cities"
         />
-
-        <h2>Cities In: </h2>
-        <p>{format.cities(data)}</p>
       </Card>
     </div>
   );

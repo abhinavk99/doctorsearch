@@ -37,7 +37,7 @@ function CityFocused() {
         <h1>
           {data.name}, {data.region_code}
         </h1>
-        <img style={{ maxWidth: "20em" }} src={data.image_url} alt="docimg" />
+        <img style={{ maxWidth: "40em", maxHeight: "20em" }} src={data.image_url} alt="docimg" />
         <Grid container style={{ maxWidth: "65% ", margin: "auto" }}>
           <Grid item xs={12}>
             <h2>Information</h2>

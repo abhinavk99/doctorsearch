@@ -1,43 +1,79 @@
 # Doctor Search
 
-## Phase 1
-
-Git SHA: ecbd2994b2bccfd46ef6f8f48a8e662a7597feab  
-Project Leader: Abhinav Kasamsetty  
-GitLab Pipelines Link: https://gitlab.com/krysehun/doctorsearch/pipelines  
+GitLab Pipelines Link: https://gitlab.com/krysehun/doctorsearch/pipelines
 Link to website: https://doctorsearch.me
 
-Member 1  
-Name: Abhinav Kasamsetty  
-EID: ak37644  
-GitLab ID: abhinavk99  
-Estimated Time: 10 hours  
+Member 1
+Name: Abhinav Kasamsetty
+EID: ak37644
+GitLab ID: abhinavk99
+
+Member 2
+Name: Nathan Hoang
+EID: nvh236
+GitLab ID: nathanhoang
+
+Member 3
+Name: Sitong Li
+EID: sl43736
+GitLab ID: krysehun
+
+Member 4
+Name: Rohan Arya
+EID: ra34586
+GitLab ID: aryarohan
+
+Member 5
+Name: Derrin Ngo
+EID: dn7854
+GitLab ID: Derrinngo22
+
+## Phase 1
+
+Git SHA: ecbd2994b2bccfd46ef6f8f48a8e662a7597feab
+Project Leader: Abhinav Kasamsetty
+
+Abhinav Kasamsetty
+Estimated Time: 10 hours
 Actual Time: 12 hours
 
-Member 2  
-Name: Nathan Hoang  
-EID: nvh236  
-GitLab ID: nathanhoang  
-Estimated Time: 12 hours  
+Nathan Hoang
+Estimated Time: 12 hours
 Actual Time: 8 hours
 
-Member 3  
-Name: Sitong Li  
-EID: sl43736  
-GitLab ID: krysehun  
-Estimated Time: 12 hours  
+Sitong Li
+Estimated Time: 12 hours
 Actual Time: 6 hours
 
-Member 4  
-Name: Rohan Arya  
-EID: ra34586  
-GitLab ID: aryarohan  
-Estimated Time: 10 hours  
+Rohan Arya
+Estimated Time: 10 hours
 Actual Time: 6 hours
 
-Member 5  
-Name: Derrin Ngo  
-EID: dn7854
-GitLab ID: Derrinngo22  
-Estimated Time: 10 hours  
+Derrin Ngo
+Estimated Time: 10 hours
 Actual Time: 7 hours
+
+## Phase 2
+
+Git SHA: TODO
+Project Leader: Nathan Hoang
+
+Abhinav Kasamsetty
+Estimated Time: 20 hours
+Actual Time: 15 hours
+
+Nathan Hoang
+Estimated Time: TODO
+Actual Time: TODO
+
+Sitong Li
+Estimated Time: TODO
+Actual Time: TODO
+
+Rohan Arya
+Estimated Time: TODO
+Actual Time: TODO
+
+Derrin Ngo
+Estimated Time: TODO
+Actual Time: TODO

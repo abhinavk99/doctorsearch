@@ -39,9 +39,11 @@ function SpecFocused(props) {
         <Grid container style={{ maxWidth: "65% ", margin: "auto" }}>
           <Grid item xs={12}>
             <h2>Information</h2>
-            <p>Category: {format.capitalize(data.category)}</p>
-            <p>Number of Doctors: {data.num_doctors}</p>
-            <p>Number of Cities: {data.num_cities}</p>
+            <div style={{ display:"inline-block", textAlign:"left"}} >
+              <p><strong>Category: </strong>{format.capitalize(data.category)}</p>
+              <p><strong>Number of Doctors:</strong> {data.num_doctors}</p>
+              <p><strong>Number of Cities: </strong>{data.num_cities}</p>
+            </div>
             <h2>Map of Cities In</h2>
             <img
               src={url}
@@ -60,7 +62,6 @@ function SpecFocused(props) {
             />
           </Grid>
         </Grid>
-        
       </Card>
     </div>
   );

@@ -18,6 +18,7 @@ function DocFocused() {
   if (!data) {
     return <div></div>;
   }
+  console.log(data);
   let url =
     "https://www.google.com/maps/embed/v1/place?key=" +
     process.env.REACT_APP_GOOGLE_API_KEY +
@@ -41,11 +42,13 @@ function DocFocused() {
           <p>{data.bio}</p>
           <Grid item xs={6}>
             <h2>Information</h2>
-            <p>
+            <a href={"/cities/" + data.city_id}>
               {data.city.name}, {data.city.region}
-            </p>
+            </a>
             <p>{format.phone(data)}</p>
-            <p>Specialty: {format.specialty(data)}</p>
+            <a href={"/specialties/" + data.specialty_id}>
+              Specialty: {format.specialty(data)}
+            </a>
             <p>Rating: {format.rating(data)}</p>
           </Grid>
           <Grid item xs={6}>

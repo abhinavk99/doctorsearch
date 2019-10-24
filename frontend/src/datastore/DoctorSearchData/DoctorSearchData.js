@@ -1,5 +1,3 @@
-import { cityData, specialtyData } from "./Sample/SampleData.js";
-
 export default class DoctorSearchData {
   getDoctors = async offset => {
     // Hit the api and get data

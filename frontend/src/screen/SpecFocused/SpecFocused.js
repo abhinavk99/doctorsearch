@@ -6,6 +6,7 @@ import Grid from "@material-ui/core/Grid";
 function SpecFocused(props) {
   let data = props.location.state.data;
   let format = require("../../screen/Specialties/SpecFormat");
+  //let url = "https://www.google.com/maps/embed/v1/place?key="+process.env.REACT_APP_GOOGLE_API_KEY+"&q="+data.cities.latitude+","+data.cities.longitude
   return (
     <div style={{ textAlign: "center", padding: "3em" }}>
       <Card style={{ backgroundColor: "#d9d9d9", color: "black", paddingBottom: "2em" }}>
@@ -24,6 +25,7 @@ function SpecFocused(props) {
             <img src={data.cities[0]["image_url"]} style={{ maxWidth: "20em" }} alt="locimg" />
           </Grid>
         </Grid>
+        {/* <iframe style={{width:"100%", height:"20em"}} src={url}/> */}
         <h2>Doctors Practicing {data.name}: </h2>
         <p>{format.doctors(data)}</p>
         <h2>Cities In: </h2>

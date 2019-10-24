@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function SimpleExpansionPanel(text) {
+export default function SimpleExpansionPanel(title, text) {
   const classes = useStyles();
 
   return (
@@ -27,7 +27,7 @@ export default function SimpleExpansionPanel(text) {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography className={classes.heading}>Insurance plans accepted: </Typography>
+          <Typography className={classes.heading}>{title} </Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>

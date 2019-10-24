@@ -4,29 +4,19 @@ import Card from "@material-ui/core/Card";
 import Grid from "@material-ui/core/Grid";
 import SimpleExpansionFunction from "../../component/TextCollapse/TextCollapse";
 
-function DocFocused(props) {
+function DocFocused() {
   let format = require("../Doctors/DoctorFormat");
   let { id } = useParams();
   const [data, setData] = React.useState(null);
   React.useEffect(() => {
-    // fetch('https://randomuser.me/api/')
-    //   .then(results => results.json())
-    //   .then(data => {
-    //     const {name} = data.results[0];
-    //     setFirstName(name.first);
-    //     setLastName(name.last);
-    //   });
     fetch("https://api.doctorsearch.me/api/doctor/" + id)
       .then(results => results.json())
       .then(d => setData(d));
   }, [id]);
 
-  console.log(id);
   if (!data) {
-    console.log("not yet loaded");
     return <div></div>;
   }
-  console.log("Rendering focused", data);
   return (
     <div style={{ textAlign: "center", padding: "3em" }}>
       <Card

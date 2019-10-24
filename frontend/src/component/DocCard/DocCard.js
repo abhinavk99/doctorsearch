@@ -12,15 +12,7 @@ function DocCard(props) {
   return (
     <Grid item xs={12} md={4} style={{ maxWidth: "20em" }}>
       <div style={{ padding: "1em" }}>
-        <Card
-          onClick={() =>
-            props.history.push({
-              pathname: "/doctors/detail",
-              search: "",
-              state: { data: props.data }
-            })
-          }
-        >
+        <Card onClick={() => props.history.push("/doctors/" + props.data.id)}>
           <CardActionArea>
             <CardMedia
               style={{ minHeight: 200 }}

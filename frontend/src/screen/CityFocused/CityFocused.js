@@ -1,15 +1,31 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, useParams } from "react-router-dom";
 
 import Card from "@material-ui/core/Card";
 import Grid from "@material-ui/core/Grid";
 
-function CityFocused(props) {
+function CityFocused() {
   let format = require("../../screen/Cities/CityFormat");
-  let data = props.location.state.data;
+  let { id } = useParams();
+  const [data, setData] = React.useState(null);
+  React.useEffect(() => {
+    fetch("https://api.doctorsearch.me/api/city/" + id)
+      .then(results => results.json())
+      .then(d => setData(d));
+  }, [id]);
+  if (!data) {
+    return <div></div>;
+  }
+  console.log(data);
   return (
     <div style={{ textAlign: "center", padding: "3em" }}>
-      <Card style={{ backgroundColor: "#d9d9d9", color: "black", paddingBottom: "2em" }}>
+      <Card
+        style={{
+          backgroundColor: "#d9d9d9",
+          color: "black",
+          paddingBottom: "2em"
+        }}
+      >
         <h1>
           {data.name}, {data.region_code}
         </h1>
@@ -19,7 +35,9 @@ function CityFocused(props) {
             <h2>Information</h2>
             <p>Population {data.population.toLocaleString()}</p>
             <p>Time Zone: {data.timezone}</p>
-            <p>Coordinates: {data.latitude}, {data.longitude}</p>
+            <p>
+              Coordinates: {data.latitude}, {data.longitude}
+            </p>
             <p>Number of Doctors: {data.num_doctors}</p>
             <p>Number of Specialties: {data.num_specialties}</p>
             <p>Elevation: {data.elevation_meters.toLocaleString()}</p>

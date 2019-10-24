@@ -27,13 +27,13 @@ function App() {
             <Route path="/doctors">
               <Doctors />
             </Route>
-            <Route path="/cities/detail">
+            <Route path="/cities/:id">
               <CityFocused />
             </Route>
             <Route path="/cities">
               <Cities />
             </Route>
-            <Route path="/specialties/detail">
+            <Route path="/specialties/:id">
               <SpecFocused />
             </Route>
             <Route path="/specialties">

@@ -20,12 +20,10 @@ export default class Doctors extends React.Component {
   }
 
   setPage = async offset => {
-    console.log("called setpage from pagination object", offset);
     await this.setState({
       dataArr: await this.state.dd.getDoctors(offset + 1),
       loaded: true
     });
-    console.log(this.state.dataArr);
   };
 
   render() {
@@ -34,14 +32,16 @@ export default class Doctors extends React.Component {
           return <DocCard data={data} key={data.name} />;
         })
       : null;
-    console.log("CURRENT STATE", this.state);
     return (
       <div className="simple">
         <h2 style={{ textAlign: "center" }}>Hot Doctors in Your Area</h2>
         <Grid container spacing={2} justify="center">
           {doctorCards}
         </Grid>
-        <Pagination setPage={this.setPage} numPages={this.state.dataArr["total_pages"]}/>
+        <Pagination
+          setPage={this.setPage}
+          numPages={this.state.dataArr["total_pages"]}
+        />
       </div>
     );
   }

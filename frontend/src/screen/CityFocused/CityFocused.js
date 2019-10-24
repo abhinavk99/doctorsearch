@@ -57,8 +57,7 @@ function CityFocused() {
               style={{ width: "100%", height: "20em" }}
               src={url}
             />
-          </Grid>
-          <LinkedExpander
+            <LinkedExpander
             data={data.doctors}
             urlheader={"/doctors/"}
             title={"Doctors"}
@@ -68,6 +67,8 @@ function CityFocused() {
             urlheader={"/specialties/"}
             title={"Specialties"}
           ></LinkedExpander>
+          </Grid>
+          
         </Grid>
       </Card>
     </div>

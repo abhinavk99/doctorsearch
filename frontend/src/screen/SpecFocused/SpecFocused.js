@@ -37,7 +37,7 @@ function SpecFocused(props) {
         <h1>{data.name}</h1>
         <p>{data.description}</p>
         <Grid container style={{ maxWidth: "65% ", margin: "auto" }}>
-          <Grid item xs={6}>
+          <Grid item xs={12}>
             <h2>Information</h2>
             <p>Category: {format.capitalize(data.category)}</p>
             <p>Number of Doctors: {data.num_doctors}</p>

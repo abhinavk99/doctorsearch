@@ -49,21 +49,22 @@ function DocFocused(props) {
               {data.city.name}, {data.city.region}
             </p>
             <p>{format.phone(data)}</p>
-            <p
-              onClick={() =>
-                props.history.push("/specialties/" + data.specialty_id)
-              }
-              style={{ color: "blue", cursor: "pointer" }}
-            >
-              Specialty: {format.specialty(data)}
-            </p>
-            <p>Rating: {format.rating(data)}</p>
+            <div style={{display:"inline-flex", alignItems: "center", wordSpacing:"normal"}}>
+              <strong>Specialty: </strong>
+              <p
+                onClick={() =>
+                  props.history.push("/specialties/" + data.specialty_id)
+                }
+                style={{ color: "blue", cursor: "pointer" }}
+              >
+                &nbsp;{format.specialty(data)}
+              </p>
+            </div>
+            <p><strong>Rating: </strong> {format.rating(data)}</p>
           </Grid>
           <Grid item xs={6}>
             <h2>Location</h2>
             <p>
-              {data.hospitalOrPractice}
-              <br />
               {format.address1(data)}
               <br />
               {format.address2(data)}

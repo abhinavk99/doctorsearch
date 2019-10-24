@@ -1,6 +1,5 @@
 import React from "react";
 import { withRouter, useParams } from "react-router-dom";
-
 import Card from "@material-ui/core/Card";
 import Grid from "@material-ui/core/Grid";
 import LinkedExpander from "../../component/LinkedExpander/LinkedExpander";
@@ -41,16 +40,18 @@ function CityFocused() {
         <Grid container style={{ maxWidth: "65% ", margin: "auto" }}>
           <Grid item xs={12}>
             <h2>Information</h2>
-            <p>Population {data.population.toLocaleString()}</p>
-            <p>Time Zone: {data.timezone}</p>
-            <p>
-              Coordinates: {data.latitude}, {data.longitude}
-            </p>
-            <p>Number of Doctors: {data.num_doctors}</p>
-            <p>Number of Specialties: {data.num_specialties}</p>
-            <p>Elevation: {data.elevation_meters.toLocaleString()}</p>
+            <div style={{ display:"inline-block", textAlign:"left"}} >
+              <p><strong>Population:</strong> {data.population.toLocaleString()}</p>
+              <p><strong>Time Zone:</strong> {data.timezone}</p>
+              <p><strong>
+                Coordinates:</strong> {data.latitude}, {data.longitude}
+                </p>
+              <p><strong>Number of Doctors:</strong> {data.num_doctors}</p>
+              <p><strong>Number of Specialties: </strong>{data.num_specialties}</p>
+              <p><strong>Elevation: </strong>{data.elevation_meters.toLocaleString()}</p>
+            </div>
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} >
             <h2>Location</h2>
             <iframe
               title="map"
@@ -68,7 +69,6 @@ function CityFocused() {
             title={"Specialties"}
           ></LinkedExpander>
           </Grid>
-          
         </Grid>
       </Card>
     </div>

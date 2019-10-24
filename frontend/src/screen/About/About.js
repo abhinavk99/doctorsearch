@@ -134,7 +134,10 @@ export default class About extends React.Component {
             <h1>Tools</h1>
             <p>
               We used React and JavaScript to write the frontend of Doctor Search.
-              The site is hosted using AWS Amplify.
+              The frontend website is hosted using AWS Amplify.
+              The backend, <a href="https://api.doctorsearch.me">api.doctorsearch.me</a>,
+              is hosted using Elastic Beanstalk backed by a PostgreSQL database and
+              a Flask Restless server.
             </p>
 
             <h1>Links</h1>
@@ -142,7 +145,7 @@ export default class About extends React.Component {
               GitLab Repo
             </a>
             <br />
-            <a href="https://documenter.getpostman.com/view/9000368/SVtPXqcN">
+            <a href="https://documenter.getpostman.com/view/9000368/SVtbPkAt">
               Postman Docs
             </a>
           </div>

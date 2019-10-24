@@ -12,6 +12,7 @@ import SpecFocused from "./screen/SpecFocused/SpecFocused";
 import About from "./screen/About/About";
 
 function App() {
+  require('dotenv').config()
   return (
     <Router>
       <div>

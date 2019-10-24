@@ -8,6 +8,7 @@ function DocFocused() {
   let format = require("../Doctors/DoctorFormat");
   let { id } = useParams();
   const [data, setData] = React.useState(null);
+
   React.useEffect(() => {
     fetch("https://api.doctorsearch.me/api/doctor/" + id)
       .then(results => results.json())
@@ -17,6 +18,14 @@ function DocFocused() {
   if (!data) {
     return <div></div>;
   }
+  let url =
+    "https://www.google.com/maps/embed/v1/place?key=" +
+    process.env.REACT_APP_GOOGLE_API_KEY +
+    "&q=" +
+    data.latitude +
+    "," +
+    data.longitude;
+
   return (
     <div style={{ textAlign: "center", padding: "3em" }}>
       <Card
@@ -54,7 +63,15 @@ function DocFocused() {
               alt="locimg"
             />
           </Grid>
-          {SimpleExpansionFunction(data.insurance_plans)}
+          <iframe
+            title="docmap"
+            style={{ width: "100%", height: "20em" }}
+            src={url}
+          />
+          {SimpleExpansionFunction(
+            "Insurance plans accepted",
+            data.insurance_plans
+          )}
         </Grid>
       </Card>
     </div>

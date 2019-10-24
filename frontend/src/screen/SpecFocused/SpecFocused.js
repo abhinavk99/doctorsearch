@@ -42,6 +42,7 @@ function SpecFocused(props) {
             />
           </Grid>
         </Grid>
+        {/* <iframe style={{width:"100%", height:"20em"}} src={url}/> */}
         <h2>Doctors Practicing {data.name}: </h2>
         <p>{format.doctors(data)}</p>
         <h2>Cities In: </h2>

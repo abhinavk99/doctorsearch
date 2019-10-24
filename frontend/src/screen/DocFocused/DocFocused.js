@@ -4,11 +4,12 @@ import Card from "@material-ui/core/Card";
 import Grid from "@material-ui/core/Grid";
 import SimpleExpansionFunction from "../../component/TextCollapse/TextCollapse";
 
+
 function DocFocused(props) {
   let format = require("../Doctors/DoctorFormat");
   let format_data = props.location.state;
   let data = props.location.state.data;
-  
+  let url = "https://www.google.com/maps/embed/v1/place?key="+process.env.REACT_APP_GOOGLE_API_KEY+"&q="+data.latitude+","+data.longitude
   console.log("Rendering focused", data);
   return (
     <div style={{ textAlign: "center", padding: "3em" }}>
@@ -35,15 +36,14 @@ function DocFocused(props) {
           <Grid item xs={6}>
             <h2>Location</h2>
             <p>
-              {data.hospitalOrPractice}
-              <br />
               {format.address1(format_data)}
               <br />
               {format.address2(format_data)}
             </p>
             <img src={data.city.image_url} style={{ maxWidth: "20em" }} alt="locimg" />
-          </Grid>          
-          <p>{SimpleExpansionFunction(data.insurance_plans)}</p>
+          </Grid>    
+          <iframe style={{width:"100%", height:"20em"}} src={url}/>
+          {SimpleExpansionFunction("Insurance plans accepted", data.insurance_plans)}
         </Grid>
       </Card>
     </div>

@@ -8,7 +8,6 @@ import Grid from "@material-ui/core/Grid";
 import { withRouter } from "react-router-dom";
 
 function CityCard(props) {
-  let format = require("../../screen/Cities/CityFormat");
   return (
     <Grid item xs={12} md={4} style={{ maxWidth: "20em" }}>
       <div style={{ padding: "1em" }}>

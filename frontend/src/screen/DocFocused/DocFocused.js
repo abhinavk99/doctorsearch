@@ -23,9 +23,9 @@ function DocFocused(props) {
     "https://www.google.com/maps/embed/v1/place?key=" +
     process.env.REACT_APP_GOOGLE_API_KEY +
     "&q=" +
-    data.latitude +
+    format.address1(data) +
     "," +
-    data.longitude;
+    format.address2(data);
 
   return (
     <div style={{ textAlign: "center", padding: "3em" }}>

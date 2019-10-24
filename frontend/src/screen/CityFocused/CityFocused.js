@@ -21,9 +21,9 @@ function CityFocused() {
     "https://www.google.com/maps/embed/v1/place?key=" +
     process.env.REACT_APP_GOOGLE_API_KEY +
     "&q=" +
-    data.latitude +
+    data.name +
     "," +
-    data.longitude;
+    data.region_code;
   console.log(data);
   return (
     <div style={{ textAlign: "center", padding: "3em" }}>

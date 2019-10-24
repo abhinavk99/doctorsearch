@@ -17,9 +17,11 @@ function SpecFocused(props) {
     return <div></div>;
   }
   let locations = data.cities.map(c => `${c.latitude},${c.longitude}`);
+  let zoomParam = locations.length === 1 ? '&zoom=10' : '';
   let url =
     "https://maps.googleapis.com/maps/api/staticmap?key=" +
     process.env.REACT_APP_GOOGLE_API_KEY +
+    zoomParam +
     "&size=300x200&markers=color:red|" +
     locations.join('|')
 
@@ -35,7 +37,7 @@ function SpecFocused(props) {
         <h1>{data.name}</h1>
         <p>{data.description}</p>
         <Grid container style={{ maxWidth: "65% ", margin: "auto" }}>
-          <Grid item xs={12}>
+          <Grid item xs={6}>
             <h2>Information</h2>
             <p>Category: {format.capitalize(data.category)}</p>
             <p>Number of Doctors: {data.num_doctors}</p>

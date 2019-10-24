@@ -65,7 +65,6 @@ export default class About extends React.Component {
       issues,
       tests
     });
-    console.log(this.state.data);
   }
 
   render() {

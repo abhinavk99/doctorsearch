@@ -24,7 +24,7 @@ function CityFocused() {
     data.name +
     "," +
     data.region_code;
-  console.log(data);
+
   return (
     <div style={{ textAlign: "center", padding: "3em" }}>
       <Card

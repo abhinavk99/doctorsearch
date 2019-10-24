@@ -18,7 +18,7 @@ function DocFocused(props) {
   if (!data) {
     return <div></div>;
   }
-  console.log(data);
+
   let url =
     "https://www.google.com/maps/embed/v1/place?key=" +
     process.env.REACT_APP_GOOGLE_API_KEY +

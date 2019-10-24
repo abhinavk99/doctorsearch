@@ -4,7 +4,7 @@ import Card from "@material-ui/core/Card";
 import Grid from "@material-ui/core/Grid";
 import SimpleExpansionFunction from "../../component/TextCollapse/TextCollapse";
 
-function DocFocused() {
+function DocFocused(props) {
   let format = require("../Doctors/DoctorFormat");
   let { id } = useParams();
   const [data, setData] = React.useState(null);
@@ -42,13 +42,21 @@ function DocFocused() {
           <p>{data.bio}</p>
           <Grid item xs={6}>
             <h2>Information</h2>
-            <a href={"/cities/" + data.city_id}>
+            <p
+              onClick={() => props.history.push("/cities/" + data.city_id)}
+              style={{ color: "blue", cursor: "pointer" }}
+            >
               {data.city.name}, {data.city.region}
-            </a>
+            </p>
             <p>{format.phone(data)}</p>
-            <a href={"/specialties/" + data.specialty_id}>
+            <p
+              onClick={() =>
+                props.history.push("/specialties/" + data.specialty_id)
+              }
+              style={{ color: "blue", cursor: "pointer" }}
+            >
               Specialty: {format.specialty(data)}
-            </a>
+            </p>
             <p>Rating: {format.rating(data)}</p>
           </Grid>
           <Grid item xs={6}>

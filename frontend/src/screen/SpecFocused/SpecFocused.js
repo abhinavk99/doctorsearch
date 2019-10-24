@@ -40,28 +40,26 @@ function SpecFocused(props) {
             <p>Category: {format.capitalize(data.category)}</p>
             <p>Number of Doctors: {data.num_doctors}</p>
             <p>Number of Cities: {data.num_cities}</p>
-          </Grid>
-          <Grid item xs={6}>
             <h2>Map of Cities In</h2>
             <img
               src={url}
               style={{ maxWidth: "20em" }}
               alt="locimg"
             />
+            
+            <LinkedExpander
+              data={data.doctors}
+              urlheader="/doctors/"
+              title="Doctors:"
+            />
+            <LinkedExpander
+              data={data.cities}
+              urlheader="/cities/"
+              title="Cities:"
+            />
           </Grid>
         </Grid>
-        {/* <iframe style={{width:"100%", height:"20em"}} src={url}/> */}
-        <h2>Doctors Practicing {data.name}: </h2>
-        <LinkedExpander
-          data={data.doctors}
-          urlheader="/doctors/"
-          title="Doctors"
-        />
-        <LinkedExpander
-          data={data.cities}
-          urlheader="/cities/"
-          title="Cities"
-        />
+        
       </Card>
     </div>
   );

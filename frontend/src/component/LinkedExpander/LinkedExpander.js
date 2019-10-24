@@ -13,8 +13,7 @@ function LinkedExpander(props) {
       onClick={() => props.history.push(props.urlheader + item.id)}
       style={{ color: "blue", cursor: "pointer" }}
     >
-      {" "}
-      {item.name}{" "}
+      {" "}{item.name}{" "}
     </p>
   ));
   return (

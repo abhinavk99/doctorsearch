@@ -46,7 +46,6 @@ function SpecFocused(props) {
               style={{ maxWidth: "20em" }}
               alt="locimg"
             />
-            
             <LinkedExpander
               data={data.doctors}
               urlheader="/doctors/"

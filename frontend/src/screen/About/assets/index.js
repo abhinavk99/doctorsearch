@@ -15,7 +15,7 @@ export const memberInfo = new Map([
         He's a member of RDC, a dance team on campus, and plays 
         intramural soccer and Rocket League in his free time.`,
       pic: nathan,
-      responsibilities: "Data entry, getting coffee",
+      responsibilities: "Frontend, getting coffee",
       issues: 0,
       tests: 0
     }
@@ -29,7 +29,7 @@ export const memberInfo = new Map([
         with code, he plays Fantasy Football, practices learning Japanese and 
         solving Rubik's cubes, and watches anime.`,
       pic: abhinav,
-      responsibilities: "Frontend, API Schema",
+      responsibilities: "Backend",
       issues: 0,
       tests: 5
     }
@@ -42,7 +42,7 @@ export const memberInfo = new Map([
       bio: `Sitong is a senior Computer Science major srudent at UT. 
         Hobbies include: Netflix and Kpop.`,
       pic: sitong,
-      responsibilities: "About page, picking colors",
+      responsibilities: "Backend",
       issues: 0,
       tests: 0
     }
@@ -55,7 +55,7 @@ export const memberInfo = new Map([
       bio: `Derrin is a third year Computer Science student at UT. 
         Hobbies include: Rock Climbing, Weightlifting, and video games.`,
       pic: derrin,
-      responsibilities: "Data Retrieval",
+      responsibilities: "Frontend",
       issues: 0,
       tests: 0
     }
@@ -69,7 +69,7 @@ export const memberInfo = new Map([
         Saaya and loves to power-lift, go bouldering and watch a lot of Bollywood 
         movies.`,
       pic: rohan,
-      responsibilities: "Set up the pages, basic structure of the site",
+      responsibilities: "Frontend",
       issues: 0,
       tests: 0
     }

@@ -3,10 +3,9 @@ import { withRouter, useParams } from "react-router-dom";
 
 import Card from "@material-ui/core/Card";
 import Grid from "@material-ui/core/Grid";
-import SimpleExpansionFunction from "../../component/TextCollapse/TextCollapse";
+import LinkedExpander from "../../component/LinkedExpander/LinkedExpander";
 
 function CityFocused() {
-  let format = require("../../screen/Cities/CityFormat");
   let { id } = useParams();
   const [data, setData] = React.useState(null);
 
@@ -25,6 +24,7 @@ function CityFocused() {
     data.latitude +
     "," +
     data.longitude;
+  console.log(data);
   return (
     <div style={{ textAlign: "center", padding: "3em" }}>
       <Card
@@ -58,8 +58,16 @@ function CityFocused() {
               src={url}
             />
           </Grid>
-          {SimpleExpansionFunction("Doctors", format.doctors(data))}
-          {SimpleExpansionFunction("Specialties", format.specialties(data))}
+          <LinkedExpander
+            data={data.doctors}
+            urlheader={"/doctors/"}
+            title={"Doctors"}
+          ></LinkedExpander>
+          <LinkedExpander
+            data={data.specialties}
+            urlheader={"/specialties/"}
+            title={"Specialties"}
+          ></LinkedExpander>
         </Grid>
       </Card>
     </div>

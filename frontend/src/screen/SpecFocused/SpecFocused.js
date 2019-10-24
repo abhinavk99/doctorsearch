@@ -2,6 +2,7 @@ import React from "react";
 import { withRouter, useParams } from "react-router-dom";
 import Card from "@material-ui/core/Card";
 import Grid from "@material-ui/core/Grid";
+import LinkedExpander from "../../component/LinkedExpander/LinkedExpander";
 
 function SpecFocused(props) {
   let format = require("../../screen/Specialties/SpecFormat");
@@ -44,7 +45,17 @@ function SpecFocused(props) {
         </Grid>
         {/* <iframe style={{width:"100%", height:"20em"}} src={url}/> */}
         <h2>Doctors Practicing {data.name}: </h2>
-        <p>{format.doctors(data)}</p>
+        <LinkedExpander
+          data={data.doctors}
+          urlheader="/doctors/"
+          title="Doctors"
+        />
+        <LinkedExpander
+          data={data.cities}
+          urlheader="/cities/"
+          title="Cities"
+        />
+
         <h2>Cities In: </h2>
         <p>{format.cities(data)}</p>
       </Card>

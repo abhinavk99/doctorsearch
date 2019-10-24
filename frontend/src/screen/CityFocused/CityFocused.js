@@ -16,7 +16,6 @@ function CityFocused() {
   if (!data) {
     return <div></div>;
   }
-  console.log(data);
   return (
     <div style={{ textAlign: "center", padding: "3em" }}>
       <Card
@@ -31,7 +30,7 @@ function CityFocused() {
         </h1>
         <img style={{ maxWidth: "50em" }} src={data.image_url} alt="docimg" />
         <Grid container style={{ maxWidth: "65% ", margin: "auto" }}>
-          <Grid item xs={6}>
+          <Grid item xs={12}>
             <h2>Information</h2>
             <p>Population {data.population.toLocaleString()}</p>
             <p>Time Zone: {data.timezone}</p>
@@ -41,10 +40,6 @@ function CityFocused() {
             <p>Number of Doctors: {data.num_doctors}</p>
             <p>Number of Specialties: {data.num_specialties}</p>
             <p>Elevation: {data.elevation_meters.toLocaleString()}</p>
-          </Grid>
-          <Grid item xs={6}>
-            <h2>Location</h2>
-            <img src={data.locimg} style={{ maxWidth: "20em" }} alt="locimg" />
           </Grid>
         </Grid>
         <h2>Doctors: </h2>

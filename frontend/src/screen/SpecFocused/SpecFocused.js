@@ -1,16 +1,30 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, useParams } from "react-router-dom";
 import Card from "@material-ui/core/Card";
 import Grid from "@material-ui/core/Grid";
 
 function SpecFocused(props) {
-  let data = props.location.state.data;
   let format = require("../../screen/Specialties/SpecFormat");
+  let { id } = useParams();
+  const [data, setData] = React.useState(null);
+  React.useEffect(() => {
+    fetch("https://api.doctorsearch.me/api/specialty/" + id)
+      .then(results => results.json())
+      .then(d => setData(d));
+  }, [id]);
+  if (!data) {
+    return <div></div>;
+  }
   return (
     <div style={{ textAlign: "center", padding: "3em" }}>
-      <Card style={{ backgroundColor: "#d9d9d9", color: "black", paddingBottom: "2em" }}>
+      <Card
+        style={{
+          backgroundColor: "#d9d9d9",
+          color: "black",
+          paddingBottom: "2em"
+        }}
+      >
         <h1>{data.name}</h1>
-        <img style={{ maxWidth: "20em" }} src={data.pic} alt="docimg" />
         <p>{data.description}</p>
         <Grid container style={{ maxWidth: "65% ", margin: "auto" }}>
           <Grid item xs={6}>
@@ -21,7 +35,11 @@ function SpecFocused(props) {
           </Grid>
           <Grid item xs={6}>
             <h2>Map of Cities In</h2>
-            <img src={data.cities[0]["image_url"]} style={{ maxWidth: "20em" }} alt="locimg" />
+            <img
+              src={data.cities[0]["image_url"]}
+              style={{ maxWidth: "20em" }}
+              alt="locimg"
+            />
           </Grid>
         </Grid>
         <h2>Doctors Practicing {data.name}: </h2>

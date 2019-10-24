@@ -77,7 +77,10 @@ export default class About extends React.Component {
           <div style={{ padding: "1em" }}>
             <h1>About </h1>
             <p>
-              We help people find doctors around the United States.
+              We help people find doctors around the United States. In 50 major
+              cities around the US, we have information on doctors and specialties
+              that are being practiced so that anyone can easily search for a
+              doctor near them.
             </p>
             <br />
             <h1>Results</h1>

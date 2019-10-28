@@ -4,21 +4,18 @@ import flask_restless
 from dotenv import load_dotenv
 from flask import Flask, jsonify
 from flask_cors import CORS
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, scoped_session
 
-from models import City, Doctor, Specialty, Base
+from models import db, City, Doctor, Specialty
 
 load_dotenv()
 
 application = Flask(__name__)
+application.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URI")
 CORS(application)
-engine = create_engine(os.getenv("DATABASE_URI"))
-session_factory = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-session = scoped_session(session_factory)
-Base.metadata.bind = engine
 
-manager = flask_restless.APIManager(application, session=session)
+db.init_app(application)
+
+manager = flask_restless.APIManager(application, flask_sqlalchemy_db=db)
 city_blueprint = manager.create_api(City, results_per_page=9)
 doctor_blueprint = manager.create_api(Doctor, results_per_page=9)
 specialty_blueprint = manager.create_api(Specialty, results_per_page=10)

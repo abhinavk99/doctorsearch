@@ -13,3 +13,12 @@ testbackend:
     - cd backend
     - pip install -r requirements.txt
     - python tests.py
+
+testpostman:
+  image:
+    name: postman/newman_alpine33
+    entrypoint: [""]
+  type: test
+  script:
+    - cd backend
+    - newman run Postman.json

@@ -31,7 +31,7 @@ export const memberInfo = new Map([
       pic: abhinav,
       responsibilities: 'Backend',
       issues: 0,
-      tests: 5
+      tests: 23
     }
   ],
   [
@@ -44,7 +44,7 @@ export const memberInfo = new Map([
       pic: sitong,
       responsibilities: 'Backend',
       issues: 0,
-      tests: 0
+      tests: 12
     }
   ],
   [

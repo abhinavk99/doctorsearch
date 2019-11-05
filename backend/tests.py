@@ -161,5 +161,95 @@ class TestSeeding(unittest.TestCase):
         self.assertIn(specialty, city.specialties)
 
 
+class TestApplication(unittest.TestCase):
+    def setUp(self):
+        from main import application
+
+        application.config["TESTING"] = True
+        self.app = application.test_client()
+
+    def tearDown(self):
+        pass
+
+    def test_home_route(self):
+        response = self.app.get("/")
+        self.assertEqual(response.status_code, 200)
+        response_json = response.get_json()
+        self.assertEqual(response_json["status"], 200)
+        self.assertEqual(
+            response_json["message"],
+            "Welcome to the DoctorSearch API! The documentation is at https://documenter.getpostman.com/view/9000368/SVtbPkAt. Check our our website https://doctorsearch.me as well.",
+        )
+
+    def test_api_route_does_not_exist(self):
+        response = self.app.get("/api")
+        self.assertEqual(response.status_code, 404)
+        self.assertIn(b"404 Not Found", response.data)
+        self.assertIn(
+            b"The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.",
+            response.data,
+        )
+
+    def test_doctor_route(self):
+        response = self.app.get("/api/doctor?page=2")
+        self.assertEqual(response.status_code, 200)
+        response_json = response.get_json()
+        self.assertEqual(len(response_json["objects"]), 9)
+        self.assertEqual(response_json["page"], 2)
+        self.assertEqual(response_json["total_pages"], 252)
+        self.assertEqual(response_json["num_results"], 2262)
+
+    def test_city_route(self):
+        response = self.app.get("/api/city?page=2")
+        self.assertEqual(response.status_code, 200)
+        response_json = response.get_json()
+        self.assertEqual(len(response_json["objects"]), 9)
+        self.assertEqual(response_json["page"], 2)
+        self.assertEqual(response_json["total_pages"], 6)
+        self.assertEqual(response_json["num_results"], 50)
+
+    def test_specialty_route(self):
+        response = self.app.get("/api/specialty?page=2")
+        self.assertEqual(response.status_code, 200)
+        response_json = response.get_json()
+        self.assertEqual(len(response_json["objects"]), 10)
+        self.assertEqual(response_json["page"], 2)
+        self.assertEqual(response_json["total_pages"], 16)
+        self.assertEqual(response_json["num_results"], 154)
+
+    def test_city_route_california_ascending_population(self):
+        response = self.app.get(
+            '/api/city?q={"filters":[{"name":"region","op":"eq","val":"California"}], "order_by":[{"field":"population", "direction":"asc"}]}'
+        )
+        self.assertEqual(response.status_code, 200)
+        response_json = response.get_json()
+        self.assertEqual(len(response_json["objects"]), 8)
+        self.assertEqual(response_json["page"], 1)
+        self.assertEqual(response_json["total_pages"], 1)
+        self.assertEqual(response_json["num_results"], 8)
+        city_names = [city["name"] for city in response_json["objects"]]
+        self.assertListEqual(
+            city_names,
+            [
+                "Oakland",
+                "Long Beach",
+                "Sacramento",
+                "Fresno",
+                "San Francisco",
+                "San Jose",
+                "San Diego",
+                "Los Angeles",
+            ],
+        )
+        states = {city["region"] for city in response_json["objects"]}
+        self.assertSetEqual(states, {"California"})
+        timezones = {city["timezone"] for city in response_json["objects"]}
+        self.assertSetEqual(timezones, {"America__Los_Angeles"})
+        self.assertListEqual(
+            response_json["objects"],
+            sorted(response_json["objects"], key=lambda c: c["population"]),
+        )
+
+
 if __name__ == "__main__":
     unittest.main()

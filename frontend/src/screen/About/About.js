@@ -76,22 +76,31 @@ export default class About extends React.Component {
               US, we have information on doctors and specialties that are being practiced so that
               anyone can easily search for a doctor near them.
             </p>
-            <br />
             <h1>Results</h1>
             <p>
               {`We're aggregating data about cities and the specialties of doctors and providing a
               centralized source of information. We integrated this data so that people can find out
               which doctors are closest to them and also which cities have a more diverse amount of
-              doctors and specialties.`}
+              doctors and specialties. The sources we used are linked below.`}
             </p>
+            <a href="https://developers.teleport.org/api/">Teleport API</a>
             <br />
+            <a href="http://geodb-cities-api.wirefreethought.com/">GeoDB Cities API</a>
+            <br />
+            <a href="https://developer.betterdoctor.com/">BetterDoctor API</a>
+            <br />
+            <a href="https://developers.google.com/maps/documentation/embed/start">
+              Google Maps Embed API
+            </a>
+            <br />
+            <a href="https://developers.google.com/maps/documentation/maps-static/intro">
+              Google Maps Static API
+            </a>
             <h1>Developers</h1>
 
             <Grid container spacing={2} justify="center">
               {bioCards}
             </Grid>
-            <br />
-            <br />
             <h1>Contributions</h1>
             {this.state.data.length > 0 ? (
               <div>

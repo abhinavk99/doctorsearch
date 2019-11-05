@@ -74,12 +74,12 @@ class Specialties extends React.Component {
     });
   }
 
-  async setPage(pg) {
+  setPage = async pg => {
     this.setState({
       page: pg,
       data: await this.state.dd.getSpecialties(pg + 1)
     });
-  }
+  };
 
   handleChangePage = (event, newPage) => {
     this.setPage(newPage);

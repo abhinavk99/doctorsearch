@@ -1,15 +1,16 @@
-import React from "react";
-import { withRouter, useParams } from "react-router-dom";
-import Card from "@material-ui/core/Card";
-import Grid from "@material-ui/core/Grid";
-import LinkedExpander from "../../component/LinkedExpander/LinkedExpander";
+import React from 'react';
+import { withRouter, useParams } from 'react-router-dom';
+import Card from '@material-ui/core/Card';
+import Grid from '@material-ui/core/Grid';
+import LinkedExpander from '../../component/LinkedExpander/LinkedExpander';
 
+// eslint-disable-next-line no-unused-vars
 function SpecFocused(props) {
-  let format = require("../../screen/Specialties/SpecFormat");
+  let format = require('../../screen/Specialties/SpecFormat');
   let { id } = useParams();
   const [data, setData] = React.useState(null);
   React.useEffect(() => {
-    fetch("https://api.doctorsearch.me/api/specialty/" + id)
+    fetch('https://api.doctorsearch.me/api/specialty/' + id)
       .then(results => results.json())
       .then(d => setData(d));
   }, [id]);
@@ -19,47 +20,43 @@ function SpecFocused(props) {
   let locations = data.cities.map(c => `${c.latitude},${c.longitude}`);
   let zoomParam = locations.length === 1 ? '&zoom=10' : '';
   let url =
-    "https://maps.googleapis.com/maps/api/staticmap?key=" +
+    'https://maps.googleapis.com/maps/api/staticmap?key=' +
     process.env.REACT_APP_GOOGLE_API_KEY +
     zoomParam +
-    "&size=300x200&markers=color:red|" +
-    locations.join('|')
+    '&size=300x200&markers=color:red|' +
+    locations.join('|');
 
   return (
-    <div style={{ textAlign: "center", padding: "3em" }}>
+    <div style={{ textAlign: 'center', padding: '3em' }}>
       <Card
         style={{
-          backgroundColor: "#d9d9d9",
-          color: "black",
-          paddingBottom: "2em"
+          backgroundColor: '#d9d9d9',
+          color: 'black',
+          paddingBottom: '2em'
         }}
       >
         <h1>{data.name}</h1>
         <p>{data.description}</p>
-        <Grid container style={{ maxWidth: "65% ", margin: "auto" }}>
+        <Grid container style={{ maxWidth: '65% ', margin: 'auto' }}>
           <Grid item xs={12}>
             <h2>Information</h2>
-            <div style={{ display:"inline-block", textAlign:"left"}} >
-              <p><strong>Category: </strong>{format.capitalize(data.category)}</p>
-              <p><strong>Number of Doctors:</strong> {data.num_doctors}</p>
-              <p><strong>Number of Cities: </strong>{data.num_cities}</p>
+            <div style={{ display: 'inline-block', textAlign: 'left' }}>
+              <p>
+                <strong>Category: </strong>
+                {format.capitalize(data.category)}
+              </p>
+              <p>
+                <strong>Number of Doctors:</strong> {data.num_doctors}
+              </p>
+              <p>
+                <strong>Number of Cities: </strong>
+                {data.num_cities}
+              </p>
             </div>
             <h2>Map of Cities In</h2>
-            <img
-              src={url}
-              style={{ maxWidth: "20em" }}
-              alt="locimg"
-            />
-            <LinkedExpander
-              data={data.doctors}
-              urlheader="/doctors/"
-              title="Doctors:"
-            />
-            <LinkedExpander
-              data={data.cities}
-              urlheader="/cities/"
-              title="Cities:"
-            />
+            <img src={url} style={{ maxWidth: '20em' }} alt="locimg" />
+            <LinkedExpander data={data.doctors} urlheader="/doctors/" title="Doctors:" />
+            <LinkedExpander data={data.cities} urlheader="/cities/" title="Cities:" />
           </Grid>
         </Grid>
       </Card>

@@ -1,9 +1,9 @@
-import React from "react";
-import DoctorSearchData from "../../datastore/DoctorSearchData/DoctorSearchData";
-import DocCard from "../../component/DocCard/DocCard";
-import Grid from "@material-ui/core/Grid";
-import Pagination from "../../component/Pagination/Pagination";
-import "./Doctor.css";
+import React from 'react';
+import DoctorSearchData from '../../datastore/DoctorSearchData/DoctorSearchData';
+import DocCard from '../../component/DocCard/DocCard';
+import Grid from '@material-ui/core/Grid';
+import Pagination from '../../component/Pagination/Pagination';
+import './Doctor.css';
 
 export default class Doctors extends React.Component {
   constructor() {
@@ -34,14 +34,11 @@ export default class Doctors extends React.Component {
       : null;
     return (
       <div className="simple">
-        <h2 style={{ textAlign: "center" }}>Hot Doctors in Your Area</h2>
+        <h2 style={{ textAlign: 'center' }}>Hot Doctors in Your Area</h2>
         <Grid container spacing={2} justify="center">
           {doctorCards}
         </Grid>
-        <Pagination
-          setPage={this.setPage}
-          numPages={this.state.dataArr["total_pages"]}
-        />
+        <Pagination setPage={this.setPage} numPages={this.state.dataArr['total_pages']} />
       </div>
     );
   }

@@ -1,22 +1,22 @@
-import React from "react";
-import Card from "@material-ui/core/Card";
-import Grid from "@material-ui/core/Grid";
+import React from 'react';
+import Card from '@material-ui/core/Card';
+import Grid from '@material-ui/core/Grid';
 
 function UserBio(props) {
   return (
-    <Grid item xs={12} sm={6} md={4} style={{ textAlign: "center" }}>
-      <div style={{ padding: ".5em" }}>
+    <Grid item xs={12} sm={6} md={4} style={{ textAlign: 'center' }}>
+      <div style={{ padding: '.5em' }}>
         <Card
           style={{
-            backgroundColor: "#2bc4ad",
-            color: "white",
-            borderRadius: "2%"
+            backgroundColor: '#2bc4ad',
+            color: 'white',
+            borderRadius: '2%'
           }}
         >
-          <div style={{ padding: "2em" }}>
+          <div style={{ padding: '2em' }}>
             <img
               src={props.data.pic}
-              style={{ maxWidth: "10em", borderRadius: "50%" }}
+              style={{ maxWidth: '10em', borderRadius: '50%' }}
               alt={props.data.name}
             />
             <h2>{props.data.name}</h2>

@@ -1,10 +1,10 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
-import { withRouter } from "react-router-dom";
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import { withRouter } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     flexGrow: 1,
-    cursor: "pointer"
+    cursor: 'pointer'
   }
 }));
 
@@ -24,13 +24,13 @@ function NavBar(props) {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" style={{ background: "#2bc4ad" }}>
+      <AppBar position="static" style={{ background: '#2bc4ad' }}>
         <Toolbar>
           <Typography
             variant="h6"
             className={classes.title}
             onClick={() => {
-              props.history.push("/");
+              props.history.push('/');
             }}
           >
             Doctor Search
@@ -38,7 +38,7 @@ function NavBar(props) {
           <Button
             color="inherit"
             onClick={() => {
-              props.history.push("/doctors");
+              props.history.push('/doctors');
             }}
           >
             Doctors
@@ -46,7 +46,7 @@ function NavBar(props) {
           <Button
             color="inherit"
             onClick={() => {
-              props.history.push("/cities");
+              props.history.push('/cities');
             }}
           >
             Cities
@@ -55,7 +55,7 @@ function NavBar(props) {
           <Button
             color="inherit"
             onClick={() => {
-              props.history.push("/specialties");
+              props.history.push('/specialties');
             }}
           >
             Specialties
@@ -64,7 +64,7 @@ function NavBar(props) {
           <Button
             color="inherit"
             onClick={() => {
-              props.history.push("/about");
+              props.history.push('/about');
             }}
           >
             About

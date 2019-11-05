@@ -1,5 +1,5 @@
-import React from "react";
-import Pagination from "material-ui-flat-pagination";
+import React from 'react';
+import Pagination from 'material-ui-flat-pagination';
 
 class MyPagination extends React.Component {
   constructor(props) {
@@ -13,7 +13,6 @@ class MyPagination extends React.Component {
   }
 
   render() {
-    
     return (
       <Pagination
         limit={1}

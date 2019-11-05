@@ -14,7 +14,7 @@ export default class DoctorSearchData {
    * const cities = await _getModelInstances(1, 'city', filters, sorts);
    * @returns {Object<string, any>} response from API containing model instances
    */
-  async _getModelInstances(offset, name, filters={}, sorts={}) {
+  async _getModelInstances(offset, name, filters = {}, sorts = {}) {
     const filterString = this._constructFilterString(filters);
     const sortString = this._constructSortString(sorts);
     let url = `https://api.doctorsearch.me/api/${name}?q={"filters":${filterString}, "order_by":${sortString}}&page=${offset}`;
@@ -22,27 +22,58 @@ export default class DoctorSearchData {
     return await data.json();
   }
 
-  _constructFilterString(filters={}) {
-    return JSON.stringify(Object.entries(filters).map(([attr, val]) => {return {name: attr, op: 'eq', val: val}}));
+  _constructFilterString(filters = {}) {
+    return JSON.stringify(
+      Object.entries(filters).map(([attr, val]) => {
+        return { name: attr, op: 'eq', val: val };
+      })
+    );
   }
 
-  _constructSortString(sorts={}) {
-    return JSON.stringify(Object.entries(sorts).map(([attr, dir]) => {return {field: attr, direction: dir}}));
+  _constructSortString(sorts = {}) {
+    return JSON.stringify(
+      Object.entries(sorts).map(([attr, dir]) => {
+        return { field: attr, direction: dir };
+      })
+    );
   }
 
-  async getDoctors(offset, filters={}, sorts={}) {
-    this._assertFiltersAreValid(filters, ['address_city', 'college', 'degree', 'gender', 'name', 'state', 'title', 'zip_code']);
+  async getDoctors(offset, filters = {}, sorts = {}) {
+    this._assertFiltersAreValid(filters, [
+      'address_city',
+      'college',
+      'degree',
+      'gender',
+      'name',
+      'state',
+      'title',
+      'zip_code'
+    ]);
     this._assertSortsAreValid(sorts, ['latitude', 'longitude', 'rating']);
     return this._getModelInstances(offset, 'doctor', filters, sorts);
   }
 
-  async getCities(offset, filters={}, sorts={}) {
-    this._assertFiltersAreValid(filters, ['country', 'country_code', 'name', 'region', 'region_code', 'timezone']);
-    this._assertSortsAreValid(sorts, ['elevation_meters', 'latitude', 'longitude', 'num_doctors', 'num_specialties', 'population']);
+  async getCities(offset, filters = {}, sorts = {}) {
+    this._assertFiltersAreValid(filters, [
+      'country',
+      'country_code',
+      'name',
+      'region',
+      'region_code',
+      'timezone'
+    ]);
+    this._assertSortsAreValid(sorts, [
+      'elevation_meters',
+      'latitude',
+      'longitude',
+      'num_doctors',
+      'num_specialties',
+      'population'
+    ]);
     return this._getModelInstances(offset, 'city', filters, sorts);
   }
 
-  async getSpecialties(offset, filters={}, sorts={}) {
+  async getSpecialties(offset, filters = {}, sorts = {}) {
     this._assertFiltersAreValid(filters, ['category', 'name']);
     this._assertSortsAreValid(sorts, ['num_cities', 'num_doctors']);
     return this._getModelInstances(offset, 'specialty', filters, sorts);
@@ -60,7 +91,9 @@ export default class DoctorSearchData {
       throw new IllegalArgumentError('One or more of the sort attributes are invalid.');
     }
     if (!Object.values(sorts).every(dir => ['asc', 'desc'].includes(dir))) {
-      throw new IllegalArgumentError("All attributes in `sorts` must have direction 'asc' or 'desc'.");
+      throw new IllegalArgumentError(
+        "All attributes in `sorts` must have direction 'asc' or 'desc'."
+      );
     }
     return true;
   }

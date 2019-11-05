@@ -1,19 +1,20 @@
-import React from "react";
-import ExpansionPanel from "@material-ui/core/ExpansionPanel";
-import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
-import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
-import Typography from "@material-ui/core/Typography";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import { withRouter } from "react-router-dom";
+import React from 'react';
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import Typography from '@material-ui/core/Typography';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { withRouter } from 'react-router-dom';
 
 function LinkedExpander(props) {
   let links = props.data.map(item => (
     <p
       key={item.name}
       onClick={() => props.history.push(props.urlheader + item.id)}
-      style={{ color: "blue", cursor: "pointer" }}
+      style={{ color: 'blue', cursor: 'pointer' }}
     >
-      {" "}{item.name}{" "}
+      {' '}
+      {item.name}{' '}
     </p>
   ));
   return (

@@ -1,4 +1,4 @@
-import {expect} from 'chai';
+import { expect } from 'chai';
 import IllegalArgumentError from './IllegalArgumentError';
 
 it('should correctly create an IllegalArgumentError', () => {

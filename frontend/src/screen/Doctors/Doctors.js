@@ -24,6 +24,7 @@ export default class Doctors extends React.Component {
       dataArr: await this.state.dd.getDoctors(offset + 1),
       loaded: true
     });
+    console.log(this.state.dataArr);
   };
 
   render() {

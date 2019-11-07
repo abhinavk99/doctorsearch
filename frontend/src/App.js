@@ -10,6 +10,7 @@ import CityFocused from './screen/CityFocused/CityFocused';
 import Specialties from './screen/Specialties/Specialties';
 import SpecFocused from './screen/SpecFocused/SpecFocused';
 import About from './screen/About/About';
+import Search from './screen/Search/Search';
 
 function App() {
   require('dotenv').config();
@@ -39,6 +40,9 @@ function App() {
             </Route>
             <Route path="/specialties">
               <Specialties />
+            </Route>
+            <Route path="/search/:queryStr">
+              <Search />
             </Route>
             <Route path="/">
               <HomePage />

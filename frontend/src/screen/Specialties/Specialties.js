@@ -72,6 +72,7 @@ class Specialties extends React.Component {
       data: await this.state.dd.getSpecialties(this.state.page + 1),
       loaded: true
     });
+    console.log(this.state.data);
   }
 
   setPage = async pg => {

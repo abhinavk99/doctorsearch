@@ -2,7 +2,6 @@ import React from 'react';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
-import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { withRouter } from 'react-router-dom';
 
@@ -25,11 +24,11 @@ function LinkedExpander(props) {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography> {props.title} </Typography>
+          <span> {props.title} </span>
         </ExpansionPanelSummary>
 
         <ExpansionPanelDetails>
-          <Typography>{links}</Typography>
+          <span>{links}</span>
         </ExpansionPanelDetails>
       </ExpansionPanel>
     </div>

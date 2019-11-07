@@ -31,7 +31,7 @@ export const memberInfo = new Map([
       pic: abhinav,
       responsibilities: 'Backend',
       issues: 0,
-      tests: 23
+      tests: 26
     }
   ],
   [

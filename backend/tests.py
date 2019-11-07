@@ -1,5 +1,6 @@
 import unittest
 
+from attributes import SERIALIZE_ATTRIBUTES
 from seeding.seed_cities import build_city
 from seeding.seed_specialties import build_specialty
 from seeding.seed_doctors_connect_models import (
@@ -249,6 +250,55 @@ class TestApplication(unittest.TestCase):
             response_json["objects"],
             sorted(response_json["objects"], key=lambda c: c["population"]),
         )
+
+    def test_search_route_fails_no_query(self):
+        response = self.app.get("/api/search")
+        self.assertEqual(response.status_code, 422)
+        response_json = response.get_json()
+        self.assertEqual(response_json["status"], 422)
+        self.assertEqual(
+            response_json["message"], "Search query not found. Use ?q=searchquery."
+        )
+
+    def test_search_route_fails_query_len_0(self):
+        response = self.app.get("/api/search?q")
+        self.assertEqual(response.status_code, 422)
+        response_json = response.get_json()
+        self.assertEqual(response_json["status"], 422)
+        self.assertEqual(
+            response_json["message"], "Search query length must be at least 1."
+        )
+
+    def test_search_route_oakland(self):
+        response = self.app.get("/api/search?q=Oakland")
+        self.assertEqual(response.status_code, 200)
+        response_json = response.get_json()
+        self.assertEqual(response_json["status"], 200)
+
+        self.assertEqual(len(response_json["cities"]), 1)
+        self.assertEqual(response_json["num_cities"], 1)
+        self.assertEqual(len(response_json["cities"]), response_json["num_cities"])
+        for city in response_json["cities"]:
+            for attr in SERIALIZE_ATTRIBUTES["cities"]:
+                self.assertIn(attr, city)
+
+        self.assertEqual(len(response_json["doctors"]), 36)
+        self.assertEqual(response_json["num_doctors"], 36)
+        self.assertEqual(len(response_json["doctors"]), response_json["num_doctors"])
+        for doctor in response_json["doctors"]:
+            for attr in SERIALIZE_ATTRIBUTES["doctors"]:
+                self.assertIn(attr, doctor)
+
+        self.assertEqual(len(response_json["specialties"]), 0)
+        self.assertEqual(response_json["num_specialties"], 0)
+        self.assertEqual(
+            len(response_json["specialties"]), response_json["num_specialties"]
+        )
+        self.assertListEqual(response_json["specialties"], [])
+
+        self.assertEqual(response_json["page"], 1)
+        self.assertEqual(response_json["total_pages"], 1)
+        self.assertEqual(response_json["num_results"], 37)
 
 
 if __name__ == "__main__":

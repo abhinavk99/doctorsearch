@@ -9,7 +9,7 @@ import TableRow from '@material-ui/core/TableRow';
 import fmat from '../../screen/Specialties/SpecFormat';
 import './Spec.css';
 import { withRouter } from 'react-router-dom';
-
+import CssTextField from '../../component/CssTextField/CssTextField';
 import DoctorSearchData from '../../datastore/DoctorSearchData/DoctorSearchData';
 
 const columns = [
@@ -90,6 +90,18 @@ class Specialties extends React.Component {
     this.setState({ rowsPerPage: event.target.value });
   };
 
+  handleChange = () => {};
+
+  handleKey = e => {
+    if (e.keyCode === 13 && e.target.value.length > 0) {
+      console.log('searching for: ', e.target.value);
+      this.props.history.push({
+        pathname: '/search/' + e.target.value,
+        state: { type: 'specialties' }
+      });
+    }
+  };
+
   render() {
     if (!this.state.loaded) {
       return <div></div>;
@@ -97,6 +109,16 @@ class Specialties extends React.Component {
     return (
       <Paper style={{ margin: '5em' }}>
         <div>
+          <div style={{ margin: '1em', textAlign: 'center' }}>
+            <CssTextField
+              id="outlined-basic"
+              label="Search for a specialty"
+              margin="normal"
+              variant="outlined"
+              onChange={this.handleChange}
+              onKeyDown={this.handleKey}
+            />
+          </div>
           <Table stickyHeader aria-label="sticky table">
             <TableHead>
               <TableRow>

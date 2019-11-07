@@ -3,8 +3,9 @@ import DoctorSearchData from '../../datastore/DoctorSearchData/DoctorSearchData'
 import CityCard from '../../component/CityCard/CityCard';
 import Grid from '@material-ui/core/Grid';
 import Pagination from '../../component/Pagination/Pagination';
-
-export default class Cities extends React.Component {
+import CssTextField from '../../component/CssTextField/CssTextField';
+import { withRouter } from 'react-router-dom';
+class Cities extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -24,6 +25,17 @@ export default class Cities extends React.Component {
       loaded: true
     });
   };
+  handleChange = () => {};
+
+  handleKey = e => {
+    if (e.keyCode === 13 && e.target.value.length > 0) {
+      console.log('searching for: ', e.target.value);
+      this.props.history.push({
+        pathname: '/search/' + e.target.value,
+        state: { type: 'cities' }
+      });
+    }
+  };
 
   render() {
     let cityCards = this.state.loaded
@@ -34,6 +46,14 @@ export default class Cities extends React.Component {
     return (
       <div style={{ padding: '0em 2em', textAlign: 'center' }}>
         <h2 style={{ textAlign: 'center' }}>Cities Where Medical Assistance is Attainable</h2>
+        <CssTextField
+          id="outlined-basic"
+          label="Search for a city"
+          margin="normal"
+          variant="outlined"
+          onChange={this.handleChange}
+          onKeyDown={this.handleKey}
+        />
         <Grid container spacing={2} justify="center">
           {cityCards}
         </Grid>
@@ -42,3 +62,5 @@ export default class Cities extends React.Component {
     );
   }
 }
+
+export default withRouter(Cities);

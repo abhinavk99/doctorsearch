@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "0c926f05-f80e-4ac8-8a43-6a66b81cbeca",
-		"name": "Doctor Search API - v1.0.0",
+		"name": "Doctor Search API - v1.1.0",
 		"description": "Get information about doctors, cities, and specialties with the Doctor Search API.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -156,6 +156,60 @@
 				},
 				{
 					"name": "find Doctor By Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "535ef47a-8d97-4f54-b21b-8a8311d4b095",
+								"exec": [
+									"pm.test(\"success status\", () => pm.response.to.be.success );",
+									"",
+									"pm.test(\"Content-Type header is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.sendRequest(\"https://postman-echo.com/get\", function (err, response) {",
+									"    console.log(response.json());",
+									"});",
+									"",
+									"pm.test(\"Response must be valid and have a body\", function () {",
+									"     pm.response.to.be.ok; ",
+									"     pm.response.to.be.withBody;",
+									"     pm.response.to.be.json; ",
+									"});",
+									"",
+									"pm.test(\"Response includes cities\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"address_city\");",
+									"});",
+									"",
+									"pm.test(\"Response includes contries\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"country\");",
+									"});",
+									"",
+									"pm.test(\"Response includes doctors\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"doctors\");",
+									"});",
+									"",
+									"pm.test(\"Response includes country codes\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"country_code\");",
+									"});",
+									"",
+									"pm.test(\"Response includes cities\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"address_city\");",
+									"});",
+									"",
+									"pm.test(\"Response includes doctors' names\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"name\");",
+									"});",
+									"",
+									"pm.test(\"Response includes specialities\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"specialty_id\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "noauth"
@@ -380,6 +434,60 @@
 				},
 				{
 					"name": "find City By Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4a3a5c15-1b22-443b-a3b4-496c7779fcf5",
+								"exec": [
+									"pm.test(\"success status\", () => pm.response.to.be.success );",
+									"",
+									"pm.test(\"Content-Type header is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.sendRequest(\"https://postman-echo.com/get\", function (err, response) {",
+									"    console.log(response.json());",
+									"});",
+									"",
+									"pm.test(\"Response must be valid and have a body\", function () {",
+									"     pm.response.to.be.ok; ",
+									"     pm.response.to.be.withBody;",
+									"     pm.response.to.be.json; ",
+									"});",
+									"",
+									"pm.test(\"Response includes cities\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"address_city\");",
+									"});",
+									"",
+									"pm.test(\"Response includes contries\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"country\");",
+									"});",
+									"",
+									"pm.test(\"Response includes doctors\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"doctors\");",
+									"});",
+									"",
+									"pm.test(\"Response includes country codes\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"country_code\");",
+									"});",
+									"",
+									"pm.test(\"Response includes cities\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"address_city\");",
+									"});",
+									"",
+									"pm.test(\"Response includes doctors' names\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"name\");",
+									"});",
+									"",
+									"pm.test(\"Response includes specialities\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"specialty_id\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "noauth"
@@ -459,6 +567,62 @@
 			"item": [
 				{
 					"name": "find Specialties",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f53a134d-6a18-4051-aeb1-9c1f8df27835",
+								"exec": [
+									"pm.test(\"success status\", () => pm.response.to.be.success );",
+									"pm.test(\"result number is correct\", () => ",
+									"  pm.expect(pm.response.json().num_results).to.equal(154));",
+									"",
+									"pm.test(\"Content-Type header is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.sendRequest(\"https://postman-echo.com/get\", function (err, response) {",
+									"    console.log(response.json());",
+									"});",
+									"",
+									"pm.test(\"Response must be valid and have a body\", function () {",
+									"     pm.response.to.be.ok; ",
+									"     pm.response.to.be.withBody;",
+									"     pm.response.to.be.json; ",
+									"});",
+									"",
+									"pm.test(\"Response includes cities\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"address_city\");",
+									"});",
+									"",
+									"pm.test(\"Response includes contries\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"country\");",
+									"});",
+									"",
+									"pm.test(\"Response includes doctors\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"doctors\");",
+									"});",
+									"",
+									"pm.test(\"Response includes country codes\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"country_code\");",
+									"});",
+									"",
+									"pm.test(\"Response includes cities\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"address_city\");",
+									"});",
+									"",
+									"pm.test(\"Response includes doctors' names\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"name\");",
+									"});",
+									"",
+									"pm.test(\"Response includes specialities\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"specialty_id\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "noauth"
@@ -548,6 +712,60 @@
 				},
 				{
 					"name": "find Specialty By Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "15803164-35a2-4e11-9cb3-14e9c6135ba6",
+								"exec": [
+									"pm.test(\"success status\", () => pm.response.to.be.success );",
+									"",
+									"pm.test(\"Content-Type header is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.sendRequest(\"https://postman-echo.com/get\", function (err, response) {",
+									"    console.log(response.json());",
+									"});",
+									"",
+									"pm.test(\"Response must be valid and have a body\", function () {",
+									"     pm.response.to.be.ok; ",
+									"     pm.response.to.be.withBody;",
+									"     pm.response.to.be.json; ",
+									"});",
+									"",
+									"pm.test(\"Response includes cities\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"address_city\");",
+									"});",
+									"",
+									"pm.test(\"Response includes contries\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"country\");",
+									"});",
+									"",
+									"pm.test(\"Response includes doctors\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"doctors\");",
+									"});",
+									"",
+									"pm.test(\"Response includes country codes\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"country_code\");",
+									"});",
+									"",
+									"pm.test(\"Response includes cities\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"address_city\");",
+									"});",
+									"",
+									"pm.test(\"Response includes doctors' names\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"name\");",
+									"});",
+									"",
+									"pm.test(\"Response includes specialities\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"specialty_id\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "noauth"
@@ -621,6 +839,159 @@
 				}
 			],
 			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Search",
+			"item": [
+				{
+					"name": "search Models",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fdc89984-1c40-4198-a4a2-5719df42d1df",
+								"exec": [
+									"pm.test(\"success status\", () => pm.response.to.be.success );",
+									"",
+									"pm.test(\"Content-Type header is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.sendRequest(\"https://postman-echo.com/get\", function (err, response) {",
+									"    console.log(response.json());",
+									"});",
+									"",
+									"pm.test(\"Response must be valid and have a body\", function () {",
+									"     pm.response.to.be.ok; ",
+									"     pm.response.to.be.withBody;",
+									"     pm.response.to.be.json; ",
+									"});",
+									"",
+									"pm.test(\"Response includes cities\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"cities\");",
+									"});",
+									"",
+									"pm.test(\"Response includes contries\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"country\");",
+									"});",
+									"",
+									"pm.test(\"Response includes doctors\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"doctors\");",
+									"});",
+									"",
+									"pm.test(\"Response includes country codes\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"country_code\");",
+									"});",
+									"",
+									"pm.test(\"Response includes cities\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"address_city\");",
+									"});",
+									"",
+									"pm.test(\"Response includes doctors' names\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"name\");",
+									"});",
+									"pm.test(\"Response includes region\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"region\");",
+									"});",
+									"pm.test(\"Response includes population\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"population\");",
+									"});",
+									"pm.test(\"Response includes region_code\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"region_code\");",
+									"});",
+									"pm.test(\"Response includes timezone\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"timezone\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/search?q=Oakland",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"search"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "Oakland"
+								}
+							]
+						},
+						"description": "Searches all models based on a query."
+					},
+					"response": [
+						{
+							"name": "search Models",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/search?q=Oakland",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"search"
+									],
+									"query": [
+										{
+											"key": "q",
+											"value": "Oakland"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 07 Nov 2019 01:33:21 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "25084"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.39 (Amazon) mod_wsgi/3.5 Python/3.6.8"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Vary",
+									"value": "X-Forwarded-Proto"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"cities\": [\n        {\n            \"country\": \"United States of America\",\n            \"country_code\": \"US\",\n            \"elevation_meters\": 13,\n            \"id\": 46,\n            \"latitude\": 37.80437,\n            \"longitude\": -122.2708,\n            \"name\": \"Oakland\",\n            \"population\": 419267,\n            \"region\": \"California\",\n            \"region_code\": \"CA\",\n            \"timezone\": \"America__Los_Angeles\"\n        }\n    ],\n    \"doctors\": [\n        {\n            \"address_city\": \"Castro Valley\",\n            \"bio\": \"Dr. James Shu, MD practices medicine at Castro valley, California, Beaverton, Oregon, Hayward, California, Oakland, California, and San leandro, California and specializes in anesthesiology.\\n\\nDr. Shu is licensed to practice medicine at California.\\n\\nDr. Shu has been found during an automated background check to be clear of any malpractice history and holds one or more active medical licenses.\",\n            \"id\": 68,\n            \"name\": \"James Shu\",\n            \"title\": \"MD\"\n        },\n        {\n            \"address_city\": \"Castro Valley\",\n            \"bio\": \"Dr. James Shu, MD practices medicine at Castro valley, California, Beaverton, Oregon, Hayward, California, Oakland, California, and San leandro, California and specializes in anesthesiology.\\n\\nDr. Shu is licensed to practice medicine at California.\\n\\nDr. Shu has been found during an automated background check to be clear of any malpractice history and holds one or more active medical licenses.\",\n            \"id\": 100,\n            \"name\": \"James Shu\",\n            \"title\": \"MD\"\n        },\n        {\n            \"address_city\": \"Richmond\",\n            \"bio\": \"Dr. Heather Wolf, MD practices medicine at Richmond, California and Oakland, California, specializing in internal medicine.\\n\\nDr. Wolf is licensed to see patients in Massachusetts.\\n\\nIn addition to having active medical licenses, Dr. Wolf has passed an automated background check which looked at elements including medical license status and malpractice screening (no history found).\",\n            \"id\": 183,\n            \"name\": \"Heather Wolf\",\n            \"title\": \"MD\"\n        },\n        {\n            \"address_city\": \"Oxford\",\n            \"bio\": \"Dr. Justin May, DO--specialist in emergency medicine--currently treats patients in Ripley, Tennessee, Memphis, Tennessee, Ripley, Mississippi, Holly springs, Mississippi, Oxford, Mississippi, Collierville, Tennessee, Pontiac, Michigan, Chicago, Illinois, Oakland, Tennessee, New albany, Mississippi, Germantown, Tennessee, Southaven, Mississippi, Savannah, Tennessee, and Union city, Tennessee.\\n\\nDr. May is licensed to practice medicine at Michigan.\\n\\nIn addition to having active medical licenses, Dr. May has been found to hold one or more active medical licenses, and successfully passed a malpractice history screening.\",\n            \"id\": 253,\n            \"name\": \"Justin May\",\n            \"title\": \"DO\"\n        },\n        {\n            \"address_city\": \"San Francisco\",\n            \"bio\": \"Dr Tran was born in Saigon, Vietnam and her family immigrated to the United States in 1975. Her family settled in Augusta, GA. In 1980, Dr. Tran headed to California to pursue college education.\\n\\nDr. Tran earned her Bachelor of Science Degree in Cell and Molecular Biology from San Francisco State University in 1985, her Doctorate of Dental Medicine from the Medical College of Georgia in 1990. She joined the Navy Reserve while in dental school. She practiced as a general dentist for 7 years before returning to graduate school. She completed residency training in Periodontics in 2000 at the Naval Post Graduate Dental School in Bethesda, Maryland and became a Diplomate of the American Board of Periodontics in 2000. She completed an additional two year training in Orofacial Pain in 2006 at NPDS, Bethesda and received her board certification in 2007. In 2010, she was selected for acupuncture training with the Helms Medical Institute and received a certificate in Medical Acupuncture. Dr. Tran also received training in Botox injection for TMD and migraine headache from the Allergan® company and the American Academy of Facial Esthetics.\\n\\nAfter completing Officers’ Indoctrination training at Newport, Rhode Island in August 1990, Dr. Tran reported to Oaknoll Naval Hospital in Oakland, CA as a GPR resident. She went on to serve 12 months in Diego Garcia, a British island in the middle of the Indian Ocean. Then she returned stateside to work at the Marine Corps Recruiting Depot, Parris Island, SC. From 1994-96, she served as the Dental Department Head on the USS Comstock (LSD-45) homeported in San Diego, CA. In 1997 she started residency training in Periodontics and was subsequently assigned to 13 Dental Company, Marine Corps Air Station, Miramar in 2000. In 2004, she returned to Bethesda, MD to complete training in Orofacial Pain. In 2006, she accepted orders to 1st Dental Battalion/Naval Dental Center- Camp Pendleton where she is the department head for Periodontics and Orofacial Pain and mentor for the AEGD and GPR residents.\\n\\nDr. Tran retired from the US Navy in September 2013 after completing 23 years of active service. She has relocated to the Bay Area and is enjoying life as a civilian.\",\n            \"id\": 341,\n            \"name\": \"Ngoc Tran\",\n            \"title\": \"DMD\"\n        },\n        {\n            \"address_city\": \"San Mateo\",\n            \"bio\": \"Just about no one wakes up and says, \\\"Hey, I think I'll go to the Emergency Room today.\\\" ER visits are often unexpected and can be filled with uncertainty and a lack of control, both for patients and their loved ones. My approach is to provide clear explanations, comfort measures, and emotional support. I strive to treat my patients in the same way I would want my family members to be treated.\\n\\nI graduated with honors from Stanford and started a PhD program in Clinical Psychology before I realized that medicine was my true calling. I graduated in the top 10% of my class from the UC Irvine College of Medicine and was granted the Faculty Award for Clinical Excellence in Emergency Medicine. I completed my Emergency Medicine residency at Highland Hospital in Oakland in 2007.\\n\\nI feel tremendously lucky to be a part of Kaiser Permanente Santa Clara with so many lovely patients and colleagues.\",\n            \"id\": 449,\n            \"name\": \"Molly Phelps\",\n            \"title\": \"MD\"\n        },\n        {\n            \"address_city\": \"Oakland\",\n            \"bio\": \"\",\n            \"id\": 537,\n            \"name\": \"Andrew Campbell\",\n            \"title\": \"CP\"\n        },\n        {\n            \"address_city\": \"Fresno\",\n            \"bio\": \"Dr. Jun Park, DDS, specialist in dentistry and general dentistry, currently practices dentistry at Oakland, California, Sacramento, California, Fresno, California, San francisco, California, Rancho cordova, California, Roseville, California, Santa barbara, California, and Millbrae, California.\\n\\nDr. Park is licensed to see patients in California.\\n\\nIn addition to having active medical licenses, Dr. Park has been found to hold one or more active medical licenses, and successfully passed a malpractice history screening.\",\n            \"id\": 557,\n            \"name\": \"Jun Park\",\n            \"title\": \"DDS\"\n        },\n        {\n            \"address_city\": \"Richmond\",\n            \"bio\": \"Dr. Heather Wolf, MD practices medicine at Richmond, California and Oakland, California, specializing in internal medicine.\\n\\nDr. Wolf is licensed to see patients in Massachusetts.\\n\\nIn addition to having active medical licenses, Dr. Wolf has passed an automated background check which looked at elements including medical license status and malpractice screening (no history found).\",\n            \"id\": 586,\n            \"name\": \"Heather Wolf\",\n            \"title\": \"MD\"\n        },\n        {\n            \"address_city\": \"San Francisco\",\n            \"bio\": \"Dr Tran was born in Saigon, Vietnam and her family immigrated to the United States in 1975. Her family settled in Augusta, GA. In 1980, Dr. Tran headed to California to pursue college education.\\n\\nDr. Tran earned her Bachelor of Science Degree in Cell and Molecular Biology from San Francisco State University in 1985, her Doctorate of Dental Medicine from the Medical College of Georgia in 1990. She joined the Navy Reserve while in dental school. She practiced as a general dentist for 7 years before returning to graduate school. She completed residency training in Periodontics in 2000 at the Naval Post Graduate Dental School in Bethesda, Maryland and became a Diplomate of the American Board of Periodontics in 2000. She completed an additional two year training in Orofacial Pain in 2006 at NPDS, Bethesda and received her board certification in 2007. In 2010, she was selected for acupuncture training with the Helms Medical Institute and received a certificate in Medical Acupuncture. Dr. Tran also received training in Botox injection for TMD and migraine headache from the Allergan® company and the American Academy of Facial Esthetics.\\n\\nAfter completing Officers’ Indoctrination training at Newport, Rhode Island in August 1990, Dr. Tran reported to Oaknoll Naval Hospital in Oakland, CA as a GPR resident. She went on to serve 12 months in Diego Garcia, a British island in the middle of the Indian Ocean. Then she returned stateside to work at the Marine Corps Recruiting Depot, Parris Island, SC. From 1994-96, she served as the Dental Department Head on the USS Comstock (LSD-45) homeported in San Diego, CA. In 1997 she started residency training in Periodontics and was subsequently assigned to 13 Dental Company, Marine Corps Air Station, Miramar in 2000. In 2004, she returned to Bethesda, MD to complete training in Orofacial Pain. In 2006, she accepted orders to 1st Dental Battalion/Naval Dental Center- Camp Pendleton where she is the department head for Periodontics and Orofacial Pain and mentor for the AEGD and GPR residents.\\n\\nDr. Tran retired from the US Navy in September 2013 after completing 23 years of active service. She has relocated to the Bay Area and is enjoying life as a civilian.\",\n            \"id\": 616,\n            \"name\": \"Ngoc Tran\",\n            \"title\": \"DMD\"\n        },\n        {\n            \"address_city\": \"Shorewood\",\n            \"bio\": \"Dr. Paul Potos, RPT PT--specialist in physical therapy--currently sees patients in Milwaukee, Wisconsin.\\n\\nDr. Potos is licensed to practice medicine at Wisconsin.\\n\\nIn addition to having active medical licenses, Dr. Potos has been found during an automated background check to be clear of any malpractice history and holds one or more active medical licenses.\",\n            \"id\": 1928,\n            \"name\": \"Paul Potos\",\n            \"title\": \"RPT\"\n        },\n        {\n            \"address_city\": \"Oakland\",\n            \"bio\": \"Dr. Gretchen Mello, MD, specialist in internal medicine, currently practices medicine at Oakland, California.\\n\\nDr. Mello is licensed to treat patients in California.\\n\\nDr. Mello has successfully passed a background check including a medical license verification (active) and screening for malpractice history (none found).\",\n            \"id\": 678,\n            \"name\": \"Gretchen Mello\",\n            \"title\": \"MD\"\n        },\n        {\n            \"address_city\": \"Oakland\",\n            \"bio\": \"Dr. Supriya Bhat, MD treats patients in Oakland, California, specializing in internal medicine.\\n\\nDr. Bhat is licensed to see patients in California.\\n\\nDr. Bhat has been found during an automated background check to be clear of any malpractice history and holds one or more active medical licenses.\",\n            \"id\": 722,\n            \"name\": \"Supriya Bhat\",\n            \"title\": \"MD\"\n        },\n        {\n            \"address_city\": \"Los Angeles\",\n            \"bio\": \"Dr. Hung Tran, MD treats patients in Los angeles, California, Oakland, California, and Novato, California, specializing in pediatrics.\\n\\nDr. Tran is licensed to see patients in California.\\n\\nDr. Tran has been found to hold one or more active medical licenses, and successfully passed a malpractice history screening.\",\n            \"id\": 819,\n            \"name\": \"Hung Tran\",\n            \"title\": \"MD\"\n        },\n        {\n            \"address_city\": \"Oakland\",\n            \"bio\": \"Dr. Supriya Bhat, MD treats patients in Oakland, California, specializing in internal medicine.\\n\\nDr. Bhat is licensed to see patients in California.\\n\\nDr. Bhat has been found during an automated background check to be clear of any malpractice history and holds one or more active medical licenses.\",\n            \"id\": 846,\n            \"name\": \"Supriya Bhat\",\n            \"title\": \"MD\"\n        },\n        {\n            \"address_city\": \"Oakland\",\n            \"bio\": \"Dr. Nicola Longmuir, MD, specialist in internal medicine, currently treats patients in Oakland, California.\\n\\nDr. Longmuir is licensed to see patients in California.\\n\\nIn addition to having active medical licenses, Dr. Longmuir has passed an automated background check which looked at elements including medical license status and malpractice screening (no history found).\",\n            \"id\": 874,\n            \"name\": \"Nicola Longmuir\",\n            \"title\": \"MD\"\n        },\n        {\n            \"address_city\": \"Fresno\",\n            \"bio\": \"Dr. Jun Park, DDS, specialist in dentistry and general dentistry, currently practices dentistry at Oakland, California, Sacramento, California, Fresno, California, San francisco, California, Rancho cordova, California, Roseville, California, Santa barbara, California, and Millbrae, California.\\n\\nDr. Park is licensed to see patients in California.\\n\\nIn addition to having active medical licenses, Dr. Park has been found to hold one or more active medical licenses, and successfully passed a malpractice history screening.\",\n            \"id\": 1033,\n            \"name\": \"Jun Park\",\n            \"title\": \"DDS\"\n        },\n        {\n            \"address_city\": \"Oakland\",\n            \"bio\": \"Dr. Terry Anderson is a cardiologist in Oakland, California and is affiliated with Dameron Hospital. She received her medical degree from University of Cincinnati College of Medicine and has been in practice for 29 years. She is one of 26 doctors at Dameron Hospital who specialize in Cardiovascular Disease.\",\n            \"id\": 1077,\n            \"name\": \"Terry Anderson\",\n            \"title\": \"MD\"\n        },\n        {\n            \"address_city\": \"Fresno\",\n            \"bio\": \"Dr. Jun Park, DDS, specialist in dentistry and general dentistry, currently practices dentistry at Oakland, California, Sacramento, California, Fresno, California, San francisco, California, Rancho cordova, California, Roseville, California, Santa barbara, California, and Millbrae, California.\\n\\nDr. Park is licensed to see patients in California.\\n\\nIn addition to having active medical licenses, Dr. Park has been found to hold one or more active medical licenses, and successfully passed a malpractice history screening.\",\n            \"id\": 1183,\n            \"name\": \"Jun Park\",\n            \"title\": \"DDS\"\n        },\n        {\n            \"address_city\": \"Oakland\",\n            \"bio\": \"Dr. Douglas Riehle, MD sees patients in Oakland, California and Berkeley, California, specializing in diagnostic radiology.\\n\\nDr. Riehle is licensed to see patients in California.\\n\\nIn addition to having active medical licenses, Dr. Riehle has successfully passed a background check including a medical license verification (active) and screening for malpractice history (none found).\",\n            \"id\": 1211,\n            \"name\": \"Douglas Riehle\",\n            \"title\": \"MD\"\n        },\n        {\n            \"address_city\": \"San Mateo\",\n            \"bio\": \"Just about no one wakes up and says, \\\"Hey, I think I'll go to the Emergency Room today.\\\" ER visits are often unexpected and can be filled with uncertainty and a lack of control, both for patients and their loved ones. My approach is to provide clear explanations, comfort measures, and emotional support. I strive to treat my patients in the same way I would want my family members to be treated.\\n\\nI graduated with honors from Stanford and started a PhD program in Clinical Psychology before I realized that medicine was my true calling. I graduated in the top 10% of my class from the UC Irvine College of Medicine and was granted the Faculty Award for Clinical Excellence in Emergency Medicine. I completed my Emergency Medicine residency at Highland Hospital in Oakland in 2007.\\n\\nI feel tremendously lucky to be a part of Kaiser Permanente Santa Clara with so many lovely patients and colleagues.\",\n            \"id\": 1263,\n            \"name\": \"Molly Phelps\",\n            \"title\": \"MD\"\n        },\n        {\n            \"address_city\": \"Oakland\",\n            \"bio\": \"\",\n            \"id\": 1274,\n            \"name\": \"Andrew Campbell\",\n            \"title\": \"CP\"\n        },\n        {\n            \"address_city\": \"Oakland\",\n            \"bio\": \"Dr. Nicola Longmuir, MD, specialist in internal medicine, currently treats patients in Oakland, California.\\n\\nDr. Longmuir is licensed to see patients in California.\\n\\nIn addition to having active medical licenses, Dr. Longmuir has passed an automated background check which looked at elements including medical license status and malpractice screening (no history found).\",\n            \"id\": 1300,\n            \"name\": \"Nicola Longmuir\",\n            \"title\": \"MD\"\n        },\n        {\n            \"address_city\": \"San Francisco\",\n            \"bio\": \"Dr Tran was born in Saigon, Vietnam and her family immigrated to the United States in 1975. Her family settled in Augusta, GA. In 1980, Dr. Tran headed to California to pursue college education.\\n\\nDr. Tran earned her Bachelor of Science Degree in Cell and Molecular Biology from San Francisco State University in 1985, her Doctorate of Dental Medicine from the Medical College of Georgia in 1990. She joined the Navy Reserve while in dental school. She practiced as a general dentist for 7 years before returning to graduate school. She completed residency training in Periodontics in 2000 at the Naval Post Graduate Dental School in Bethesda, Maryland and became a Diplomate of the American Board of Periodontics in 2000. She completed an additional two year training in Orofacial Pain in 2006 at NPDS, Bethesda and received her board certification in 2007. In 2010, she was selected for acupuncture training with the Helms Medical Institute and received a certificate in Medical Acupuncture. Dr. Tran also received training in Botox injection for TMD and migraine headache from the Allergan® company and the American Academy of Facial Esthetics.\\n\\nAfter completing Officers’ Indoctrination training at Newport, Rhode Island in August 1990, Dr. Tran reported to Oaknoll Naval Hospital in Oakland, CA as a GPR resident. She went on to serve 12 months in Diego Garcia, a British island in the middle of the Indian Ocean. Then she returned stateside to work at the Marine Corps Recruiting Depot, Parris Island, SC. From 1994-96, she served as the Dental Department Head on the USS Comstock (LSD-45) homeported in San Diego, CA. In 1997 she started residency training in Periodontics and was subsequently assigned to 13 Dental Company, Marine Corps Air Station, Miramar in 2000. In 2004, she returned to Bethesda, MD to complete training in Orofacial Pain. In 2006, she accepted orders to 1st Dental Battalion/Naval Dental Center- Camp Pendleton where she is the department head for Periodontics and Orofacial Pain and mentor for the AEGD and GPR residents.\\n\\nDr. Tran retired from the US Navy in September 2013 after completing 23 years of active service. She has relocated to the Bay Area and is enjoying life as a civilian.\",\n            \"id\": 1453,\n            \"name\": \"Ngoc Tran\",\n            \"title\": \"DMD\"\n        },\n        {\n            \"address_city\": \"Oakland\",\n            \"bio\": \"Dr. Gretchen Mello, MD, specialist in internal medicine, currently practices medicine at Oakland, California.\\n\\nDr. Mello is licensed to treat patients in California.\\n\\nDr. Mello has successfully passed a background check including a medical license verification (active) and screening for malpractice history (none found).\",\n            \"id\": 1462,\n            \"name\": \"Gretchen Mello\",\n            \"title\": \"MD\"\n        },\n        {\n            \"address_city\": \"Fort Lauderdale\",\n            \"bio\": \"Dr. David Droller, MD specializes in infectious disease, and currently practices medicine at Fort lauderdale, Florida, Oakland park, Florida, Miami, Florida, Orlando, Florida, and Deerfield beach, Florida.\\n\\nDr. Droller is licensed to practice medicine at Florida.\\n\\nIn addition to having active medical licenses, Dr. Droller has passed an automated background check which looked at elements including medical license status and malpractice screening (no history found).\",\n            \"id\": 1490,\n            \"name\": \"David Droller\",\n            \"title\": \"MD\"\n        },\n        {\n            \"address_city\": \"Dublin\",\n            \"bio\": \"Dr. Amy Mao, MD--specialist in pediatrics--currently treats patients in Dublin, California, Oakland, California, Santa clara, California, Stockton, California, New york, New York, and Flushing, New York.\\n\\nDr. Mao is licensed to see patients in California and New York.\\n\\nIn addition to having active medical licenses, Dr. Mao has passed an automated background check which looked at elements including medical license status and malpractice screening (no history found).\",\n            \"id\": 1491,\n            \"name\": \"Amy Mao\",\n            \"title\": \"MD\"\n        },\n        {\n            \"address_city\": \"San Francisco\",\n            \"bio\": \"Dr. Richard Imes, MD--specialist in ophthalmology--currently sees patients in San francisco, California, Oakland, California, Pacheco, California, Martinez, California, and Dallas, Texas.\\n\\nDr. Imes is licensed to see patients in California.\\n\\nDr. Imes has successfully passed a background check including a medical license verification (active) and screening for malpractice history (none found).\",\n            \"id\": 1622,\n            \"name\": \"Richard Imes\",\n            \"title\": \"MD\"\n        },\n        {\n            \"address_city\": \"Oakland\",\n            \"bio\": \"Dr. Supriya Bhat, MD treats patients in Oakland, California, specializing in internal medicine.\\n\\nDr. Bhat is licensed to see patients in California.\\n\\nDr. Bhat has been found during an automated background check to be clear of any malpractice history and holds one or more active medical licenses.\",\n            \"id\": 1786,\n            \"name\": \"Supriya Bhat\",\n            \"title\": \"MD\"\n        },\n        {\n            \"address_city\": \"Vallejo\",\n            \"bio\": \"Dr. Pauline Mysliwiec, MD treats patients in Vallejo, California and Oakland, California, specializing in gastroenterology.\\n\\nDr. Mysliwiec graduated from Chicago Medical School University Of The Health Sciences North Chicago Il and is licensed to practice medicine at California.\\n\\nDr. Mysliwiec has been found to hold one or more active medical licenses, and successfully passed a malpractice history screening.\",\n            \"id\": 1832,\n            \"name\": \"Pauline Mysliwiec\",\n            \"title\": \"MD\"\n        },\n        {\n            \"address_city\": \"San Francisco\",\n            \"bio\": \"Dr Tran was born in Saigon, Vietnam and her family immigrated to the United States in 1975. Her family settled in Augusta, GA. In 1980, Dr. Tran headed to California to pursue college education.\\n\\nDr. Tran earned her Bachelor of Science Degree in Cell and Molecular Biology from San Francisco State University in 1985, her Doctorate of Dental Medicine from the Medical College of Georgia in 1990. She joined the Navy Reserve while in dental school. She practiced as a general dentist for 7 years before returning to graduate school. She completed residency training in Periodontics in 2000 at the Naval Post Graduate Dental School in Bethesda, Maryland and became a Diplomate of the American Board of Periodontics in 2000. She completed an additional two year training in Orofacial Pain in 2006 at NPDS, Bethesda and received her board certification in 2007. In 2010, she was selected for acupuncture training with the Helms Medical Institute and received a certificate in Medical Acupuncture. Dr. Tran also received training in Botox injection for TMD and migraine headache from the Allergan® company and the American Academy of Facial Esthetics.\\n\\nAfter completing Officers’ Indoctrination training at Newport, Rhode Island in August 1990, Dr. Tran reported to Oaknoll Naval Hospital in Oakland, CA as a GPR resident. She went on to serve 12 months in Diego Garcia, a British island in the middle of the Indian Ocean. Then she returned stateside to work at the Marine Corps Recruiting Depot, Parris Island, SC. From 1994-96, she served as the Dental Department Head on the USS Comstock (LSD-45) homeported in San Diego, CA. In 1997 she started residency training in Periodontics and was subsequently assigned to 13 Dental Company, Marine Corps Air Station, Miramar in 2000. In 2004, she returned to Bethesda, MD to complete training in Orofacial Pain. In 2006, she accepted orders to 1st Dental Battalion/Naval Dental Center- Camp Pendleton where she is the department head for Periodontics and Orofacial Pain and mentor for the AEGD and GPR residents.\\n\\nDr. Tran retired from the US Navy in September 2013 after completing 23 years of active service. She has relocated to the Bay Area and is enjoying life as a civilian.\",\n            \"id\": 1862,\n            \"name\": \"Ngoc Tran\",\n            \"title\": \"DMD\"\n        },\n        {\n            \"address_city\": \"Oakland\",\n            \"bio\": \"Dr. Martin Jimenez, MD--specialist in hospitalist and internal medicine--currently treats patients in Oakland, California.\\n\\nDr. Jimenez is licensed to treat patients in California.\\n\\nDr. Jimenez has successfully passed a background check including a medical license verification (active) and screening for malpractice history (none found).\",\n            \"id\": 1866,\n            \"name\": \"Martin Jimenez\",\n            \"title\": \"MD\"\n        },\n        {\n            \"address_city\": \"Oakland\",\n            \"bio\": \"Dr. Terry Anderson is a cardiologist in Oakland, California and is affiliated with Dameron Hospital. She received her medical degree from University of Cincinnati College of Medicine and has been in practice for 29 years. She is one of 26 doctors at Dameron Hospital who specialize in Cardiovascular Disease.\",\n            \"id\": 1907,\n            \"name\": \"Terry Anderson\",\n            \"title\": \"MD\"\n        },\n        {\n            \"address_city\": \"Oakland\",\n            \"bio\": \"Dr. Martin Jimenez, MD--specialist in hospitalist and internal medicine--currently treats patients in Oakland, California.\\n\\nDr. Jimenez is licensed to treat patients in California.\\n\\nDr. Jimenez has successfully passed a background check including a medical license verification (active) and screening for malpractice history (none found).\",\n            \"id\": 2191,\n            \"name\": \"Martin Jimenez\",\n            \"title\": \"MD\"\n        },\n        {\n            \"address_city\": \"Oakland\",\n            \"bio\": \"Dr. Douglas Riehle, MD sees patients in Oakland, California and Berkeley, California, specializing in diagnostic radiology.\\n\\nDr. Riehle is licensed to see patients in California.\\n\\nIn addition to having active medical licenses, Dr. Riehle has successfully passed a background check including a medical license verification (active) and screening for malpractice history (none found).\",\n            \"id\": 2168,\n            \"name\": \"Douglas Riehle\",\n            \"title\": \"MD\"\n        },\n        {\n            \"address_city\": \"San Francisco\",\n            \"bio\": \"Dr. Richard Imes, MD--specialist in ophthalmology--currently sees patients in San francisco, California, Oakland, California, Pacheco, California, Martinez, California, and Dallas, Texas.\\n\\nDr. Imes is licensed to see patients in California.\\n\\nDr. Imes has successfully passed a background check including a medical license verification (active) and screening for malpractice history (none found).\",\n            \"id\": 2223,\n            \"name\": \"Richard Imes\",\n            \"title\": \"MD\"\n        }\n    ],\n    \"num_cities\": 1,\n    \"num_doctors\": 36,\n    \"num_results\": 37,\n    \"num_specialties\": 0,\n    \"page\": 1,\n    \"specialties\": [],\n    \"status\": 200,\n    \"total_pages\": 1\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
 		}
 	],
 	"event": [
@@ -647,7 +1018,7 @@
 	],
 	"variable": [
 		{
-			"id": "60e1a9b0-6b89-44ab-a7eb-8ca5102bd185",
+			"id": "82a268ab-1ca2-411a-9961-7046ad00a4ac",
 			"key": "baseUrl",
 			"value": "https://api.doctorsearch.me",
 			"type": "string"

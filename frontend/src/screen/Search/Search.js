@@ -18,15 +18,17 @@ function Search(props) {
   const handleKey = e => {
     if (e.keyCode === 13 && search.length > 0) {
       console.log('searching for: ', search);
-      props.history.push('/search/' + search);
+      props.history.push({
+        pathname: '/search/' + search,
+        state: { type: props.location.state ? props.location.state.type : null }
+      });
     }
   };
   console.log(data);
   let cnt = 0;
   const doctors =
-    data === null
-      ? []
-      : data.doctors.slice(0, 20).map(item => {
+    data !== null && (!props.location.state || props.location.state.type === 'doctors')
+      ? data.doctors.slice(0, 20).map(item => {
           cnt += 1;
           return (
             <div key={cnt} style={{ paddingBottom: '1em' }}>
@@ -42,11 +44,11 @@ function Search(props) {
               <p>{item.bio.length > 100 ? item.bio.slice(0, 200) + '...' : item.bio}</p>
             </div>
           );
-        });
+        })
+      : [];
   const cities =
-    data === null
-      ? []
-      : data.cities.slice(0, 20).map(item => {
+    data !== null && (!props.location.state || props.location.state.type === 'cities')
+      ? data.cities.slice(0, 20).map(item => {
           cnt += 1;
           return (
             <div key={cnt} style={{ paddingBottom: '1em', lineHeight: '.2em' }}>
@@ -64,11 +66,11 @@ function Search(props) {
               </p>
             </div>
           );
-        });
+        })
+      : [];
   const specialties =
-    data === null
-      ? []
-      : data.specialties.slice(0, 20).map(item => {
+    data !== null && (!props.location.state || props.location.state.type === 'specialties')
+      ? data.specialties.slice(0, 20).map(item => {
           cnt += 1;
           return (
             <div key={cnt} style={{ paddingBottom: '1em', lineHeight: '1em' }}>
@@ -88,10 +90,14 @@ function Search(props) {
               </p>
             </div>
           );
-        });
+        })
+      : [];
   return (
     <div style={{ margin: '3em' }}>
       <h1>You searched for: {queryStr}</h1>
+      {props.location.state && props.location.state.type !== null ? (
+        <p>Searching only in {props.location.state.type}</p>
+      ) : null}
       <CssTextField
         id="outlined-basic"
         label="Search again"

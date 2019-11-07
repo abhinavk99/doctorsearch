@@ -44,7 +44,7 @@ export const memberInfo = new Map([
       pic: sitong,
       responsibilities: 'Backend',
       issues: 0,
-      tests: 24
+      tests: 76
     }
   ],
   [

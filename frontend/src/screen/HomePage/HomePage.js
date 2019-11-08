@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './doctor1.jpg';
+import logo from './doctorsearch.png';
 import Grid from '@material-ui/core/Grid';
 import CssTextField from '../../component/CssTextField/CssTextField.js';
 import { withRouter } from 'react-router-dom';
@@ -30,7 +30,9 @@ function HomePage(props) {
               onKeyDown={handleKey}
             />
           </div>
-          <img src={logo} alt="logo" />
+          <br />
+          <br />
+          <img src={logo} alt="logo" style={{ maxHeight: '400px', maxWidth: '400px' }} />
         </Grid>
       </Grid>
     </div>

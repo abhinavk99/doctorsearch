@@ -2,6 +2,8 @@ import React from 'react';
 import { withRouter, useParams } from 'react-router-dom';
 import Paper from '@material-ui/core/Paper';
 import CssTextField from '../../component/CssTextField/CssTextField';
+import Highlight from 'react-highlighter';
+
 function Search(props) {
   let { queryStr } = useParams();
   const [search, setSearch] = React.useState('');
@@ -40,9 +42,13 @@ function Search(props) {
                 style={{ color: 'blue', cursor: 'pointer' }}
               >
                 {' '}
-                {item.name}{' '}
+                <Highlight search={queryStr}>{item.name}</Highlight>{' '}
               </h3>
-              <p>{item.bio.length > 100 ? item.bio.slice(0, 200) + '...' : item.bio}</p>
+              <p>
+                <Highlight search={queryStr}>
+                  {item.bio.length > 100 ? item.bio.slice(0, 200) + '...' : item.bio}
+                </Highlight>
+              </p>
             </div>
           );
         })
@@ -61,10 +67,12 @@ function Search(props) {
                 style={{ color: 'blue', cursor: 'pointer' }}
               >
                 {' '}
-                {item.name}, {item.region}{' '}
+                <Highlight search={queryStr}>{item.name}</Highlight>,{' '}
+                <Highlight search={queryStr}>{item.region}</Highlight>{' '}
               </h3>
               <p>
-                {item.country}, population: {item.population}
+                <Highlight search={queryStr}>{item.country}</Highlight>, population:{' '}
+                <Highlight search={queryStr}>{item.population}</Highlight>
               </p>
             </div>
           );
@@ -86,12 +94,14 @@ function Search(props) {
                 style={{ color: 'blue', cursor: 'pointer' }}
               >
                 {' '}
-                {item.name}{' '}
+                <Highlight search={queryStr}>{item.name}</Highlight>{' '}
               </h3>
               <p>
-                {item.description.length > 100
-                  ? item.description.slice(0, 200) + '...'
-                  : item.description}
+                <Highlight search={queryStr}>
+                  {item.description.length > 100
+                    ? item.description.slice(0, 200) + '...'
+                    : item.description}
+                </Highlight>
               </p>
             </div>
           );

@@ -59,7 +59,7 @@ const columns = [
   }
 ];
 
-let categories = ["medical", "services", "therapy", "vision", "dental"];
+let categories = ['medical', 'services', 'therapy', 'vision', 'dental'];
 
 class Specialties extends React.Component {
   constructor(props) {
@@ -97,62 +97,74 @@ class Specialties extends React.Component {
   handleChangeRowsPerPage = event => {
     this.setState({ rowsPerPage: event.target.value });
   };
-  
-  filterCategory = async e =>{
-    this.setState({[e.target.name]: e.target.value});
-    if(e.target.value === "-1"){
-      delete this.state.filterQuery.category
+
+  filterCategory = async e => {
+    this.setState({ [e.target.name]: e.target.value });
+    if (e.target.value === '-1') {
+      delete this.state.filterQuery.category;
       await this.setState({
         page: 0
       });
-    }else{
+    } else {
       this.state.filterQuery.category = e.target.value;
       await this.setState({
-        page:  0,
+        page: 0
       });
-    }    
+    }
     await this.setState({
-      data: await this.state.dd.getSpecialties(this.state.page+1, this.state.filterQuery, this.state.sortQuery),
-      loaded: true,
+      data: await this.state.dd.getSpecialties(
+        this.state.page + 1,
+        this.state.filterQuery,
+        this.state.sortQuery
+      ),
+      loaded: true
     });
   };
   sortNumDoc = async e => {
-    this.setState({[e.target.name]: e.target.value});
-    if(e.target.value === "-1"){
+    this.setState({ [e.target.name]: e.target.value });
+    if (e.target.value === '-1') {
       delete this.state.sortQuery.num_doctors;
       await this.setState({
-        offset: 0,
+        offset: 0
       });
-    }else{
+    } else {
       this.state.sortQuery.num_doctors = e.target.value;
       await this.setState({
-        offset: 0,
+        offset: 0
       });
     }
     await this.setState({
-      data: await this.state.dd.getSpecialties(this.state.offset+1, this.state.filterQuery, this.state.sortQuery),
-      loaded: true,
+      data: await this.state.dd.getSpecialties(
+        this.state.offset + 1,
+        this.state.filterQuery,
+        this.state.sortQuery
+      ),
+      loaded: true
     });
-  }
+  };
 
   sortNumCities = async e => {
-    this.setState({[e.target.name]: e.target.value});
-    if(e.target.value === "-1"){
+    this.setState({ [e.target.name]: e.target.value });
+    if (e.target.value === '-1') {
       delete this.state.sortQuery.num_cities;
       await this.setState({
-        offset: 0,
+        offset: 0
       });
-    }else{
+    } else {
       this.state.sortQuery.num_cities = e.target.value;
       await this.setState({
-        offset: 0,
+        offset: 0
       });
     }
     await this.setState({
-      data: await this.state.dd.getSpecialties(this.state.offset+1, this.state.filterQuery, this.state.sortQuery),
-      loaded: true,
+      data: await this.state.dd.getSpecialties(
+        this.state.offset + 1,
+        this.state.filterQuery,
+        this.state.sortQuery
+      ),
+      loaded: true
     });
-}
+  };
 
   handleChange = () => {};
 
@@ -174,66 +186,68 @@ class Specialties extends React.Component {
       <Paper style={{ margin: '5em' }}>
         <div>
           <div style={{ margin: '1em', textAlign: 'center' }}>
-          <Grid container spacing={2} justify="center">
-            <CssTextField
-              id="outlined-basic"
-              label="Search for a specialty"
-              margin="normal"
-              variant="outlined"
-              onChange={this.handleChange}
-              onKeyDown={this.handleKey}
-              style={{width: "60em"}}
-            />
+            <Grid container spacing={2} justify="center">
+              <CssTextField
+                id="outlined-basic"
+                label="Search for a specialty"
+                margin="normal"
+                variant="outlined"
+                onChange={this.handleChange}
+                onKeyDown={this.handleKey}
+                style={{ width: '60em' }}
+              />
             </Grid>
-            <Grid container spacing={2} justify="center" style={{marginTop:"1em"}}>
-            <FormControl >
-              <InputLabel htmlFor="category">Category</InputLabel>
-              <NativeSelect
-                value={this.state.state}
-                onChange={this.filterCategory}
-                style={{width: "20em"}}
-                inputProps={{
-                  name: 'category',
-                  id: 'category',
-                }}
-              >
-                <option value={"-1"}></option> />
-                {categories.map((category, i)=> <option value={categories[i]} >{fmat.capitalize(category)}</option>)}
-              </NativeSelect>
-            </FormControl>
-            <FormControl>
-          <InputLabel htmlFor="sortCities">Sort by Number of Cities</InputLabel>
-          <NativeSelect
-            value={this.state.sort}
-            onChange={this.sortNumCities}
-            style={{width: "20em"}}
-            inputProps={{
-              name: 'sortCities',
-              id: 'sortCities',
-            }}
-          >
-            <option value={"-1"}></option> />
-            <option value={"asc"}>Ascending</option>
-            <option value={"desc"}>Descending</option>
-          </NativeSelect>
-        </FormControl>
-        <FormControl>
-          <InputLabel htmlFor="sortDoc">Sort by Number of Doctors</InputLabel>
-          <NativeSelect
-            value={this.state.sort}
-            onChange={this.sortNumDoc}
-            style={{width: "20em"}}
-            inputProps={{
-              name: 'sortDoc',
-              id: 'sortDoc',
-            }}
-          >
-            <option value={"-1"}></option> />
-            <option value={"asc"}>Ascending</option>
-            <option value={"desc"}>Descending</option>
-          </NativeSelect>
-        </FormControl>
-        </Grid>
+            <Grid container spacing={2} justify="center" style={{ marginTop: '1em' }}>
+              <FormControl>
+                <InputLabel htmlFor="category">Category</InputLabel>
+                <NativeSelect
+                  value={this.state.state}
+                  onChange={this.filterCategory}
+                  style={{ width: '20em' }}
+                  inputProps={{
+                    name: 'category',
+                    id: 'category'
+                  }}
+                >
+                  <option value={'-1'}></option> />
+                  {categories.map((category, i) => (
+                    <option value={categories[i]}>{fmat.capitalize(category)}</option>
+                  ))}
+                </NativeSelect>
+              </FormControl>
+              <FormControl>
+                <InputLabel htmlFor="sortCities">Sort by Number of Cities</InputLabel>
+                <NativeSelect
+                  value={this.state.sort}
+                  onChange={this.sortNumCities}
+                  style={{ width: '20em' }}
+                  inputProps={{
+                    name: 'sortCities',
+                    id: 'sortCities'
+                  }}
+                >
+                  <option value={'-1'}></option> />
+                  <option value={'asc'}>Ascending</option>
+                  <option value={'desc'}>Descending</option>
+                </NativeSelect>
+              </FormControl>
+              <FormControl>
+                <InputLabel htmlFor="sortDoc">Sort by Number of Doctors</InputLabel>
+                <NativeSelect
+                  value={this.state.sort}
+                  onChange={this.sortNumDoc}
+                  style={{ width: '20em' }}
+                  inputProps={{
+                    name: 'sortDoc',
+                    id: 'sortDoc'
+                  }}
+                >
+                  <option value={'-1'}></option> />
+                  <option value={'asc'}>Ascending</option>
+                  <option value={'desc'}>Descending</option>
+                </NativeSelect>
+              </FormControl>
+            </Grid>
           </div>
           <Table stickyHeader aria-label="sticky table">
             <TableHead>

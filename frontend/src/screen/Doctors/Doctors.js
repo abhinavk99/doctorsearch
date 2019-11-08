@@ -27,7 +27,9 @@ class Doctors extends React.Component {
       dataArr: [],
       offset: 0,
       loaded: false,
+      sort: -1,
       filterQuery: {},
+      sortQuery: {},
       state:"",
       gender:"",
     };
@@ -39,7 +41,7 @@ class Doctors extends React.Component {
 
   setPage = async pageOffset => {
     await this.setState({
-      dataArr: await this.state.dd.getDoctors(pageOffset + 1,this.state.filterQuery),
+      dataArr: await this.state.dd.getDoctors(pageOffset + 1,this.state.filterQuery, this.state.sortQuery),
       loaded: true,
       offset: pageOffset
     });
@@ -60,7 +62,7 @@ class Doctors extends React.Component {
       });
     }    
     await this.setState({
-      dataArr: await this.state.dd.getDoctors(this.state.offset+1, this.state.filterQuery),
+      dataArr: await this.state.dd.getDoctors(this.state.offset+1, this.state.filterQuery, this.state.sortQuery),
       loaded: true,
     });
   };
@@ -82,7 +84,7 @@ class Doctors extends React.Component {
         });
       }
       await this.setState({
-        dataArr: await this.state.dd.getDoctors(this.state.offset+1, this.state.filterQuery),
+        dataArr: await this.state.dd.getDoctors(this.state.offset+1, this.state.filterQuery, this.state.sortQuery),
         loaded: true,
       });
   }
@@ -103,10 +105,30 @@ class Doctors extends React.Component {
       });
     }
     await this.setState({
-      dataArr: await this.state.dd.getDoctors(this.state.offset+1, this.state.filterQuery),
+      dataArr: await this.state.dd.getDoctors(this.state.offset+1, this.state.filterQuery, this.state.sortQuery),
       loaded: true,
     });
-}
+  }
+
+  sortRating = async e => {
+    this.setState({[e.target.name]: e.target.value});
+    if(e.target.value === "-1"){
+      delete this.state.sortQuery.rating;
+      await this.setState({
+        offset: 0,
+      });
+    }else{
+      this.state.sortQuery.rating = e.target.value;
+      await this.setState({
+        offset: 0,
+      });
+    }
+    await this.setState({
+      dataArr: await this.state.dd.getDoctors(this.state.offset+1, this.state.filterQuery, this.state.sortQuery),
+      loaded: true,
+    });
+    
+  }
 
   handleChange = () => {};
 
@@ -138,6 +160,22 @@ class Doctors extends React.Component {
             onChange={this.handleChange}
             onKeyDown={this.handleKey}
           />
+          <FormControl>
+            <InputLabel htmlFor="sort">Sort by rating</InputLabel>
+            <NativeSelect
+              value={this.state.sort}
+              onChange={this.sortRating}
+              inputProps={{
+                name: 'sort',
+                id: 'sort',
+              }}
+            >
+              <option value={"-1"}></option> />
+              <option value={"asc"}>Ascending</option>
+              <option value={"desc"}>Descending</option>
+            </NativeSelect>
+          </FormControl>
+
           <FormControl >
             <InputLabel htmlFor="state">State</InputLabel>
             <NativeSelect
@@ -149,7 +187,7 @@ class Doctors extends React.Component {
               }}
             >
               <option value={"-1"}></option> />
-              {states.map((state, i)=> <option value={states[i]} >{stateDictionary[states[i]]}</option>)}
+              {states.map((state, i)=> <option value={states[i]} >{stateDictionary[state]}</option>)}
             </NativeSelect>
           </FormControl>
           <FormControl >

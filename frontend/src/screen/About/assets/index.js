@@ -29,7 +29,7 @@ export const memberInfo = new Map([
         with code, he plays Fantasy Football, practices learning Japanese and 
         solving Rubik's cubes, and watches anime.`,
       pic: abhinav,
-      responsibilities: 'Backend',
+      responsibilities: 'Full stack',
       issues: 0,
       tests: 26
     }

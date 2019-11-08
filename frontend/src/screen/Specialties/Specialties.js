@@ -11,6 +11,9 @@ import './Spec.css';
 import { withRouter } from 'react-router-dom';
 import CssTextField from '../../component/CssTextField/CssTextField';
 import DoctorSearchData from '../../datastore/DoctorSearchData/DoctorSearchData';
+import InputLabel from '@material-ui/core/InputLabel';
+import FormControl from '@material-ui/core/FormControl';
+import NativeSelect from '@material-ui/core/NativeSelect';
 
 const columns = [
   {
@@ -18,7 +21,7 @@ const columns = [
     label: 'Specialty',
     minWidth: 170,
     format: value => {
-      return <p>{fmat.capitalize(value)}</p>;
+      return <p style={{ color: 'blue', cursor: 'pointer' }}>{fmat.capitalize(value)}</p>;
     },
     className: ''
   },
@@ -55,6 +58,8 @@ const columns = [
   }
 ];
 
+let categories = ["medical", "services", "therapy", "vision", "dental"];
+
 class Specialties extends React.Component {
   constructor(props) {
     super(props);
@@ -63,7 +68,8 @@ class Specialties extends React.Component {
       dd: new DoctorSearchData(),
       loaded: false,
       rowsPerPage: 10,
-      page: 0
+      page: 0,
+      filterQuery: {}
     };
   }
 
@@ -78,7 +84,7 @@ class Specialties extends React.Component {
   setPage = async pg => {
     this.setState({
       page: pg,
-      data: await this.state.dd.getSpecialties(pg + 1)
+      data: await this.state.dd.getSpecialties(pg + 1, this.state.filterQuery)
     });
   };
 
@@ -88,6 +94,25 @@ class Specialties extends React.Component {
 
   handleChangeRowsPerPage = event => {
     this.setState({ rowsPerPage: event.target.value });
+  };
+  
+  filterCategory = async e =>{
+    this.setState({[e.target.name]: e.target.value});
+    if(e.target.value === "-1"){
+      delete this.state.filterQuery.category
+      await this.setState({
+        page: 0
+      });
+    }else{
+      this.state.filterQuery.category = e.target.value;
+      await this.setState({
+        page:  0,
+      });
+    }    
+    await this.setState({
+      data: await this.state.dd.getSpecialties(this.state.page+1, this.state.filterQuery),
+      loaded: true,
+    });
   };
 
   handleChange = () => {};
@@ -107,86 +132,94 @@ class Specialties extends React.Component {
       return <div></div>;
     }
     return (
-      <div>
-        <h2 style={{ textAlign: 'center' }}>Specialties that Doctors Practice</h2>
-        <Paper style={{ marginLeft: '5em', marginRight: '5em', marginBottom: '5em' }}>
-          <div>
-            <div style={{ margin: '1em', textAlign: 'center' }}>
-              <CssTextField
-                id="outlined-basic"
-                label="Search for a specialty"
-                margin="normal"
-                variant="outlined"
-                onChange={this.handleChange}
-                onKeyDown={this.handleKey}
-              />
-            </div>
-            <Table stickyHeader aria-label="sticky table">
-              <TableHead>
-                <TableRow>
-                  {columns.map(column => (
-                    <TableCell
-                      key={column.id}
-                      align={column.align}
-                      style={{ minWidth: column.minWidth }}
-                    >
-                      {column.label}
-                    </TableCell>
-                  ))}
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {this.state.data.objects.map(row => {
-                  return (
-                    <TableRow
-                      hover
-                      role="checkbox"
-                      tabIndex={-1}
-                      key={row.name}
-                      style={{ cursor: 'pointer' }}
-                      onClick={() =>
-                        this.props.history.push({
-                          pathname: '/specialties/' + row.id,
-                          search: '',
-                          state: { data: row }
-                        })
-                      }
-                    >
-                      {columns.map(column => {
-                        const value = row[column.id];
-                        return (
-                          <TableCell
-                            key={column.id}
-                            align={column.align}
-                            className={column.className}
-                          >
-                            {column.format(value)}
-                          </TableCell>
-                        );
-                      })}
-                    </TableRow>
-                  );
-                })}
-              </TableBody>
-            </Table>
+      <Paper style={{ margin: '5em' }}>
+        <div>
+          <div style={{ margin: '1em', textAlign: 'center' }}>
+            <CssTextField
+              id="outlined-basic"
+              label="Search for a specialty"
+              margin="normal"
+              variant="outlined"
+              onChange={this.handleChange}
+              onKeyDown={this.handleKey}
+            />
+            <FormControl >
+              <InputLabel htmlFor="category">Category</InputLabel>
+              <NativeSelect
+                value={this.state.state}
+                onChange={this.filterCategory}
+                inputProps={{
+                  name: 'category',
+                  id: 'category',
+                }}
+              >
+                <option value={"-1"}></option> />
+                {categories.map((category, i)=> <option value={categories[i]} >{fmat.capitalize(category)}</option>)}
+              </NativeSelect>
+            </FormControl>
           </div>
-          <TablePagination
-            rowsPerPageOptions={[10]}
-            component="div"
-            count={this.state.data.num_results}
-            rowsPerPage={this.state.rowsPerPage}
-            page={this.state.page}
-            backIconButtonProps={{
-              'aria-label': 'previous page'
-            }}
-            nextIconButtonProps={{
-              'aria-label': 'next page'
-            }}
-            onChangePage={this.handleChangePage}
-            onChangeRowsPerPage={this.handleChangeRowsPerPage}
-          />
-        </Paper>
-      </div>
+          <Table stickyHeader aria-label="sticky table">
+            <TableHead>
+              <TableRow>
+                {columns.map(column => (
+                  <TableCell
+                    key={column.id}
+                    align={column.align}
+                    style={{ minWidth: column.minWidth }}
+                  >
+                    {column.label}
+                  </TableCell>
+                ))}
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {this.state.data.objects.map(row => {
+                return (
+                  <TableRow hover role="checkbox" tabIndex={-1} key={row.name}>
+                    {columns.map(column => {
+                      const value = row[column.id];
+                      return (
+                        <TableCell
+                          key={column.id}
+                          align={column.align}
+                          className={column.className}
+                          onClick={
+                            column.id === 'name'
+                              ? () =>
+                                  this.props.history.push({
+                                    pathname: '/specialties/' + row.id,
+                                    search: '',
+                                    state: { data: row }
+                                  })
+                              : null
+                          }
+                        >
+                          {column.format(value)}
+                        </TableCell>
+                      );
+                    })}
+                  </TableRow>
+                );
+              })}
+            </TableBody>
+          </Table>
+        </div>
+        <TablePagination
+          rowsPerPageOptions={[10]}
+          component="div"
+          count={this.state.data.num_results}
+          rowsPerPage={this.state.rowsPerPage}
+          page={this.state.page}
+          backIconButtonProps={{
+            'aria-label': 'previous page'
+          }}
+          nextIconButtonProps={{
+            'aria-label': 'next page'
+          }}
+          onChangePage={this.handleChangePage}
+          onChangeRowsPerPage={this.handleChangeRowsPerPage}
+        />
+      </Paper>
     );
   }
 }

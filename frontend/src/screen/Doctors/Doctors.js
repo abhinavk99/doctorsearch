@@ -28,8 +28,6 @@ class Doctors extends React.Component {
       offset: 0,
       loaded: false,
       filterQuery: {},
-      state:"",
-      gender:"",
     };
   }
 

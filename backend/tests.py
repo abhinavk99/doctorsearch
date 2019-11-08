@@ -197,8 +197,8 @@ class TestApplication(unittest.TestCase):
         response_json = response.get_json()
         self.assertEqual(len(response_json["objects"]), 9)
         self.assertEqual(response_json["page"], 2)
-        self.assertEqual(response_json["total_pages"], 252)
-        self.assertEqual(response_json["num_results"], 2262)
+        self.assertEqual(response_json["total_pages"], 227)
+        self.assertEqual(response_json["num_results"], 2036)
 
     def test_city_route(self):
         response = self.app.get("/api/city?page=2")
@@ -282,8 +282,8 @@ class TestApplication(unittest.TestCase):
             for attr in SERIALIZE_ATTRIBUTES["cities"]:
                 self.assertIn(attr, city)
 
-        self.assertEqual(len(response_json["doctors"]), 36)
-        self.assertEqual(response_json["num_doctors"], 36)
+        self.assertEqual(len(response_json["doctors"]), 19)
+        self.assertEqual(response_json["num_doctors"], 19)
         self.assertEqual(len(response_json["doctors"]), response_json["num_doctors"])
         for doctor in response_json["doctors"]:
             for attr in SERIALIZE_ATTRIBUTES["doctors"]:
@@ -298,7 +298,7 @@ class TestApplication(unittest.TestCase):
 
         self.assertEqual(response_json["page"], 1)
         self.assertEqual(response_json["total_pages"], 1)
-        self.assertEqual(response_json["num_results"], 37)
+        self.assertEqual(response_json["num_results"], 20)
 
 
 if __name__ == "__main__":

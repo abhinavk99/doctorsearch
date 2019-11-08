@@ -19,7 +19,7 @@
 								"exec": [
 									"pm.test(\"success status\", () => pm.response.to.be.success );",
 									"pm.test(\"result number is correct\", () => ",
-									"  pm.expect(pm.response.json().num_results).to.equal(2262));",
+									"  pm.expect(pm.response.json().num_results).to.equal(2036));",
 									"",
 									"pm.test(\"Content-Type header is present\", function () {",
 									"    pm.response.to.have.header(\"Content-Type\");",
@@ -1018,7 +1018,7 @@
 	],
 	"variable": [
 		{
-			"id": "82a268ab-1ca2-411a-9961-7046ad00a4ac",
+			"id": "5056c321-8bd0-4bb1-be0e-8d4194972d0b",
 			"key": "baseUrl",
 			"value": "https://api.doctorsearch.me",
 			"type": "string"

@@ -19,7 +19,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "./node_modules/.bin/eslint src/**/*.js"
+    "lint": "./node_modules/.bin/eslint src/**/*.js",
+    "format": "./node_modules/.bin/prettier --print-width 100 --single-quote --write src/**/*.js"
   },
   "eslintConfig": {
     "extends": "react-app"

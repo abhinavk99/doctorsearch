@@ -1,6 +1,7 @@
 import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
+import Grid from '@material-ui/core/Grid';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
@@ -173,6 +174,7 @@ class Specialties extends React.Component {
       <Paper style={{ margin: '5em' }}>
         <div>
           <div style={{ margin: '1em', textAlign: 'center' }}>
+          <Grid container spacing={2} justify="center">
             <CssTextField
               id="outlined-basic"
               label="Search for a specialty"
@@ -180,12 +182,16 @@ class Specialties extends React.Component {
               variant="outlined"
               onChange={this.handleChange}
               onKeyDown={this.handleKey}
+              style={{width: "60em"}}
             />
+            </Grid>
+            <Grid container spacing={2} justify="center" style={{marginTop:"1em"}}>
             <FormControl >
               <InputLabel htmlFor="category">Category</InputLabel>
               <NativeSelect
                 value={this.state.state}
                 onChange={this.filterCategory}
+                style={{width: "20em"}}
                 inputProps={{
                   name: 'category',
                   id: 'category',
@@ -200,6 +206,7 @@ class Specialties extends React.Component {
           <NativeSelect
             value={this.state.sort}
             onChange={this.sortNumCities}
+            style={{width: "20em"}}
             inputProps={{
               name: 'sortCities',
               id: 'sortCities',
@@ -215,6 +222,7 @@ class Specialties extends React.Component {
           <NativeSelect
             value={this.state.sort}
             onChange={this.sortNumDoc}
+            style={{width: "20em"}}
             inputProps={{
               name: 'sortDoc',
               id: 'sortDoc',
@@ -225,6 +233,7 @@ class Specialties extends React.Component {
             <option value={"desc"}>Descending</option>
           </NativeSelect>
         </FormControl>
+        </Grid>
           </div>
           <Table stickyHeader aria-label="sticky table">
             <TableHead>

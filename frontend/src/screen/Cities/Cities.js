@@ -154,7 +154,7 @@ class Cities extends React.Component {
     return (
       <div style={{ padding: '0em 2em', textAlign: 'center' }}>
         <h2 style={{ textAlign: 'center' }}>Cities Where Medical Assistance is Attainable</h2>
-        
+        <Grid container spacing={2} justify="center">
         <CssTextField
           id="outlined-basic"
           label="Search for a city"
@@ -162,13 +162,16 @@ class Cities extends React.Component {
           variant="outlined"
           onChange={this.handleChange}
           onKeyDown={this.handleKey}
+          style={{width: "60em"}}
         />
-        <div style={{display: 'inline-flex'}}>
+        </Grid>
+        <Grid container spacing={2} justify="center" style={{marginTop:"1em"}}>
         <FormControl>
-          <InputLabel htmlFor="sortPop">Sort by population</InputLabel>
+          <InputLabel htmlFor="sortPop">Sort by Population</InputLabel>
           <NativeSelect
             value={this.state.sort}
             onChange={this.sortPopulation}
+            style={{width: "12em"}}
             inputProps={{
               name: 'sortPop',
               id: 'sortPop',
@@ -184,6 +187,7 @@ class Cities extends React.Component {
           <NativeSelect
             value={this.state.sort}
             onChange={this.sortNumDoc}
+            style={{width: "12em"}}
             inputProps={{
               name: 'sortDoc',
               id: 'sortDoc',
@@ -195,10 +199,11 @@ class Cities extends React.Component {
           </NativeSelect>
         </FormControl>
         <FormControl>
-          <InputLabel htmlFor="sortSpec">Sort by number of specs</InputLabel>
+          <InputLabel htmlFor="sortSpec">Sort by Number of Specialties</InputLabel>
           <NativeSelect
             value={this.state.sort}
             onChange={this.sortNumSpec}
+            style={{width: "12em"}}
             inputProps={{
               name: 'sortSpec',
               id: 'sortSpec',
@@ -214,6 +219,7 @@ class Cities extends React.Component {
             <NativeSelect
               value={this.state.state}
               onChange={this.filterRegion}
+              style={{width: "12em"}}
               inputProps={{
                 name: 'region',
                 id: 'region',
@@ -228,6 +234,7 @@ class Cities extends React.Component {
             <NativeSelect
               value={this.state.state}
               onChange={this.filterName}
+              style={{width: "12em"}}
               inputProps={{
                 name: 'name',
                 id: 'name',
@@ -237,7 +244,7 @@ class Cities extends React.Component {
               {cities.map((city, i)=> <option value={cities[i]} >{city}</option>)}
             </NativeSelect>
           </FormControl>
-          </div>
+          </Grid>
         <Grid container spacing={2} justify="center">
           {cityCards}
         </Grid>

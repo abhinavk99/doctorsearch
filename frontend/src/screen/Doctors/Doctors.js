@@ -152,19 +152,25 @@ class Doctors extends React.Component {
       <div className="simple">
         <h2 style={{ textAlign: 'center' }}>Hot Doctors in Your Area</h2>
         <Grid container spacing={2} justify="center">
+        <Grid item xs={9}>
           <CssTextField
             id="outlined-basic"
             label="Search for a doctor"
             margin="normal"
             variant="outlined"
+            style={{width:"60em"}}
             onChange={this.handleChange}
             onKeyDown={this.handleKey}
           />
+        </Grid>
+        </Grid>
+        <Grid container spacing={2} justify="center" style={{marginTop:"1em"}}>
           <FormControl>
             <InputLabel htmlFor="sort">Sort by rating</InputLabel>
             <NativeSelect
               value={this.state.sort}
               onChange={this.sortRating}
+              style={{width: "15em"}}
               inputProps={{
                 name: 'sort',
                 id: 'sort',
@@ -175,12 +181,12 @@ class Doctors extends React.Component {
               <option value={"desc"}>Descending</option>
             </NativeSelect>
           </FormControl>
-
           <FormControl >
             <InputLabel htmlFor="state">State</InputLabel>
             <NativeSelect
               value={this.state.state}
               onChange={this.filterState}
+              style={{width: "15em"}}
               inputProps={{
                 name: 'state',
                 id: 'state',
@@ -195,6 +201,7 @@ class Doctors extends React.Component {
             <NativeSelect
               value={this.state.gender}
               onChange={this.filterGender}
+              style={{width: "15em"}}
               inputProps={{
                 name: 'gender',
                 id: 'gender',
@@ -210,6 +217,7 @@ class Doctors extends React.Component {
             <NativeSelect
               value={this.state.title}
               onChange={this.filterTitle}
+              style={{width: "15em"}}
               inputProps={{
                 name: 'title',
                 id: 'title',

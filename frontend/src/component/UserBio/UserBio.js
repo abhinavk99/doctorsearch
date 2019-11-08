@@ -10,7 +10,8 @@ function UserBio(props) {
           style={{
             backgroundColor: '#2bc4ad',
             color: 'white',
-            borderRadius: '2%'
+            borderRadius: '2%',
+            minHeight: 420
           }}
         >
           <div style={{ padding: '2em' }}>

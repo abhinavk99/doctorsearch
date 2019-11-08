@@ -1,5 +1,5 @@
 import nathan from './NathanHoang.jpeg';
-import derrin from './DerrinNgo.JPG';
+import derrin from './DerrinNgo.png';
 import sitong from './Sitong.png';
 import abhinav from './Abhinav.png';
 import rohan from './rohan.PNG';

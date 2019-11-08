@@ -5,13 +5,24 @@ import Grid from '@material-ui/core/Grid';
 import Pagination from '../../component/Pagination/Pagination';
 import CssTextField from '../../component/CssTextField/CssTextField';
 import { withRouter } from 'react-router-dom';
+import InputLabel from '@material-ui/core/InputLabel';
+import FormControl from '@material-ui/core/FormControl';
+import NativeSelect from '@material-ui/core/NativeSelect';
+
+let states = ["Alaska", "Alabama", "Arkansas", "American Samoa", "Arizona", "California", "Colorado", "Connecticut", "District of Columbia", "Delaware", "Florida", "Georgia", "Guam", "Hawaii", "Iowa", "Idaho", "Illinois", "Indiana", "Kansas", "Kentucky", "Louisiana", "Massachusetts", "Maryland", "Maine", "Michigan", "Minnesota", "Missouri", "Mississippi", "Montana", "North Carolina", "North Dakota", "Nebraska", "New Hampshire", "New Jersey", "New Mexico", "Nevada", "New York", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Puerto Rico", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Virginia", "Virgin Islands", "Vermont", "Washington", "Wisconsin", "West Virginia", "Wyoming"];
+
+let cities = [ "New York City", "Los Angeles", "Chicago", "Houston", "Phoenix", "Philadelphia", "San Antonio", "San Diego", "Dallas", "San Jose", "Austin", "Jacksonville", "Fort Worth", "Columbus", "San Francisco", "Charlotte", "Indianapolis", "Seattle", "Denver", "Washington, D.C.", "Boston", "El Paso", "Detroit", "Nashville", "Portland", "Memphis", "Oklahoma City", "Las Vegas", "Louisville", "Baltimore", "Milwaukee", "Albuquerque", "Tucson", "Fresno", "Mesa", "Sacramento", "Atlanta", "Kansas City", "Colorado Springs", "Miami", "Raleigh", "Omaha", "Long Beach", "Virginia Beach", "Oakland", "Minneapolis", "Tulsa", "Arlington", "Tampa", "New Orleans", ]
+
 class Cities extends React.Component {
   constructor() {
     super();
     this.state = {
       dd: new DoctorSearchData(),
       dataArr: [],
-      loaded: false
+      offset: 0,
+      loaded: false,
+      filterQuery: {},
+
     };
   }
 
@@ -19,12 +30,52 @@ class Cities extends React.Component {
     this.setPage(0);
   }
 
-  setPage = async offset => {
+  setPage = async pageOffset => {
     await this.setState({
-      dataArr: await this.state.dd.getCities(offset + 1),
-      loaded: true
+      dataArr: await this.state.dd.getCities(pageOffset + 1, this.state.filterQuery),
+      loaded: true,
+      offset: pageOffset
     });
   };
+
+  filterRegion = async e =>{
+    this.setState({[e.target.name]: e.target.value});
+    if(e.target.value === "-1"){
+      delete this.state.filterQuery.region
+      await this.setState({
+        offset: 0
+      });
+    }else{
+      this.state.filterQuery.region = e.target.value;
+      await this.setState({
+        offset:  0,
+      });
+    }    
+    await this.setState({
+      dataArr: await this.state.dd.getCities(this.state.offset+1, this.state.filterQuery),
+      loaded: true,
+    });
+  };
+
+  filterName = async e =>{
+    this.setState({[e.target.name]: e.target.value});
+    if(e.target.value === "-1"){
+      delete this.state.filterQuery.name
+      await this.setState({
+        offset: 0
+      });
+    }else{
+      this.state.filterQuery.name = e.target.value;
+      await this.setState({
+        offset:  0,
+      });
+    }    
+    await this.setState({
+      dataArr: await this.state.dd.getCities(this.state.offset+1, this.state.filterQuery),
+      loaded: true,
+    });
+  };
+
   handleChange = () => {};
 
   handleKey = e => {
@@ -54,10 +105,38 @@ class Cities extends React.Component {
           onChange={this.handleChange}
           onKeyDown={this.handleKey}
         />
+        <FormControl >
+            <InputLabel htmlFor="region">State</InputLabel>
+            <NativeSelect
+              value={this.state.state}
+              onChange={this.filterRegion}
+              inputProps={{
+                name: 'region',
+                id: 'region',
+              }}
+            >
+              <option value={"-1"}></option> />
+              {states.map((state, i)=> <option value={states[i]} >{state}</option>)}
+            </NativeSelect>
+          </FormControl>
+          <FormControl >
+            <InputLabel htmlFor="name">City Name</InputLabel>
+            <NativeSelect
+              value={this.state.state}
+              onChange={this.filterName}
+              inputProps={{
+                name: 'name',
+                id: 'name',
+              }}
+            >
+              <option value={"-1"}></option> />
+              {cities.map((city, i)=> <option value={cities[i]} >{city}</option>)}
+            </NativeSelect>
+          </FormControl>
         <Grid container spacing={2} justify="center">
           {cityCards}
         </Grid>
-        <Pagination setPage={this.setPage} numPages={this.state.dataArr['total_pages']} />
+        <Pagination setPage={this.setPage} numPages={this.state.dataArr['total_pages']} offset={this.state.offset}/>
       </div>
     );
   }

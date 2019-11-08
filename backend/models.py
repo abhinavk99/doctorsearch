@@ -31,7 +31,7 @@ class City(db.Model):
     image_url = db.Column(db.Unicode)
 
     def __repr__(self):
-        return f"{name}, {region_code}"
+        return f"City<{self.id}, {self.name}, {self.region_code}>"
 
 
 class Doctor(db.Model):
@@ -58,7 +58,7 @@ class Doctor(db.Model):
     specialty = db.relationship("Specialty", backref="doctors")
 
     def __repr__(self):
-        return f"{name}, {title}"
+        return f"Doctor<{self.id}, {self.name}, {self.title}>"
 
 
 class Specialty(db.Model):
@@ -71,4 +71,4 @@ class Specialty(db.Model):
     num_cities = db.Column(db.Integer, default=0)
 
     def __repr__(self):
-        return f"{self.name} - {self.category}"
+        return f"Specialty<{self.id}, {self.name} - {self.category}>"

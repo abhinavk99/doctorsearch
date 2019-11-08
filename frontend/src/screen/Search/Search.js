@@ -27,7 +27,8 @@ function Search(props) {
   console.log(data);
   let cnt = 0;
   const doctors =
-    data !== null && (!props.location.state || props.location.state.type === 'doctors')
+    data !== null &&
+    (!props.location.state || !props.location.state.type || props.location.state.type === 'doctors')
       ? data.doctors.slice(0, 20).map(item => {
           cnt += 1;
           return (
@@ -47,7 +48,8 @@ function Search(props) {
         })
       : [];
   const cities =
-    data !== null && (!props.location.state || props.location.state.type === 'cities')
+    data !== null &&
+    (!props.location.state || !props.location.state.type || props.location.state.type === 'cities')
       ? data.cities.slice(0, 20).map(item => {
           cnt += 1;
           return (
@@ -69,7 +71,10 @@ function Search(props) {
         })
       : [];
   const specialties =
-    data !== null && (!props.location.state || props.location.state.type === 'specialties')
+    data !== null &&
+    (!props.location.state ||
+      !props.location.state.type ||
+      props.location.state.type === 'specialties')
       ? data.specialties.slice(0, 20).map(item => {
           cnt += 1;
           return (

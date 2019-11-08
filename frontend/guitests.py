@@ -4,6 +4,7 @@ import unittest
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+from selenium.common.exceptions import NoSuchElementException
 
 
 class selenium_tests(unittest.TestCase):
@@ -77,6 +78,138 @@ class selenium_tests(unittest.TestCase):
             assert "Number of Specialties" in p_tags[2].text
             assert "Elevation" in p_tags[3].text
         assert "cities" in self.driver.current_url
+
+    def test_about(self):
+        self.driver.get("https://www.doctorsearch.me")
+        self.assertIn("Doctor Search", self.driver.title)
+        about_button = self.driver.find_element_by_xpath(
+            "/html/body/div/div/div[1]/header/div/button[4]/span[1]"
+        )
+        about_button.click()
+        people = self.driver.find_elements_by_css_selector(
+            ".MuiPaper-root.MuiPaper-elevation1.MuiCard-root.MuiPaper-rounded"
+        )
+
+        assert len(people) == 5
+
+        for person in people:
+            p_tags = person.find_elements_by_tag_name("p")
+            assert len(p_tags) == 2
+            assert "Role" in p_tags[1].text
+        assert "about" in self.driver.current_url
+
+
+    def test_back_doctor(self):
+        """
+        Test to check back to home button from Doctors
+        """
+        self.driver.get("https://www.doctorsearch.me/doctors")
+        try:
+            self.driver.find_element_by_xpath(
+            "/html/body/div/div/div[1]/header/div/h6"
+        ).click()
+            pass
+        except NoSuchElementException:
+            self.fail("The element does not exist")
+
+    def test_back_city(self):
+        """
+        Test to check back to home button from Cities
+        """
+        self.driver.get("https://www.doctorsearch.me/cities")
+        try:
+            self.driver.find_element_by_xpath(
+            "/html/body/div/div/div[1]/header/div/h6"
+        ).click()
+            pass
+        except NoSuchElementException:
+            self.fail("The element does not exist")
+
+    def test_back_specialty(self):
+        """
+        Test to check back to home button from Specialties
+        """
+        self.driver.get("https://www.doctorsearch.me/specialties")
+        try:
+            self.driver.find_element_by_xpath(
+            "/html/body/div/div/div[1]/header/div/h6"
+        ).click()
+            pass
+        except NoSuchElementException:
+            self.fail("The element does not exist")
+
+    def test_back_about(self):
+        """
+        Test to check back to home button from About
+        """
+        self.driver.get("https://www.doctorsearch.me/about")
+        try:
+            self.driver.find_element_by_xpath(
+            "/html/body/div/div/div[1]/header/div/h6"
+        ).click()
+            pass
+        except NoSuchElementException:
+            self.fail("The element does not exist")
+
+
+    def test_search_doctor(self):
+        """
+        Enter text in search field on doctor page, hit enter
+        and see if the url is correct 
+        """
+        self.driver.get("https://www.doctorsearch.me/doctors")
+        search_bar = self.driver.find_element_by_tag_name("input")
+        if not search_bar:
+            self.fail("There is no search input!")
+        
+        try:
+            search_bar.send_keys("Matt")
+            search_bar.send_keys(Keys.ENTER)
+        except Exception as e:
+            self.fail("Something went wrong")
+        else:
+            if self.driver.current_url != "https://www.doctorsearch.me/search/Matt":
+                self.fail("The search url is not as expected. Actual: " + str(self.driver.current_url))
+
+    def test_search_city(self):
+        """
+        Enter text in search field on city page, hit enter
+        and see if the url is correct 
+        """
+        self.driver.get("https://www.doctorsearch.me/cities")
+        search_bar = self.driver.find_element_by_tag_name("input")
+        if not search_bar:
+            self.fail("There is no search input!")
+        
+        try:
+            search_bar.send_keys("Austin")
+            search_bar.send_keys(Keys.ENTER)
+        except Exception as e:
+            self.fail("Something went wrong")
+        else:
+            if self.driver.current_url != "https://www.doctorsearch.me/search/Austin":
+                self.fail("The search url is not as expected. Actual: " + str(self.driver.current_url))
+
+    def test_search_specialty(self):
+        """
+        Enter text in search field on specialty page, hit enter
+        and see if the url is correct 
+        """
+        self.driver.get("https://www.doctorsearch.me/specialties")
+        search_bar = self.driver.find_element_by_tag_name("input")
+        if not search_bar:
+            self.fail("There is no search input!")
+        
+        try:
+            search_bar.send_keys("Surgeon")
+            search_bar.send_keys(Keys.ENTER)
+        except Exception as e:
+            self.fail("Something went wrong")
+        else:
+            if self.driver.current_url != "https://www.doctorsearch.me/search/Surgeon":
+                self.fail("The search url is not as expected. Actual: " + str(self.driver.current_url))
+
+
 
     def tearDown(self):
         self.driver.quit()

@@ -22,7 +22,7 @@ class Cities extends React.Component {
       offset: 0,
       loaded: false,
       filterQuery: {},
-
+      sortQuery: {}
     };
   }
 
@@ -32,7 +32,7 @@ class Cities extends React.Component {
 
   setPage = async pageOffset => {
     await this.setState({
-      dataArr: await this.state.dd.getCities(pageOffset + 1, this.state.filterQuery),
+      dataArr: await this.state.dd.getCities(pageOffset + 1, this.state.filterQuery, this.state.sortQuery),
       loaded: true,
       offset: pageOffset
     });
@@ -52,7 +52,7 @@ class Cities extends React.Component {
       });
     }    
     await this.setState({
-      dataArr: await this.state.dd.getCities(this.state.offset+1, this.state.filterQuery),
+      dataArr: await this.state.dd.getCities(this.state.offset+1, this.state.filterQuery, this.state.sortQuery),
       loaded: true,
     });
   };
@@ -71,10 +71,67 @@ class Cities extends React.Component {
       });
     }    
     await this.setState({
-      dataArr: await this.state.dd.getCities(this.state.offset+1, this.state.filterQuery),
+      dataArr: await this.state.dd.getCities(this.state.offset+1, this.state.filterQuery, this.state.sortQuery),
       loaded: true,
     });
   };
+
+  sortPopulation = async e => {
+    this.setState({[e.target.name]: e.target.value});
+    if(e.target.value === "-1"){
+      delete this.state.sortQuery.population;
+      await this.setState({
+        offset: 0,
+      });
+    }else{
+      this.state.sortQuery.population = e.target.value;
+      await this.setState({
+        offset: 0,
+      });
+    }
+    await this.setState({
+      dataArr: await this.state.dd.getCities(this.state.offset+1, this.state.filterQuery, this.state.sortQuery),
+      loaded: true,
+    });
+  }
+
+    sortNumDoc = async e => {
+      this.setState({[e.target.name]: e.target.value});
+      if(e.target.value === "-1"){
+        delete this.state.sortQuery.num_doctors;
+        await this.setState({
+          offset: 0,
+        });
+      }else{
+        this.state.sortQuery.num_doctors = e.target.value;
+        await this.setState({
+          offset: 0,
+        });
+      }
+      await this.setState({
+        dataArr: await this.state.dd.getCities(this.state.offset+1, this.state.filterQuery, this.state.sortQuery),
+        loaded: true,
+      });
+    }
+
+    sortNumSpec = async e => {
+      this.setState({[e.target.name]: e.target.value});
+      if(e.target.value === "-1"){
+        delete this.state.sortQuery.num_specialties;
+        await this.setState({
+          offset: 0,
+        });
+      }else{
+        this.state.sortQuery.num_specialties = e.target.value;
+        await this.setState({
+          offset: 0,
+        });
+      }
+      await this.setState({
+        dataArr: await this.state.dd.getCities(this.state.offset+1, this.state.filterQuery, this.state.sortQuery),
+        loaded: true,
+      });
+  }
 
   handleChange = () => {};
 
@@ -97,6 +154,7 @@ class Cities extends React.Component {
     return (
       <div style={{ padding: '0em 2em', textAlign: 'center' }}>
         <h2 style={{ textAlign: 'center' }}>Cities Where Medical Assistance is Attainable</h2>
+        
         <CssTextField
           id="outlined-basic"
           label="Search for a city"
@@ -105,6 +163,52 @@ class Cities extends React.Component {
           onChange={this.handleChange}
           onKeyDown={this.handleKey}
         />
+        <div style={{display: 'inline-flex'}}>
+        <FormControl>
+          <InputLabel htmlFor="sortPop">Sort by population</InputLabel>
+          <NativeSelect
+            value={this.state.sort}
+            onChange={this.sortPopulation}
+            inputProps={{
+              name: 'sortPop',
+              id: 'sortPop',
+            }}
+          >
+            <option value={"-1"}></option> />
+            <option value={"asc"}>Ascending</option>
+            <option value={"desc"}>Descending</option>
+          </NativeSelect>
+        </FormControl>
+        <FormControl>
+          <InputLabel htmlFor="sortDoc">Sort by Number of Doctors</InputLabel>
+          <NativeSelect
+            value={this.state.sort}
+            onChange={this.sortNumDoc}
+            inputProps={{
+              name: 'sortDoc',
+              id: 'sortDoc',
+            }}
+          >
+            <option value={"-1"}></option> />
+            <option value={"asc"}>Ascending</option>
+            <option value={"desc"}>Descending</option>
+          </NativeSelect>
+        </FormControl>
+        <FormControl>
+          <InputLabel htmlFor="sortSpec">Sort by number of specs</InputLabel>
+          <NativeSelect
+            value={this.state.sort}
+            onChange={this.sortNumSpec}
+            inputProps={{
+              name: 'sortSpec',
+              id: 'sortSpec',
+            }}
+          >
+            <option value={"-1"}></option> />
+            <option value={"asc"}>Ascending</option>
+            <option value={"desc"}>Descending</option>
+          </NativeSelect>
+        </FormControl>
         <FormControl >
             <InputLabel htmlFor="region">State</InputLabel>
             <NativeSelect
@@ -133,6 +237,7 @@ class Cities extends React.Component {
               {cities.map((city, i)=> <option value={cities[i]} >{city}</option>)}
             </NativeSelect>
           </FormControl>
+          </div>
         <Grid container spacing={2} justify="center">
           {cityCards}
         </Grid>

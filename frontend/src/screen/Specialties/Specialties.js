@@ -69,7 +69,8 @@ class Specialties extends React.Component {
       loaded: false,
       rowsPerPage: 10,
       page: 0,
-      filterQuery: {}
+      filterQuery: {},
+      sortQuery: {}
     };
   }
 
@@ -84,7 +85,7 @@ class Specialties extends React.Component {
   setPage = async pg => {
     this.setState({
       page: pg,
-      data: await this.state.dd.getSpecialties(pg + 1, this.state.filterQuery)
+      data: await this.state.dd.getSpecialties(pg + 1, this.state.filterQuery, this.state.sortQuery)
     });
   };
 
@@ -110,10 +111,47 @@ class Specialties extends React.Component {
       });
     }    
     await this.setState({
-      data: await this.state.dd.getSpecialties(this.state.page+1, this.state.filterQuery),
+      data: await this.state.dd.getSpecialties(this.state.page+1, this.state.filterQuery, this.state.sortQuery),
       loaded: true,
     });
   };
+  sortNumDoc = async e => {
+    this.setState({[e.target.name]: e.target.value});
+    if(e.target.value === "-1"){
+      delete this.state.sortQuery.num_doctors;
+      await this.setState({
+        offset: 0,
+      });
+    }else{
+      this.state.sortQuery.num_doctors = e.target.value;
+      await this.setState({
+        offset: 0,
+      });
+    }
+    await this.setState({
+      data: await this.state.dd.getSpecialties(this.state.offset+1, this.state.filterQuery, this.state.sortQuery),
+      loaded: true,
+    });
+  }
+
+  sortNumCities = async e => {
+    this.setState({[e.target.name]: e.target.value});
+    if(e.target.value === "-1"){
+      delete this.state.sortQuery.num_cities;
+      await this.setState({
+        offset: 0,
+      });
+    }else{
+      this.state.sortQuery.num_cities = e.target.value;
+      await this.setState({
+        offset: 0,
+      });
+    }
+    await this.setState({
+      data: await this.state.dd.getSpecialties(this.state.offset+1, this.state.filterQuery, this.state.sortQuery),
+      loaded: true,
+    });
+}
 
   handleChange = () => {};
 
@@ -157,6 +195,36 @@ class Specialties extends React.Component {
                 {categories.map((category, i)=> <option value={categories[i]} >{fmat.capitalize(category)}</option>)}
               </NativeSelect>
             </FormControl>
+            <FormControl>
+          <InputLabel htmlFor="sortCities">Sort by Number of Cities</InputLabel>
+          <NativeSelect
+            value={this.state.sort}
+            onChange={this.sortNumCities}
+            inputProps={{
+              name: 'sortCities',
+              id: 'sortCities',
+            }}
+          >
+            <option value={"-1"}></option> />
+            <option value={"asc"}>Ascending</option>
+            <option value={"desc"}>Descending</option>
+          </NativeSelect>
+        </FormControl>
+        <FormControl>
+          <InputLabel htmlFor="sortDoc">Sort by Number of Doctors</InputLabel>
+          <NativeSelect
+            value={this.state.sort}
+            onChange={this.sortNumDoc}
+            inputProps={{
+              name: 'sortDoc',
+              id: 'sortDoc',
+            }}
+          >
+            <option value={"-1"}></option> />
+            <option value={"asc"}>Ascending</option>
+            <option value={"desc"}>Descending</option>
+          </NativeSelect>
+        </FormControl>
           </div>
           <Table stickyHeader aria-label="sticky table">
             <TableHead>

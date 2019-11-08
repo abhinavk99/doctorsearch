@@ -9,8 +9,8 @@ it('should get doctors', async () => {
   const doctors = await dd.getDoctors(2);
   expect(doctors.objects.length).to.equal(9);
   expect(doctors.page).to.equal(2);
-  expect(doctors.total_pages).to.equal(252);
-  expect(doctors.num_results).to.equal(2262);
+  expect(doctors.total_pages).to.equal(227);
+  expect(doctors.num_results).to.equal(2036);
 });
 
 it('should get cities', async () => {

@@ -4,7 +4,7 @@ import Pagination from 'material-ui-flat-pagination';
 class MyPagination extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { offset: 0 };
+    this.state = { offset: this.props.offset };
   }
 
   handleClick(offset) {
@@ -16,7 +16,7 @@ class MyPagination extends React.Component {
     return (
       <Pagination
         limit={1}
-        offset={this.state.offset}
+        offset={this.props.offset}
         total={this.props.numPages}
         onClick={(e, offset) => this.handleClick(offset)}
       />

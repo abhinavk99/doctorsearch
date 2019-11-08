@@ -16,6 +16,9 @@ let stateDictionary = { "AK" : "Alaska", "AL" : "Alabama", "AR" : "Arkansas", "A
 
 let states = Object.keys(stateDictionary);
 
+let titles = ["DDS", "DMD", "DO", "DPT", "MD", "OD", "OTR"]
+
+
 class Doctors extends React.Component {
   constructor() {
     super();
@@ -25,7 +28,8 @@ class Doctors extends React.Component {
       offset: 0,
       loaded: false,
       filterQuery: {},
-      state:" ",
+      state:"",
+      gender:"",
     };
   }
 
@@ -41,30 +45,68 @@ class Doctors extends React.Component {
     });
   };
 
-  filterState = async event =>{
-    this.setState({[event.target.name]: event.target.value});
-    if(event.target.value === "-1"){
-      console.log(this.state.filterQuery.state)
+ 
+  filterState = async e =>{
+    this.setState({[e.target.name]: e.target.value});
+    if(e.target.value === "-1"){
+      delete this.state.filterQuery.state
       await this.setState({
-        filterQuery: {},
         offset: 0
       });
-      console.log(this.state.filterQuery)
     }else{
+      this.state.filterQuery.state = e.target.value;
       await this.setState({
-        filterQuery: {state: event.target.value},
         offset:  0,
       });
-    }
-    console.log("before render")
-    
+    }    
     await this.setState({
       dataArr: await this.state.dd.getDoctors(this.state.offset+1, this.state.filterQuery),
       loaded: true,
     });
-
-    
   };
+
+
+  filterGender = async e =>{
+      this.setState({[e.target.name]: e.target.value});
+      if(e.target.value === "-1"){
+        delete this.state.filterQuery.gender;
+        await this.setState({
+          gender:"",
+          offset: 0,
+        });
+      }else{
+        this.state.filterQuery.gender=e.target.value;
+        await this.setState({
+          gender: e.target.value,
+          offset:  0,
+        });
+      }
+      await this.setState({
+        dataArr: await this.state.dd.getDoctors(this.state.offset+1, this.state.filterQuery),
+        loaded: true,
+      });
+  }
+
+  filterTitle = async e =>{
+    this.setState({[e.target.name]: e.target.value});
+    if(e.target.value === "-1"){
+      delete this.state.filterQuery.title;
+      await this.setState({
+        title:"",
+        offset: 0,
+      });
+    }else{
+      this.state.filterQuery.title=e.target.value;
+      await this.setState({
+        title: e.target.value,
+        offset:  0,
+      });
+    }
+    await this.setState({
+      dataArr: await this.state.dd.getDoctors(this.state.offset+1, this.state.filterQuery),
+      loaded: true,
+    });
+}
 
   handleChange = () => {};
 
@@ -79,7 +121,6 @@ class Doctors extends React.Component {
   };
 
   render() {
-    console.log(this.state.dataArr)
     let doctorCards = this.state.loaded
       ? this.state.dataArr.objects.map(data => {
           return <DocCard data={data} key={data.name} />;
@@ -109,6 +150,35 @@ class Doctors extends React.Component {
             >
               <option value={"-1"}></option> />
               {states.map((state, i)=> <option value={states[i]} >{stateDictionary[states[i]]}</option>)}
+            </NativeSelect>
+          </FormControl>
+          <FormControl >
+            <InputLabel htmlFor="gender">Gender</InputLabel>
+            <NativeSelect
+              value={this.state.gender}
+              onChange={this.filterGender}
+              inputProps={{
+                name: 'gender',
+                id: 'gender',
+              }}
+            >
+              <option value={"-1"}></option> />
+              <option value={"male"}>Male</option> />
+              <option value={"female"}>Female</option> />
+            </NativeSelect>
+          </FormControl>
+          <FormControl >
+            <InputLabel htmlFor="title">TItle</InputLabel>
+            <NativeSelect
+              value={this.state.title}
+              onChange={this.filterTitle}
+              inputProps={{
+                name: 'title',
+                id: 'title',
+              }}
+            >
+              <option value={"-1"}></option> />
+              {titles.map((title, i)=> <option value={titles[i]} >{titles[i]}</option>)}
             </NativeSelect>
           </FormControl>
           </Grid>

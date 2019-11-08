@@ -80,7 +80,6 @@ class Specialties extends React.Component {
       data: await this.state.dd.getSpecialties(this.state.page + 1),
       loaded: true
     });
-    console.log(this.state.data);
   }
 
   setPage = async pg => {
@@ -170,7 +169,6 @@ class Specialties extends React.Component {
 
   handleKey = e => {
     if (e.keyCode === 13 && e.target.value.length > 0) {
-      console.log('searching for: ', e.target.value);
       this.props.history.push({
         pathname: '/search/' + e.target.value,
         state: { type: 'specialties' }

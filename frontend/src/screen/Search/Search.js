@@ -19,14 +19,12 @@ function Search(props) {
   };
   const handleKey = e => {
     if (e.keyCode === 13 && search.length > 0) {
-      console.log('searching for: ', search);
       props.history.push({
         pathname: '/search/' + search,
         state: { type: props.location.state ? props.location.state.type : null }
       });
     }
   };
-  console.log(data);
   let cnt = 0;
   const doctors =
     data !== null &&

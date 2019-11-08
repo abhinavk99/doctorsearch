@@ -204,7 +204,6 @@ class Doctors extends React.Component {
 
   handleKey = e => {
     if (e.keyCode === 13 && e.target.value.length > 0) {
-      console.log('searching for: ', e.target.value);
       this.props.history.push({
         pathname: '/search/' + e.target.value,
         state: { type: 'doctors' }

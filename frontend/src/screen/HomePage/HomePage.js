@@ -11,7 +11,6 @@ function HomePage(props) {
   };
   const handleKey = e => {
     if (e.keyCode === 13 && search.length > 0) {
-      console.log('searching for: ', search);
       props.history.push('/search/' + search);
     }
   };

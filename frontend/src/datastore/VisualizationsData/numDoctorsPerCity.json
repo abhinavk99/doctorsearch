@@ -1,0 +1,202 @@
+[
+  {
+    "name": "Louisville",
+    "numDoctors": 59
+  },
+  {
+    "name": "Boston",
+    "numDoctors": 58
+  },
+  {
+    "name": "Miami",
+    "numDoctors": 57
+  },
+  {
+    "name": "Milwaukee",
+    "numDoctors": 56
+  },
+  {
+    "name": "Albuquerque",
+    "numDoctors": 55
+  },
+  {
+    "name": "Indianapolis",
+    "numDoctors": 54
+  },
+  {
+    "name": "El Paso",
+    "numDoctors": 53
+  },
+  {
+    "name": "Jacksonville",
+    "numDoctors": 53
+  },
+  {
+    "name": "Nashville",
+    "numDoctors": 53
+  },
+  {
+    "name": "Oklahoma City",
+    "numDoctors": 52
+  },
+  {
+    "name": "Houston",
+    "numDoctors": 51
+  },
+  {
+    "name": "Austin",
+    "numDoctors": 51
+  },
+  {
+    "name": "Detroit",
+    "numDoctors": 50
+  },
+  {
+    "name": "Denver",
+    "numDoctors": 49
+  },
+  {
+    "name": "Tampa",
+    "numDoctors": 48
+  },
+  {
+    "name": "Tulsa",
+    "numDoctors": 44
+  },
+  {
+    "name": "Seattle",
+    "numDoctors": 43
+  },
+  {
+    "name": "Atlanta",
+    "numDoctors": 43
+  },
+  {
+    "name": "Minneapolis",
+    "numDoctors": 43
+  },
+  {
+    "name": "Charlotte",
+    "numDoctors": 42
+  },
+  {
+    "name": "Chicago",
+    "numDoctors": 41
+  },
+  {
+    "name": "Colorado Springs",
+    "numDoctors": 41
+  },
+  {
+    "name": "Portland",
+    "numDoctors": 40
+  },
+  {
+    "name": "Washington, D.C.",
+    "numDoctors": 40
+  },
+  {
+    "name": "Baltimore",
+    "numDoctors": 40
+  },
+  {
+    "name": "Los Angeles",
+    "numDoctors": 40
+  },
+  {
+    "name": "Dallas",
+    "numDoctors": 39
+  },
+  {
+    "name": "Raleigh",
+    "numDoctors": 39
+  },
+  {
+    "name": "Kansas City",
+    "numDoctors": 39
+  },
+  {
+    "name": "San Diego",
+    "numDoctors": 38
+  },
+  {
+    "name": "Philadelphia",
+    "numDoctors": 38
+  },
+  {
+    "name": "Memphis",
+    "numDoctors": 37
+  },
+  {
+    "name": "Fresno",
+    "numDoctors": 36
+  },
+  {
+    "name": "Fort Worth",
+    "numDoctors": 36
+  },
+  {
+    "name": "Virginia Beach",
+    "numDoctors": 36
+  },
+  {
+    "name": "San Antonio",
+    "numDoctors": 35
+  },
+  {
+    "name": "Tucson",
+    "numDoctors": 34
+  },
+  {
+    "name": "Las Vegas",
+    "numDoctors": 34
+  },
+  {
+    "name": "Columbus",
+    "numDoctors": 34
+  },
+  {
+    "name": "San Jose",
+    "numDoctors": 34
+  },
+  {
+    "name": "San Francisco",
+    "numDoctors": 33
+  },
+  {
+    "name": "New Orleans",
+    "numDoctors": 32
+  },
+  {
+    "name": "Omaha",
+    "numDoctors": 31
+  },
+  {
+    "name": "New York City",
+    "numDoctors": 31
+  },
+  {
+    "name": "Long Beach",
+    "numDoctors": 30
+  },
+  {
+    "name": "Sacramento",
+    "numDoctors": 25
+  },
+  {
+    "name": "Mesa",
+    "numDoctors": 25
+  },
+  {
+    "name": "Arlington",
+    "numDoctors": 23
+  },
+  {
+    "name": "Oakland",
+    "numDoctors": 22
+  },
+  {
+    "name": "Phoenix",
+    "numDoctors": 19
+  }
+]

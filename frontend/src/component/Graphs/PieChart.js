@@ -4,7 +4,7 @@ import * as d3 from 'd3';
 class PieChart extends React.Component {
   constructor(props) {
     super(props);
-    this.createBarChart = this.createPieChart.bind(this);
+    this.createPieChart = this.createPieChart.bind(this);
   }
 
   componentDidMount() {
@@ -43,15 +43,6 @@ class PieChart extends React.Component {
       .attr('fill', (d, i) => colorScale(i))
       .style('opacity', 0.7);
 
-    // svg
-    //   .selectAll('mySlices')
-    //   .data(data)
-    //   .enter()
-    //   .append('text')
-    //   .text(d => `${d.data.key}: ${d.data.value}`)
-    //   .attr('transform', d => 'translate(' + arcGenerator.centroid(d) + ')')
-    //   .style('text-anchor', 'middle')
-    //   .style('font-size', 17);
     const legend = rawSvg
       .selectAll('legendElems')
       .data(data)

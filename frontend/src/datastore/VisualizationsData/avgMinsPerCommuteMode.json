@@ -1,0 +1,14 @@
+[
+  {
+    "mode": "transit",
+    "avgMins": 56.12297734627832
+  },
+  {
+    "mode": "driving",
+    "avgMins": 14.889320388349514
+  },
+  {
+    "mode": "walking",
+    "avgMins": 187.67702265372168
+  }
+]

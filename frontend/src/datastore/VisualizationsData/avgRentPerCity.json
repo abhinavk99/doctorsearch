@@ -1,0 +1,1174 @@
+[
+  {
+    "name": "Kansas City",
+    "avgRent": 763.3714285714286
+  },
+  {
+    "name": "Birmingham",
+    "avgRent": 1040.820512820513
+  },
+  {
+    "name": "Huntsville",
+    "avgRent": 1017.9777777777778
+  },
+  {
+    "name": "Mobile",
+    "avgRent": 980.6595744680851
+  },
+  {
+    "name": "Montgomery",
+    "avgRent": 903.2
+  },
+  {
+    "name": "Tuscaloosa",
+    "avgRent": 1613.1666666666667
+  },
+  {
+    "name": "Anchorage",
+    "avgRent": 1499.6521739130435
+  },
+  {
+    "name": "Chandler",
+    "avgRent": 1732.3846153846155
+  },
+  {
+    "name": "Gilbert",
+    "avgRent": 1783.138888888889
+  },
+  {
+    "name": "Glendale",
+    "avgRent": 1474.6857142857143
+  },
+  {
+    "name": "Mesa",
+    "avgRent": 1466.611111111111
+  },
+  {
+    "name": "Peoria",
+    "avgRent": 2714.1724137931033
+  },
+  {
+    "name": "Phoenix",
+    "avgRent": 1796.4285714285713
+  },
+  {
+    "name": "Scottsdale",
+    "avgRent": 4591
+  },
+  {
+    "name": "Surprise",
+    "avgRent": 1725.6666666666667
+  },
+  {
+    "name": "Tempe",
+    "avgRent": 1558.6774193548388
+  },
+  {
+    "name": "Tucson",
+    "avgRent": 1876.1538461538462
+  },
+  {
+    "name": "Little Rock",
+    "avgRent": 921.5652173913044
+  },
+  {
+    "name": "Anaheim",
+    "avgRent": 2330.5555555555557
+  },
+  {
+    "name": "Antioch",
+    "avgRent": 2285.2195121951218
+  },
+  {
+    "name": "Arden-Arcade",
+    "avgRent": 1366.6666666666667
+  },
+  {
+    "name": "Bakersfield",
+    "avgRent": 8830.526315789473
+  },
+  {
+    "name": "Berkeley",
+    "avgRent": 2860.769230769231
+  },
+  {
+    "name": "Burbank",
+    "avgRent": 5779.212121212121
+  },
+  {
+    "name": "Carlsbad",
+    "avgRent": 3691.9148936170213
+  },
+  {
+    "name": "Chula Vista",
+    "avgRent": 2216.6923076923076
+  },
+  {
+    "name": "Clovis",
+    "avgRent": 1630.8333333333333
+  },
+  {
+    "name": "Concord",
+    "avgRent": 2308.4864864864867
+  },
+  {
+    "name": "Corona",
+    "avgRent": 2268.159090909091
+  },
+  {
+    "name": "Costa Mesa",
+    "avgRent": 3151.9
+  },
+  {
+    "name": "Daly City",
+    "avgRent": 3428.2727272727275
+  },
+  {
+    "name": "Downey",
+    "avgRent": 2236.657142857143
+  },
+  {
+    "name": "East Los Angeles",
+    "avgRent": 1821.4285714285713
+  },
+  {
+    "name": "El Cajon",
+    "avgRent": 1670.59375
+  },
+  {
+    "name": "El Monte",
+    "avgRent": 1931.6666666666667
+  },
+  {
+    "name": "Escondido",
+    "avgRent": 2417.3809523809523
+  },
+  {
+    "name": "Fairfield",
+    "avgRent": 2132.025641025641
+  },
+  {
+    "name": "Fontana",
+    "avgRent": 2191.951219512195
+  },
+  {
+    "name": "Fremont",
+    "avgRent": 2721.288888888889
+  },
+  {
+    "name": "Fresno",
+    "avgRent": 1139.0714285714287
+  },
+  {
+    "name": "Fullerton",
+    "avgRent": 2440.375
+  },
+  {
+    "name": "Garden Grove",
+    "avgRent": 2410.030303030303
+  },
+  {
+    "name": "Hayward",
+    "avgRent": 2088.931818181818
+  },
+  {
+    "name": "Huntington Beach",
+    "avgRent": 3247.5526315789475
+  },
+  {
+    "name": "Inglewood",
+    "avgRent": 2268.323529411765
+  },
+  {
+    "name": "Irvine",
+    "avgRent": 4129.265306122449
+  },
+  {
+    "name": "Lancaster",
+    "avgRent": 1917.9473684210527
+  },
+  {
+    "name": "Long Beach",
+    "avgRent": 2424.2051282051284
+  },
+  {
+    "name": "Los Angeles",
+    "avgRent": 2881.633333333333
+  },
+  {
+    "name": "Modesto",
+    "avgRent": 1540.7
+  },
+  {
+    "name": "Moreno Valley",
+    "avgRent": 1740.7777777777778
+  },
+  {
+    "name": "Murrieta",
+    "avgRent": 2360.1463414634145
+  },
+  {
+    "name": "Norwalk",
+    "avgRent": 1923.8333333333333
+  },
+  {
+    "name": "Oakland",
+    "avgRent": 3204.55
+  },
+  {
+    "name": "Oceanside",
+    "avgRent": 2595.1052631578946
+  },
+  {
+    "name": "Ontario",
+    "avgRent": 1992.1842105263158
+  },
+  {
+    "name": "Orange",
+    "avgRent": 2659.054054054054
+  },
+  {
+    "name": "Oxnard",
+    "avgRent": 3286.9268292682927
+  },
+  {
+    "name": "Palmdale",
+    "avgRent": 2199.7948717948716
+  },
+  {
+    "name": "Pasadena",
+    "avgRent": 2930.777777777778
+  },
+  {
+    "name": "Pomona",
+    "avgRent": 2001.675
+  },
+  {
+    "name": "Rancho Cucamonga",
+    "avgRent": 2349.2972972972975
+  },
+  {
+    "name": "Rialto",
+    "avgRent": 1526.1333333333334
+  },
+  {
+    "name": "Richmond",
+    "avgRent": 2472.5
+  },
+  {
+    "name": "Riverside",
+    "avgRent": 1954.85
+  },
+  {
+    "name": "Roseville",
+    "avgRent": 1825.3673469387754
+  },
+  {
+    "name": "Sacramento",
+    "avgRent": 1602.9714285714285
+  },
+  {
+    "name": "Salinas",
+    "avgRent": 1993.142857142857
+  },
+  {
+    "name": "San Bernardino",
+    "avgRent": 1398.7179487179487
+  },
+  {
+    "name": "San Buenaventura (Ventura)",
+    "avgRent": 1637.5
+  },
+  {
+    "name": "San Diego",
+    "avgRent": 4617.727272727273
+  },
+  {
+    "name": "San Francisco",
+    "avgRent": 5015.451612903225
+  },
+  {
+    "name": "San Jose",
+    "avgRent": 2833.5116279069766
+  },
+  {
+    "name": "San Mateo",
+    "avgRent": 3475.1
+  },
+  {
+    "name": "Santa Ana",
+    "avgRent": 2317.2631578947367
+  },
+  {
+    "name": "Santa Clara",
+    "avgRent": 2629.9756097560976
+  },
+  {
+    "name": "Santa Clarita",
+    "avgRent": 2543.025641025641
+  },
+  {
+    "name": "Santa Maria",
+    "avgRent": 1780.04
+  },
+  {
+    "name": "Santa Rosa",
+    "avgRent": 3043.529411764706
+  },
+  {
+    "name": "Simi Valley",
+    "avgRent": 3211.767441860465
+  },
+  {
+    "name": "Stockton",
+    "avgRent": 1337.65
+  },
+  {
+    "name": "Sunnyvale",
+    "avgRent": 2736.404761904762
+  },
+  {
+    "name": "Temecula",
+    "avgRent": 2298.5
+  },
+  {
+    "name": "Thousand Oaks",
+    "avgRent": 4406.422222222222
+  },
+  {
+    "name": "Torrance",
+    "avgRent": 2864.1666666666665
+  },
+  {
+    "name": "Vacaville",
+    "avgRent": 2114.153846153846
+  },
+  {
+    "name": "Vallejo",
+    "avgRent": 1970.8461538461538
+  },
+  {
+    "name": "Victorville",
+    "avgRent": 1377.475
+  },
+  {
+    "name": "Visalia",
+    "avgRent": 1281.5555555555557
+  },
+  {
+    "name": "Vista",
+    "avgRent": 1919.840909090909
+  },
+  {
+    "name": "West Covina",
+    "avgRent": 2182.2820512820513
+  },
+  {
+    "name": "Arvada",
+    "avgRent": 1913.8125
+  },
+  {
+    "name": "Aurora",
+    "avgRent": 1669.840909090909
+  },
+  {
+    "name": "Boulder",
+    "avgRent": 2517.294117647059
+  },
+  {
+    "name": "Centennial",
+    "avgRent": 2106.8571428571427
+  },
+  {
+    "name": "Colorado Springs",
+    "avgRent": 1584.032258064516
+  },
+  {
+    "name": "Denver",
+    "avgRent": 1936.975
+  },
+  {
+    "name": "Fort Collins",
+    "avgRent": 1739.2307692307693
+  },
+  {
+    "name": "Greeley",
+    "avgRent": 1215.7142857142858
+  },
+  {
+    "name": "Highlands Ranch",
+    "avgRent": 2342.7804878048782
+  },
+  {
+    "name": "Lakewood",
+    "avgRent": 1569
+  },
+  {
+    "name": "Pueblo",
+    "avgRent": 955.1904761904761
+  },
+  {
+    "name": "Thornton",
+    "avgRent": 1930.7
+  },
+  {
+    "name": "Westminster",
+    "avgRent": 1807.5263157894738
+  },
+  {
+    "name": "Bridgeport",
+    "avgRent": 1484.2391304347825
+  },
+  {
+    "name": "Hartford",
+    "avgRent": 1262.725
+  },
+  {
+    "name": "New Haven",
+    "avgRent": 1532.357142857143
+  },
+  {
+    "name": "Stamford",
+    "avgRent": 2411.309523809524
+  },
+  {
+    "name": "Waterbury",
+    "avgRent": 952.9782608695652
+  },
+  {
+    "name": "Washington",
+    "avgRent": 2779.512195121951
+  },
+  {
+    "name": "Brandon",
+    "avgRent": 1467.7857142857142
+  },
+  {
+    "name": "Cape Coral",
+    "avgRent": 3450.3720930232557
+  },
+  {
+    "name": "Clearwater",
+    "avgRent": 2284.837837837838
+  },
+  {
+    "name": "Coral Springs",
+    "avgRent": 2272.95
+  },
+  {
+    "name": "Davie",
+    "avgRent": 2354.942857142857
+  },
+  {
+    "name": "Fort Lauderdale",
+    "avgRent": 2485.8333333333335
+  },
+  {
+    "name": "Gainesville",
+    "avgRent": 1111.090909090909
+  },
+  {
+    "name": "Hialeah",
+    "avgRent": 1840.8974358974358
+  },
+  {
+    "name": "Hollywood",
+    "avgRent": 2431.1290322580644
+  },
+  {
+    "name": "Jacksonville",
+    "avgRent": 1753.7441860465117
+  },
+  {
+    "name": "Lakeland",
+    "avgRent": 1258.2051282051282
+  },
+  {
+    "name": "Lehigh Acres",
+    "avgRent": 1284.3809523809523
+  },
+  {
+    "name": "Miami",
+    "avgRent": 2949.848484848485
+  },
+  {
+    "name": "Miami Gardens",
+    "avgRent": 1497.6857142857143
+  },
+  {
+    "name": "Miramar",
+    "avgRent": 1868
+  },
+  {
+    "name": "Orlando",
+    "avgRent": 1610.939393939394
+  },
+  {
+    "name": "Palm Bay",
+    "avgRent": 1379.4444444444443
+  },
+  {
+    "name": "Pembroke Pines",
+    "avgRent": 1797.2285714285715
+  },
+  {
+    "name": "Pompano Beach",
+    "avgRent": 1857.9714285714285
+  },
+  {
+    "name": "Spring Hill",
+    "avgRent": 1577.341463414634
+  },
+  {
+    "name": "Tallahassee",
+    "avgRent": 1239.157894736842
+  },
+  {
+    "name": "Tampa",
+    "avgRent": 1763.875
+  },
+  {
+    "name": "West Palm Beach",
+    "avgRent": 2654.310344827586
+  },
+  {
+    "name": "Atlanta",
+    "avgRent": 3223.6279069767443
+  },
+  {
+    "name": "Columbus",
+    "avgRent": 641.4285714285714
+  },
+  {
+    "name": "Sandy Springs",
+    "avgRent": 3004.186046511628
+  },
+  {
+    "name": "Savannah",
+    "avgRent": 1487.7142857142858
+  },
+  {
+    "name": "Boise City",
+    "avgRent": 1995
+  },
+  {
+    "name": "Chicago",
+    "avgRent": 1899.0731707317073
+  },
+  {
+    "name": "Elgin",
+    "avgRent": 1600.9772727272727
+  },
+  {
+    "name": "Joliet",
+    "avgRent": 1308.5869565217392
+  },
+  {
+    "name": "Naperville",
+    "avgRent": 2312.068181818182
+  },
+  {
+    "name": "Rockford",
+    "avgRent": 1003.2307692307693
+  },
+  {
+    "name": "Springfield",
+    "avgRent": 846.325
+  },
+  {
+    "name": "Evansville",
+    "avgRent": 763.9777777777778
+  },
+  {
+    "name": "Fort Wayne",
+    "avgRent": 902.9512195121952
+  },
+  {
+    "name": "Cedar Rapids",
+    "avgRent": 746.75
+  },
+  {
+    "name": "Davenport",
+    "avgRent": 943.5897435897435
+  },
+  {
+    "name": "Des Moines",
+    "avgRent": 992.15625
+  },
+  {
+    "name": "Olathe",
+    "avgRent": 1159.3555555555556
+  },
+  {
+    "name": "Overland Park",
+    "avgRent": 1339.4
+  },
+  {
+    "name": "Wichita",
+    "avgRent": 825.9782608695652
+  },
+  {
+    "name": "Lexington-Fayette",
+    "avgRent": 1231.6666666666667
+  },
+  {
+    "name": "Baton Rouge",
+    "avgRent": 1146.6326530612246
+  },
+  {
+    "name": "Lafayette",
+    "avgRent": 1080.3469387755101
+  },
+  {
+    "name": "Metairie",
+    "avgRent": 1670.1875
+  },
+  {
+    "name": "New Orleans",
+    "avgRent": 2448.7872340425533
+  },
+  {
+    "name": "Shreveport",
+    "avgRent": 825
+  },
+  {
+    "name": "Baltimore",
+    "avgRent": 1569.78
+  },
+  {
+    "name": "Columbia",
+    "avgRent": 1781.4489795918366
+  },
+  {
+    "name": "Boston",
+    "avgRent": 3586.82
+  },
+  {
+    "name": "Cambridge",
+    "avgRent": 3152.24
+  },
+  {
+    "name": "Lowell",
+    "avgRent": 1636.22
+  },
+  {
+    "name": "Worcester",
+    "avgRent": 1415.88
+  },
+  {
+    "name": "Ann Arbor",
+    "avgRent": 2072.54
+  },
+  {
+    "name": "Detroit",
+    "avgRent": 1047.04
+  },
+  {
+    "name": "Grand Rapids",
+    "avgRent": 1439.24
+  },
+  {
+    "name": "Lansing",
+    "avgRent": 834.3
+  },
+  {
+    "name": "Sterling Heights",
+    "avgRent": 1251.14
+  },
+  {
+    "name": "Warren",
+    "avgRent": 1100.88
+  },
+  {
+    "name": "Minneapolis",
+    "avgRent": 1699.78
+  },
+  {
+    "name": "Rochester",
+    "avgRent": 1179.52
+  },
+  {
+    "name": "Jackson",
+    "avgRent": 924.56
+  },
+  {
+    "name": "Independence",
+    "avgRent": 891.52
+  },
+  {
+    "name": "Billings",
+    "avgRent": 1003.38
+  },
+  {
+    "name": "Lincoln",
+    "avgRent": 907.82
+  },
+  {
+    "name": "Omaha",
+    "avgRent": 946.66
+  },
+  {
+    "name": "Henderson",
+    "avgRent": 1951.76
+  },
+  {
+    "name": "Las Vegas",
+    "avgRent": 1790.94
+  },
+  {
+    "name": "North Las Vegas",
+    "avgRent": 1413.32
+  },
+  {
+    "name": "Paradise",
+    "avgRent": 2284.75
+  },
+  {
+    "name": "Reno",
+    "avgRent": 1474.52
+  },
+  {
+    "name": "Sparks",
+    "avgRent": 1512.7
+  },
+  {
+    "name": "Spring Valley",
+    "avgRent": 1241.6666666666667
+  },
+  {
+    "name": "Sunrise Manor",
+    "avgRent": 2447.5
+  },
+  {
+    "name": "Manchester",
+    "avgRent": 1504.94
+  },
+  {
+    "name": "Elizabeth",
+    "avgRent": 1652.58
+  },
+  {
+    "name": "Jersey City",
+    "avgRent": 2220.66
+  },
+  {
+    "name": "Newark",
+    "avgRent": 1810.7
+  },
+  {
+    "name": "Paterson",
+    "avgRent": 1555.4791666666667
+  },
+  {
+    "name": "Albuquerque",
+    "avgRent": 1048.7
+  },
+  {
+    "name": "Las Cruces",
+    "avgRent": 818.84
+  },
+  {
+    "name": "Buffalo",
+    "avgRent": 998.92
+  },
+  {
+    "name": "New York",
+    "avgRent": 5596.78
+  },
+  {
+    "name": "Syracuse",
+    "avgRent": 1180.28
+  },
+  {
+    "name": "Yonkers",
+    "avgRent": 3956.66
+  },
+  {
+    "name": "Cary",
+    "avgRent": 1577.54
+  },
+  {
+    "name": "Charlotte",
+    "avgRent": 1549.92
+  },
+  {
+    "name": "Durham",
+    "avgRent": 1351.76
+  },
+  {
+    "name": "Fayetteville",
+    "avgRent": 963.3
+  },
+  {
+    "name": "Greensboro",
+    "avgRent": 1097.82
+  },
+  {
+    "name": "High Point",
+    "avgRent": 1034.98
+  },
+  {
+    "name": "Raleigh",
+    "avgRent": 1473.18
+  },
+  {
+    "name": "Wilmington",
+    "avgRent": 1395.08
+  },
+  {
+    "name": "Fargo",
+    "avgRent": 809.5
+  },
+  {
+    "name": "Akron",
+    "avgRent": 767.26
+  },
+  {
+    "name": "Cincinnati",
+    "avgRent": 1452.48
+  },
+  {
+    "name": "Cleveland",
+    "avgRent": 1065.88
+  },
+  {
+    "name": "Dayton",
+    "avgRent": 755.58
+  },
+  {
+    "name": "Toledo",
+    "avgRent": 671.96
+  },
+  {
+    "name": "Broken Arrow",
+    "avgRent": 1165.1
+  },
+  {
+    "name": "Norman",
+    "avgRent": 1254.6
+  },
+  {
+    "name": "Oklahoma City",
+    "avgRent": 1110.5
+  },
+  {
+    "name": "Tulsa",
+    "avgRent": 905.06
+  },
+  {
+    "name": "Eugene",
+    "avgRent": 1338.22
+  },
+  {
+    "name": "Gresham",
+    "avgRent": 1322.857142857143
+  },
+  {
+    "name": "Hillsboro",
+    "avgRent": 1538.78
+  },
+  {
+    "name": "Portland",
+    "avgRent": 1783.5
+  },
+  {
+    "name": "Salem",
+    "avgRent": 1275.08
+  },
+  {
+    "name": "Allentown",
+    "avgRent": 1136.84
+  },
+  {
+    "name": "Philadelphia",
+    "avgRent": 1592.44
+  },
+  {
+    "name": "Pittsburgh",
+    "avgRent": 1417.32
+  },
+  {
+    "name": "Providence",
+    "avgRent": 1764.56
+  },
+  {
+    "name": "Charleston",
+    "avgRent": 2289.2
+  },
+  {
+    "name": "North Charleston",
+    "avgRent": 1184.12
+  },
+  {
+    "name": "Sioux Falls",
+    "avgRent": 910.52
+  },
+  {
+    "name": "Chattanooga",
+    "avgRent": 1356.96
+  },
+  {
+    "name": "Clarksville",
+    "avgRent": 990.82
+  },
+  {
+    "name": "Knoxville",
+    "avgRent": 1268.08
+  },
+  {
+    "name": "Memphis",
+    "avgRent": 1401.86
+  },
+  {
+    "name": "Murfreesboro",
+    "avgRent": 1446.96
+  },
+  {
+    "name": "Abilene",
+    "avgRent": 1025.72
+  },
+  {
+    "name": "Allen",
+    "avgRent": 2121.62
+  },
+  {
+    "name": "Amarillo",
+    "avgRent": 1155.36
+  },
+  {
+    "name": "Arlington",
+    "avgRent": 1446.5
+  },
+  {
+    "name": "Austin",
+    "avgRent": 2640.66
+  },
+  {
+    "name": "Beaumont",
+    "avgRent": 1196.82
+  },
+  {
+    "name": "Brownsville",
+    "avgRent": 1021.9
+  },
+  {
+    "name": "Carrollton",
+    "avgRent": 1819.54
+  },
+  {
+    "name": "College Station",
+    "avgRent": 1489.4
+  },
+  {
+    "name": "Corpus Christi",
+    "avgRent": 1406.6
+  },
+  {
+    "name": "Dallas",
+    "avgRent": 1947.9
+  },
+  {
+    "name": "Denton",
+    "avgRent": 1467.5
+  },
+  {
+    "name": "El Paso",
+    "avgRent": 1200.42
+  },
+  {
+    "name": "Fort Worth",
+    "avgRent": 1944.2
+  },
+  {
+    "name": "Frisco",
+    "avgRent": 2186.34
+  },
+  {
+    "name": "Garland",
+    "avgRent": 1412.18
+  },
+  {
+    "name": "Grand Prairie",
+    "avgRent": 1569.02
+  },
+  {
+    "name": "Houston",
+    "avgRent": 1231.56
+  },
+  {
+    "name": "Irving",
+    "avgRent": 1545.34
+  },
+  {
+    "name": "Killeen",
+    "avgRent": 948.78
+  },
+  {
+    "name": "Laredo",
+    "avgRent": 1572.92
+  },
+  {
+    "name": "League City",
+    "avgRent": 1842.24
+  },
+  {
+    "name": "Lewisville",
+    "avgRent": 1905.04
+  },
+  {
+    "name": "Lubbock",
+    "avgRent": 1009.18
+  },
+  {
+    "name": "McAllen",
+    "avgRent": 1347.96
+  },
+  {
+    "name": "McKinney",
+    "avgRent": 2164.72
+  },
+  {
+    "name": "Mesquite",
+    "avgRent": 1374.48
+  },
+  {
+    "name": "Midland",
+    "avgRent": 2316.1
+  },
+  {
+    "name": "Odessa",
+    "avgRent": 1963.64
+  },
+  {
+    "name": "Pearland",
+    "avgRent": 1798.28
+  },
+  {
+    "name": "Plano",
+    "avgRent": 2016.54
+  },
+  {
+    "name": "Richardson",
+    "avgRent": 1886.54
+  },
+  {
+    "name": "Round Rock",
+    "avgRent": 1693.6
+  },
+  {
+    "name": "San Antonio",
+    "avgRent": 1533
+  },
+  {
+    "name": "The Woodlands",
+    "avgRent": 2399.98
+  },
+  {
+    "name": "Tyler",
+    "avgRent": 1264.48
+  },
+  {
+    "name": "Waco",
+    "avgRent": 1005.5
+  },
+  {
+    "name": "Wichita Falls",
+    "avgRent": 977.58
+  },
+  {
+    "name": "Provo",
+    "avgRent": 1103.7
+  },
+  {
+    "name": "Salt Lake City",
+    "avgRent": 1206.86
+  },
+  {
+    "name": "West Jordan",
+    "avgRent": 1363.5151515151515
+  },
+  {
+    "name": "West Valley City",
+    "avgRent": 1194.6
+  },
+  {
+    "name": "Alexandria",
+    "avgRent": 2315.98
+  },
+  {
+    "name": "Chesapeake",
+    "avgRent": 1543.54
+  },
+  {
+    "name": "Hampton",
+    "avgRent": 1151.74
+  },
+  {
+    "name": "Newport News",
+    "avgRent": 1119.66
+  },
+  {
+    "name": "Norfolk",
+    "avgRent": 1245.98
+  },
+  {
+    "name": "Virginia Beach",
+    "avgRent": 1660.5
+  },
+  {
+    "name": "Bellevue",
+    "avgRent": 2927.54
+  },
+  {
+    "name": "Everett",
+    "avgRent": 1733.88
+  },
+  {
+    "name": "Kent",
+    "avgRent": 1652.72
+  },
+  {
+    "name": "Renton",
+    "avgRent": 1945.02
+  },
+  {
+    "name": "Seattle",
+    "avgRent": 2006.36
+  },
+  {
+    "name": "Spokane",
+    "avgRent": 1053.42
+  },
+  {
+    "name": "Tacoma",
+    "avgRent": 1476.38
+  },
+  {
+    "name": "Vancouver",
+    "avgRent": 1478.04
+  },
+  {
+    "name": "Green Bay",
+    "avgRent": 820.56
+  },
+  {
+    "name": "Madison",
+    "avgRent": 1605.84
+  },
+  {
+    "name": "Milwaukee",
+    "avgRent": 1194.92
+  },
+  {
+    "name": "Carolina",
+    "avgRent": 2389.6875
+  },
+  {
+    "name": "Ponce",
+    "avgRent": 312.09090909090907
+  },
+  {
+    "name": "San Juan",
+    "avgRent": 3090
+  }
+]

@@ -11,6 +11,7 @@ import Specialties from './screen/Specialties/Specialties';
 import SpecFocused from './screen/SpecFocused/SpecFocused';
 import About from './screen/About/About';
 import Search from './screen/Search/Search';
+import Visualizations from './screen/Visualizations/Visualizations';
 
 function App() {
   require('dotenv').config();
@@ -43,6 +44,9 @@ function App() {
             </Route>
             <Route path="/search/:queryStr">
               <Search />
+            </Route>
+            <Route path="/visualizations">
+              <Visualizations />
             </Route>
             <Route path="/">
               <HomePage />

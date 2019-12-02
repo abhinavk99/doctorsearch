@@ -16,9 +16,6 @@ class Scatterplot extends React.Component {
     const width = 600 - margin.left - margin.right;
     const height = 400 - margin.top - margin.bottom;
 
-    const maxX = Math.max(...this.props.data.map(d => d[this.props.xAttr]));
-    const maxY = Math.max(...this.props.data.map(d => d[this.props.yAttr]));
-
     const svg = d3
       .select(this.refs.scatterplot)
       .append('svg')
@@ -29,7 +26,7 @@ class Scatterplot extends React.Component {
 
     const x = d3
       .scaleLinear()
-      .domain([0, Math.ceil(maxX / 1000000) * 1000000])
+      .domain([0, this.props.xMax])
       .range([0, width]);
     svg
       .append('g')
@@ -38,7 +35,7 @@ class Scatterplot extends React.Component {
 
     const y = d3
       .scaleLinear()
-      .domain([0, Math.ceil(maxY / 10) * 10])
+      .domain([0, this.props.yMax])
       .range([height, 0]);
     svg.append('g').call(d3.axisLeft(y));
 
@@ -47,7 +44,7 @@ class Scatterplot extends React.Component {
       .attr('text-anchor', 'end')
       .attr('x', width / 2 + margin.left)
       .attr('y', height + margin.top + 30)
-      .text('Population');
+      .text(this.props.xLabel);
 
     svg
       .append('text')
@@ -55,7 +52,7 @@ class Scatterplot extends React.Component {
       .attr('transform', 'rotate(-90)')
       .attr('y', -margin.left + 20)
       .attr('x', -margin.top - height / 2 + 70)
-      .text('Number of Doctors');
+      .text(this.props.yLabel);
 
     svg
       .append('g')
